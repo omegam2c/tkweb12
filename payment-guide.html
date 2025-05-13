@@ -1,0 +1,280 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hướng dẫn thanh toán tại HTDD - Tìm hiểu các phương thức thanh toán an toàn và tiện lợi.">
+    <title>HTDD - Hướng dẫn thanh toán</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="additional.css">
+    <style>
+        .guide-section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .guide-section h2 {
+            font-size: 32px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .guide-section h3 {
+            font-size: 24px;
+            color: #333;
+            margin: 20px 0 10px;
+        }
+
+        .guide-section p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .payment-method i {
+            font-size: 24px;
+            color: #1e88e5;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1e88e5;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #1565c0;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .guide-section {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .guide-section h2 {
+                font-size: 24px;
+            }
+
+            .guide-section h3 {
+                font-size: 20px;
+            }
+
+            .payment-methods {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">HTDD</a>
+                </div>
+                
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li class="dropdown">
+                        <a href="#">Phong cách <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="streetwear.html">Streetwear</a></li>
+                            <li><a href="casual.html">Casual</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="sporty.html">Sporty</a></li>
+                            <li><a href="vintage.html">Vintage</a></li>
+                            <li><a href="minimalist.html">Minimalist</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li><a href="cart.html">Giỏ hàng</a></li>
+                    <li class="account-menu">
+                        <a href="#">Tài khoản <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+                        <ul class="account-dropdown">
+                            <li><a href="login.html">Đăng nhập</a></li>
+                            <li><a href="register.html">Đăng ký</a></li>
+                        </ul>
+                    </li>
+                    <li class="search-bar">
+                        <input type="text" placeholder="Tìm kiếm...">
+                    </li>
+                </ul>
+                
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="guide-section">
+            <h2>Hướng dẫn thanh toán</h2>
+            <p>Tại HTDD, chúng tôi cung cấp nhiều phương thức thanh toán an toàn và tiện lợi để đảm bảo trải nghiệm mua sắm của bạn luôn dễ dàng. Dưới đây là các phương thức thanh toán được chấp nhận:</p>
+            
+            <h3>Các phương thức thanh toán</h3>
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <i class="fab fa-cc-visa"></i>
+                    <span>Thẻ Visa</span>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-mastercard"></i>
+                    <span>Thẻ Mastercard</span>
+                </div>
+                <div class="payment-method">
+                    <i class="fab fa-cc-paypal"></i>
+                    <span>PayPal</span>
+                </div>
+                <div class="payment-method">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Thanh toán khi nhận hàng (COD)</span>
+                </div>
+            </div>
+
+            <h3>Hướng dẫn thanh toán</h3>
+            <p>1. <strong>Chọn sản phẩm</strong>: Thêm sản phẩm vào giỏ hàng và tiến hành thanh toán.</p>
+            <p>2. <strong>Chọn phương thức thanh toán</strong>: Tại trang thanh toán, chọn một trong các phương thức trên.</p>
+            <p>3. <strong>Hoàn tất thanh toán</strong>:
+                <ul>
+                    <li><strong>Thẻ Visa/Mastercard</strong>: Nhập thông tin thẻ và xác nhận giao dịch.</li>
+                    <li><strong>PayPal</strong>: Đăng nhập vào tài khoản PayPal và xác nhận thanh toán.</li>
+                    <li><strong>COD</strong>: Thanh toán bằng tiền mặt khi nhận hàng.</li>
+                </ul>
+            </p>
+            <p>4. <strong>Nhận xác nhận</strong>: Sau khi thanh toán thành công, bạn sẽ nhận được email xác nhận đơn hàng.</p>
+
+            <h3>Lưu ý</h3>
+            <p>- Vui lòng kiểm tra kỹ thông tin thanh toán trước khi xác nhận.</p>
+            <p>- Đối với thanh toán COD, đảm bảo bạn có đủ tiền mặt khi nhận hàng.</p>
+            <p>- Nếu gặp vấn đề, vui lòng liên hệ hotline <a href="tel:0944356789">09443.56789</a> để được hỗ trợ.</p>
+
+            <a href="products.html" class="btn">Tiếp tục mua sắm</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="size-chart.html">Bảng kích thước</a></li>
+                    <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                    <li><a href="payment-guide.html">Hướng dẫn thanh toán</a></li>
+                    <li><a href="return-policy.html">Chính sách đổi trả</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hotline hỗ trợ 24/7</h3>
+                <p><a href="tel:0944356789">09443.56789</a></p>
+                <h3>Chấp nhận thanh toán</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Theo dõi chúng tôi</h3>
+                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 HTDD</p>
+        </div>
+    </footer>
+
+    <ul class="btn-contact">
+        <li><a class="btn-hotline" href="tel:0944356789"><i class="fas fa-phone-alt"></i><span>Gọi ngay</span></a></li>
+        <li><a class="btn-zalo" href="//zalo.me/0944356789"><i class="fas fa-comment-dots"></i><span>Chat Zalo</span></a></li>
+        <li><a id="btn-email" class="btn-email" href="#"><i class="fas fa-envelope"></i><span>Đăng ký</span></a></li>
+        <li><a class="btn-local" href="contact.html"><i class="fas fa-map-marker-alt"></i><span>Địa chỉ</span></a></li>
+        <li><a class="btn-top" href="#top"><i class="fas fa-arrow-up"></i><span>Trở về đầu</span></a></li>
+    </ul>
+
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

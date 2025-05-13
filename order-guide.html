@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hướng dẫn đặt hàng tại HTDD - Các bước đặt hàng và theo dõi đơn hàng của bạn">
+    <title>HTDD - Hướng dẫn đặt hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="additional.css">
+    <style>
+        .order-guide-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .order-guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .order-guide-heading {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .order-guide-heading h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .order-guide-heading p {
+            color: #666;
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .steps-container {
+            margin-bottom: 50px;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 80px;
+            height: calc(100% - 60px);
+            width: 2px;
+            background-color: #e0e0e0;
+        }
+        
+        .step-number {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #1e88e5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-content {
+            flex-grow: 1;
+        }
+        
+        .step-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .step-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .step-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .faq-section {
+            background-color: #f5f7fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .faq-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1e88e5;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            color: #1e88e5;
+        }
+        
+        .faq-question.active::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            display: none;
+            padding: 10px 0 10px 20px;
+            border-left: 2px solid #1e88e5;
+            color: #666;
+        }
+        
+        .faq-answer.show {
+            display: block;
+        }
+        
+        .tips-section {
+            margin-top: 40px;
+        }
+        
+        .tips-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .tips-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .tips-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #1e88e5;
+        }
+        
+        .contact-block {
+            background-color: #1e88e5;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .contact-block h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .contact-block p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .contact-block .btn {
+            background-color: white;
+            color: #1e88e5;
+            border: none;
+        }
+        
+        .contact-block .btn:hover {
+            background-color: #f5f5f5;
+        }
+        
+        @media (max-width: 768px) {
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 15px;
+                margin-right: 0;
+                align-self: flex-start;
+            }
+            
+            .step:not(:last-child)::after {
+                left: 30px;
+                top: 80px;
+                height: calc(100% - 60px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">HTDD</a>
+                </div>
+                
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li class="dropdown">
+                        <a href="#">Phong cách <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="streetwear.html">Streetwear</a></li>
+                            <li><a href="casual.html">Casual</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="sporty.html">Sporty</a></li>
+                            <li><a href="vintage.html">Vintage</a></li>
+                            <li><a href="minimalist.html">Minimalist</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li class="account-menu">
+                        <a href="#">Tài khoản <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+                        <ul class="account-dropdown">
+                            <li><a href="login.html">Đăng nhập</a></li>
+                            <li><a href="register.html">Đăng ký</a></li>
+                        </ul>
+                    </li>
+                    <li class="search-bar">
+                        <input type="text" placeholder="Tìm kiếm...">
+                    </li>
+                </ul>
+                
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="order-guide-section">
+            <div class="order-guide-container">
+                <div class="order-guide-heading">
+                    <h1>Hướng dẫn đặt hàng</h1>
+                    <p>Chúng tôi mong muốn việc mua sắm trên HTDD thật đơn giản và thuận tiện. Dưới đây là các bước đặt hàng chi tiết để bạn có trải nghiệm mua sắm tốt nhất.</p>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Duyệt và chọn sản phẩm</h3>
+                            <p>Bạn có thể tìm kiếm sản phẩm theo phong cách, danh mục hoặc sử dụng thanh tìm kiếm ở menu chính. Khi tìm thấy sản phẩm ưng ý, nhấp vào để xem chi tiết.</p>
+                            <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Bước 1: Duyệt sản phẩm">
+                            <p>Tại trang chi tiết sản phẩm, bạn có thể:</p>
+                            <ul>
+                                <li>Xem hình ảnh chi tiết sản phẩm</li>
+                                <li>Đọc mô tả và thông số kỹ thuật</li>
+                                <li>Chọn kích thước, màu sắc (nếu có)</li>
+                                <li>Xem đánh giá từ khách hàng khác</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Thêm vào giỏ hàng</h3>
+                            <p>Sau khi đã chọn các tùy chọn (size, màu sắc), nhấn nút "Thêm vào giỏ hàng". Bạn có thể tiếp tục mua sắm hoặc nhấn vào biểu tượng giỏ hàng để xem và chỉnh sửa đơn hàng của bạn.</p>
+                            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Bước 2: Thêm vào giỏ hàng">
+                            <p>Trong giỏ hàng, bạn có thể:</p>
+                            <ul>
+                                <li>Điều chỉnh số lượng sản phẩm</li>
+                                <li>Xóa sản phẩm khỏi giỏ hàng</li>
+                                <li>Xem tổng giá trị đơn hàng</li>
+                                <li>Nhập mã giảm giá (nếu có)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Tiến hành thanh toán</h3>
+                            <p>Sau khi xác nhận giỏ hàng, nhấn nút "Thanh toán" để tiếp tục. Bạn sẽ được yêu cầu:</p>
+                            <ul>
+                                <li>Đăng nhập hoặc mua hàng không cần tài khoản</li>
+                                <li>Nhập thông tin giao hàng</li>
+                                <li>Chọn phương thức vận chuyển</li>
+                                <li>Chọn phương thức thanh toán</li>
+                            </ul>
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Bước 3: Tiến hành thanh toán">
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Xác nhận đơn hàng</h3>
+                            <p>Trước khi hoàn tất đơn hàng, bạn sẽ xem được tổng kết các sản phẩm, chi phí vận chuyển và tổng số tiền cần thanh toán. Kiểm tra kỹ và nhấn "Xác nhận đơn hàng" để hoàn tất.</p>
+                            <p>Sau khi đặt hàng thành công, bạn sẽ nhận được:</p>
+                            <ul>
+                                <li>Email xác nhận đơn hàng</li>
+                                <li>Mã đơn hàng để theo dõi</li>
+                                <li>Thông tin dự kiến giao hàng</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Theo dõi đơn hàng</h3>
+                            <p>Bạn có thể theo dõi trạng thái đơn hàng của mình bằng cách:</p>
+                            <ul>
+                                <li>Đăng nhập vào tài khoản và kiểm tra mục "Đơn hàng của tôi"</li>
+                                <li>Sử dụng mã đơn hàng trong email xác nhận</li>
+                                <li>Liên hệ với bộ phận CSKH qua hotline 09443.56789</li>
+                            </ul>
+                            <p>Chúng tôi sẽ gửi thông báo khi đơn hàng được giao đi và khi giao hàng thành công.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h2>Câu hỏi thường gặp</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Tôi có thể thay đổi hoặc hủy đơn hàng sau khi đặt không?</div>
+                        <div class="faq-answer">
+                            Bạn có thể thay đổi hoặc hủy đơn hàng trong vòng 2 giờ sau khi đặt hàng bằng cách liên hệ trực tiếp với bộ phận CSKH qua hotline 09443.56789. Sau khoảng thời gian này, đơn hàng đã bắt đầu được xử lý và chúng tôi không thể đảm bảo có thể thay đổi hoặc hủy đơn hàng.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Làm thế nào để tôi biết size nào phù hợp với mình?</div>
+                        <div class="faq-answer">
+                            Bạn có thể tham khảo <a href="size-chart.html">bảng kích thước</a> của chúng tôi để chọn size phù hợp. Nếu bạn vẫn không chắc chắn, hãy liên hệ với chúng tôi qua hotline để được tư vấn chi tiết.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Các phương thức thanh toán được chấp nhận?</div>
+                        <div class="faq-answer">
+                            Chúng tôi chấp nhận nhiều phương thức thanh toán khác nhau bao gồm: thẻ tín dụng/ghi nợ (Visa, MasterCard), chuyển khoản ngân hàng, ví điện tử (MoMo, ZaloPay), thanh toán khi nhận hàng (COD). Bạn có thể tìm hiểu thêm tại trang <a href="payment-guide.html">Hướng dẫn thanh toán</a>.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Phí vận chuyển được tính như thế nào?</div>
+                        <div class="faq-answer">
+                            Phí vận chuyển được tính dựa trên vị trí giao hàng và tổng giá trị đơn hàng. Chúng tôi cung cấp miễn phí vận chuyển cho đơn hàng từ 500.000 VNĐ trở lên. Phí vận chuyển cụ thể sẽ được hiển thị trong quá trình thanh toán.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Thời gian giao hàng là bao lâu?</div>
+                        <div class="faq-answer">
+                            Thời gian giao hàng thông thường như sau:<br>
+                            - Nội thành Hà Nội và TP.HCM: 1-2 ngày làm việc<br>
+                            - Các tỉnh thành khác: 3-5 ngày làm việc<br>
+                            - Vùng sâu, vùng xa: 5-7 ngày làm việc<br>
+                            Lưu ý: Thời gian giao hàng có thể kéo dài hơn trong các dịp cao điểm hoặc do điều kiện thời tiết.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tips-section">
+                    <h2>Mẹo đặt hàng</h2>
+                    <ul class="tips-list">
+                        <li>Đăng ký tài khoản để lưu thông tin giao hàng và theo dõi đơn hàng dễ dàng hơn.</li>
+                        <li>Thêm sản phẩm vào danh sách yêu thích để dễ dàng tìm lại sau này.</li>
+                        <li>Theo dõi fanpage của HTDD để cập nhật các chương trình khuyến mãi.</li>
+                        <li>Đặt hàng vào các ngày Flash Sale để được giá tốt nhất.</li>
+                        <li>Kiểm tra kỹ thông tin đơn hàng trước khi xác nhận để tránh sai sót.</li>
+                    </ul>
+                </div>
+                
+                <div class="contact-block">
+                    <h3>Cần hỗ trợ thêm?</h3>
+                    <p>Nếu bạn có bất kỳ câu hỏi nào về việc đặt hàng, đừng ngần ngại liên hệ với bộ phận Chăm sóc Khách hàng của chúng tôi.</p>
+                    <a href="contact.html" class="btn">Liên hệ ngay</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="size-chart.html">Bảng kích thước</a></li>
+                    <li><a href="order-guide.html">Hướng dẫn đặt hàng</a></li>
+                    <li><a href="payment-guide.html">Hướng dẫn thanh toán</a></li>
+                    <li><a href="return-policy.html">Chính sách đổi trả</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hotline hỗ trợ 24/7</h3>
+                <p><a href="tel:0944356789">09443.56789</a></p>
+                <h3>Chấp nhận thanh toán</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Theo dõi chúng tôi</h3>
+                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 HTDD</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                
+                // Toggle active class on question
+                question.classList.toggle('active');
+                
+                // Toggle show class on answer
+                answer.classList.toggle('show');
+            });
+        });
+    </script>
+    
+    <script src="menu.js"></script>
+</body>
+</html>

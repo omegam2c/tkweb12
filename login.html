@@ -1,0 +1,296 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Đăng nhập vào tài khoản HTDD để mua sắm thời trang đa phong cách.">
+    <title>HTDD - Đăng nhập</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="additional.css">
+    <style>
+        .auth-section {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .auth-section h2 {
+            font-size: 28px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #1e88e5;
+            box-shadow: 0 0 5px rgba(30, 136, 229, 0.3);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .btn {
+            background-color: #1e88e5;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1565c0;
+            transform: translateY(-3px);
+        }
+
+        .auth-links {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .auth-links a {
+            color: #1e88e5;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .auth-section {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .auth-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">HTDD</a>
+                </div>
+                
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li class="dropdown">
+                        <a href="#">Phong cách <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="streetwear.html">Streetwear</a></li>
+                            <li><a href="casual.html">Casual</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="sporty.html">Sporty</a></li>
+                            <li><a href="vintage.html">Vintage</a></li>
+                            <li><a href="minimalist.html">Minimalist</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li class="account-menu">
+                        <a href="#">Tài khoản <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+                        <ul class="account-dropdown">
+                            <li><a href="login.html">Đăng nhập</a></li>
+                            <li><a href="register.html">Đăng ký</a></li>
+                        </ul>
+                    </li>
+                    <li class="search-bar">
+                        <input type="text" placeholder="Tìm kiếm...">
+                    </li>
+                </ul>
+                
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="auth-section">
+            <h2>Đăng nhập</h2>
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="email-error">Vui lòng nhập email hợp lệ.</span>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="error-message" id="password-error">Vui lòng nhập mật khẩu.</span>
+                </div>
+                <button type="submit" class="btn">Đăng nhập</button>
+            </form>
+            <div class="auth-links">
+                <p>Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="size-chart.html">Bảng kích thước</a></li>
+                    <li><a href="order-guide.html">Hướng dẫn đặt hàng</a></li>
+                    <li><a href="payment-guide.html">Hướng dẫn thanh toán</a></li>
+                    <li><a href="return-policy.html">Chính sách đổi trả</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hotline hỗ trợ 24/7</h3>
+                <p><a href="tel:0944356789">09443.56789</a></p>
+                <h3>Chấp nhận thanh toán</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Theo dõi chúng tôi</h3>
+                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 HTDD</p>
+        </div>
+    </footer>
+
+    <ul class="btn-contact">
+        <li><a class="btn-hotline" href="tel:0944356789"><i class="fas fa-phone-alt"></i><span>Gọi ngay</span></a></li>
+        <li><a class="btn-zalo" href="//zalo.me/0944356789"><i class="fas fa-comment-dots"></i><span>Chat Zalo</span></a></li>
+        <li><a id="btn-email" class="btn-email" href="#"><i class="fas fa-envelope"></i><span>Đăng ký</span></a></li>
+        <li><a class="btn-local" href="contact.html"><i class="fas fa-map-marker-alt"></i><span>Địa chỉ</span></a></li>
+        <li><a class="btn-top" href="#top"><i class="fas fa-arrow-up"></i><span>Trở về đầu</span></a></li>
+    </ul>
+
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const emailError = document.getElementById('email-error');
+            const passwordError = document.getElementById('password-error');
+
+            let isValid = true;
+
+            // Reset error messages
+            emailError.style.display = 'none';
+            passwordError.style.display = 'none';
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            }
+
+            // Password validation
+            if (!password) {
+                passwordError.style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert('Đăng nhập thành công! (Đây là mô phỏng, không có backend.)');
+                // Redirect to homepage or account page in a real scenario
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

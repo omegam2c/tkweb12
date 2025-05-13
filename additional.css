@@ -1,0 +1,255 @@
+/* Style Categories Section */
+.style-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.style-item {
+    text-decoration: none;
+    color: #333;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.style-item:hover {
+    transform: translateY(-5px);
+}
+
+.style-image {
+    height: 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.style-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7) 100%);
+    z-index: 1;
+}
+
+.style-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.style-item:hover .style-image img {
+    transform: scale(1.1);
+}
+
+.style-item h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    position: relative;
+}
+
+.style-item h3::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #1e88e5;
+    margin: 5px auto 0;
+    transition: width 0.3s;
+}
+
+.style-item:hover h3::after {
+    width: 30px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.footer-section {
+    flex: 1;
+    margin-bottom: 30px;
+    min-width: 250px;
+    padding-right: 30px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #1e88e5;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #1e88e5;
+}
+
+.payment-methods {
+    margin: 15px 0;
+}
+
+.payment-methods i {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #aaa;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Floating contact buttons */
+.btn-contact {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    list-style: none;
+    z-index: 999;
+}
+
+.btn-contact li {
+    margin-bottom: 10px;
+}
+
+.btn-contact li a {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+
+.btn-contact li a i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.btn-contact li a span {
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.btn-contact li a:hover span {
+    opacity: 1;
+    max-width: 120px;
+    margin-left: 8px;
+}
+
+.btn-hotline {
+    background-color: #f44336;
+}
+
+.btn-zalo {
+    background-color: #0068ff;
+}
+
+.btn-email {
+    background-color: #ff9800;
+}
+
+.btn-local {
+    background-color: #4caf50;
+}
+
+.btn-top {
+    background-color: #333;
+}
+
+.btn-contact li a:hover {
+    transform: translateX(-10px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .slider {
+        height: 400px;
+    }
+    
+    .slider h1 {
+        font-size: 2.5em;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    .footer-section {
+        flex: 100%;
+        padding-right: 0;
+    }
+
+    .btn-contact li a span {
+        display: none;
+    }
+
+    .btn-contact li a:hover {
+        transform: scale(1.1);
+    }
+
+    .btn-contact li a {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .btn-contact li a i {
+        margin-right: 0;
+    }
+}

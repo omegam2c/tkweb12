@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Liên hệ với HTDD - Thông tin liên hệ và form gửi yêu cầu hỗ trợ">
+    <title>HTDD - Liên hệ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="additional.css">
+    <style>
+        .contact-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .contact-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .contact-heading {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .contact-heading h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .contact-heading p {
+            color: #666;
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background-color: #f5f7fa;
+            padding: 40px;
+            border-radius: 8px;
+        }
+        
+        .contact-info h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #333;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .contact-info h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #1e88e5;
+        }
+        
+        .contact-detail {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e8f0fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #1e88e5;
+            flex-shrink: 0;
+        }
+        
+        .contact-text {
+            flex-grow: 1;
+        }
+        
+        .contact-text h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-text a:hover {
+            color: #1e88e5;
+        }
+        
+        .social-media {
+            margin-top: 30px;
+        }
+        
+        .social-media h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #e8f0fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e88e5;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: #1e88e5;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-form h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #333;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .contact-form h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #1e88e5;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #1e88e5;
+            box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.1);
+            outline: none;
+        }
+        
+        .form-control::placeholder {
+            color: #aaa;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #1e88e5;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #1565c0;
+            transform: translateY(-3px);
+        }
+        
+        .map-section {
+            margin-top: 60px;
+        }
+        
+        .map-section h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .map-container {
+            height: 450px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .stores-section {
+            margin-top: 60px;
+        }
+        
+        .stores-section h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .stores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .store-item {
+            background-color: #f5f7fa;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .store-item h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        
+        .store-item h3 i {
+            color: #1e88e5;
+            margin-right: 10px;
+        }
+        
+        .store-item p {
+            margin-bottom: 8px;
+            color: #666;
+        }
+        
+        .store-item p:last-child {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                order: 2;
+            }
+            
+            .contact-form {
+                order: 1;
+            }
+            
+            .stores-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .stores-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">HTDD</a>
+                </div>
+                
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li class="dropdown">
+                        <a href="#">Phong cách <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="streetwear.html">Streetwear</a></li>
+                            <li><a href="casual.html">Casual</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="sporty.html">Sporty</a></li>
+                            <li><a href="vintage.html">Vintage</a></li>
+                            <li><a href="minimalist.html">Minimalist</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li class="account-menu">
+                        <a href="#">Tài khoản <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+                        <ul class="account-dropdown">
+                            <li><a href="login.html">Đăng nhập</a></li>
+                            <li><a href="register.html">Đăng ký</a></li>
+                        </ul>
+                    </li>
+                    <li class="search-bar">
+                        <input type="text" placeholder="Tìm kiếm...">
+                    </li>
+                </ul>
+                
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="contact-container">
+                <div class="contact-heading">
+                    <h1>Liên hệ với chúng tôi</h1>
+                    <p>Bạn có thắc mắc hoặc cần hỗ trợ? Đừng ngần ngại liên hệ với chúng tôi. Đội ngũ HTDD luôn sẵn sàng hỗ trợ bạn!</p>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Thông tin liên hệ</h2>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Hotline</h3>
+                                <p><a href="tel:0944356789">09443.56789</a></p>
+                                <p>Thời gian: 8:00 - 21:00 (Thứ 2 - Chủ nhật)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p><a href="mailto:info@htdd.com">info@htdd.com</a></p>
+                                <p><a href="mailto:support@htdd.com">support@htdd.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Văn phòng chính</h3>
+                                <p>123 Đường Nguyễn Trãi, Quận 1</p>
+                                <p>TP. Hồ Chí Minh, Việt Nam</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Giờ làm việc</h3>
+                                <p>Thứ 2 - Thứ 6: 8:00 - 18:00</p>
+                                <p>Thứ 7 - Chủ nhật: 9:00 - 17:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-media">
+                            <h3>Kết nối với chúng tôi</h3>
+                            <div class="social-icons">
+                                <a href="https://facebook.com/HTDD" class="social-icon" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="https://instagram.com/HTDD" class="social-icon" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://youtube.com/HTDD" class="social-icon" aria-label="Youtube">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="https://tiktok.com/@HTDD" class="social-icon" aria-label="TikTok">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h2>Gửi tin nhắn</h2>
+                        <form id="contactForm" onsubmit="return false;">
+                            <div class="form-group">
+                                <label for="name">Họ và tên</label>
+                                <input type="text" id="name" class="form-control" placeholder="Nhập họ và tên của bạn" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="Nhập email của bạn" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại</label>
+                                <input type="tel" id="phone" class="form-control" placeholder="Nhập số điện thoại của bạn">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Chủ đề</label>
+                                <select id="subject" class="form-control" required>
+                                    <option value="" selected disabled>Chọn chủ đề</option>
+                                    <option value="order">Thông tin đơn hàng</option>
+                                    <option value="product">Thông tin sản phẩm</option>
+                                    <option value="return">Đổi trả sản phẩm</option>
+                                    <option value="feedback">Góp ý/Phản hồi</option>
+                                    <option value="other">Khác</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Nội dung</label>
+                                <textarea id="message" class="form-control" placeholder="Nhập nội dung tin nhắn của bạn" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn" onclick="submitForm()">Gửi tin nhắn</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="map-section">
+                    <h2>Bản đồ</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4241674197956!2d106.68166931471867!3d10.77198826226142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f366ecd2c43%3A0x5236995ba5e48d93!2sNguy%E1%BB%85n%20Tr%C3%A3i%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh!5e0!3m2!1svi!2s!4v1588142332893!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <div class="stores-section">
+                    <h2>Hệ thống cửa hàng</h2>
+                    <div class="stores-grid">
+                        <div class="store-item">
+                            <h3><i class="fas fa-store"></i> HTDD Quận 1</h3>
+                            <p><strong>Địa chỉ:</strong> 123 Nguyễn Trãi, Quận 1, TP. HCM</p>
+                            <p><strong>Điện thoại:</strong> 028 3456 7890</p>
+                            <p><strong>Giờ mở cửa:</strong> 9:00 - 21:00 (Tất cả các ngày)</p>
+                        </div>
+                        
+                        <div class="store-item">
+                            <h3><i class="fas fa-store"></i> HTDD Quận 3</h3>
+                            <p><strong>Địa chỉ:</strong> 456 Võ Văn Tần, Quận 3, TP. HCM</p>
+                            <p><strong>Điện thoại:</strong> 028 6789 0123</p>
+                            <p><strong>Giờ mở cửa:</strong> 9:00 - 21:00 (Tất cả các ngày)</p>
+                        </div>
+                        
+                        <div class="store-item">
+                            <h3><i class="fas fa-store"></i> HTDD Quận 7</h3>
+                            <p><strong>Địa chỉ:</strong> 789 Nguyễn Thị Thập, Quận 7, TP. HCM</p>
+                            <p><strong>Điện thoại:</strong> 028 5678 1234</p>
+                            <p><strong>Giờ mở cửa:</strong> 9:00 - 21:00 (Tất cả các ngày)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="size-chart.html">Bảng kích thước</a></li>
+                    <li><a href="order-guide.html">Hướng dẫn đặt hàng</a></li>
+                    <li><a href="payment-guide.html">Hướng dẫn thanh toán</a></li>
+                    <li><a href="return-policy.html">Chính sách đổi trả</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hotline hỗ trợ 24/7</h3>
+                <p><a href="tel:0944356789">09443.56789</a></p>
+                <h3>Chấp nhận thanh toán</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Theo dõi chúng tôi</h3>
+                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 HTDD</p>
+        </div>
+    </footer>
+
+    <script src="menu.js"></script>
+    <script>
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Kiểm tra form
+            if (!name || !email || !subject || !message) {
+                alert('Vui lòng điền đầy đủ thông tin bắt buộc!');
+                return;
+            }
+            
+            // Kiểm tra định dạng email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Vui lòng nhập đúng định dạng email!');
+                return;
+            }
+            
+            // Trong thực tế, ở đây sẽ gửi dữ liệu form đến máy chủ
+            // Đây chỉ là mô phỏng
+            alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.');
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+</body>
+</html>

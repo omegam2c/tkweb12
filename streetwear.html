@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sản phẩm thời trang phong cách Streetwear tại HTDD - Khám phá bộ sưu tập Streetwear độc đáo">
+    <title>HTDD - Streetwear</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="additional.css">
+    <style>
+        .style-banner {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1583846539247-1a12d6e6f637?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .style-banner h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .style-banner p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .style-banner .btn {
+            display: inline-block;
+            background-color: #1e88e5;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .style-banner .btn:hover {
+            background-color: #1565c0;
+            transform: translateY(-3px);
+        }
+        
+        .style-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+        
+        .feature-card {
+            background-color: #f5f7fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .feature-content {
+            padding: 20px;
+        }
+        
+        .feature-content h3 {
+            margin-top: 0;
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .feature-content p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .filter-section {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+        
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #1e88e5;
+            color: white;
+        }
+        
+        .sort-options {
+            margin-bottom: 20px;
+        }
+        
+        .sort-options select {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: white;
+        }
+        
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .product-style {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #1e88e5;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btn-view, .btn-add {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .btn-view {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn-add {
+            background-color: #1e88e5;
+            color: white;
+        }
+        
+        .btn-view:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .btn-add:hover {
+            background-color: #1565c0;
+        }
+        
+        @media (max-width: 768px) {
+            .style-banner h1 {
+                font-size: 36px;
+            }
+            
+            .style-banner p {
+                font-size: 16px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">HTDD</a>
+                </div>
+                
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="products.html">Sản phẩm</a></li>
+                    <li class="dropdown">
+                        <a href="#">Phong cách <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="streetwear.html">Streetwear</a></li>
+                            <li><a href="casual.html">Casual</a></li>
+                            <li><a href="business.html">Business</a></li>
+                            <li><a href="sporty.html">Sporty</a></li>
+                            <li><a href="vintage.html">Vintage</a></li>
+                            <li><a href="minimalist.html">Minimalist</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                    <li class="account-menu">
+                        <a href="#">Tài khoản <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+                        <ul class="account-dropdown">
+                            <li><a href="login.html">Đăng nhập</a></li>
+                            <li><a href="register.html">Đăng ký</a></li>
+                        </ul>
+                    </li>
+                    <li class="search-bar">
+                        <input type="text" placeholder="Tìm kiếm...">
+                    </li>
+                </ul>
+                
+                <div class="cart-icon">
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="style-banner">
+            <h1>Phong cách Streetwear</h1>
+            <p>Khám phá thế giới Streetwear đầy cá tính và phá cách. Bộ sưu tập của chúng tôi kết hợp giữa sự thoải mái và phong cách đường phố hiện đại.</p>
+            <a href="#products" class="btn">Khám phá ngay</a>
+        </div>
+        
+        <div class="style-features">
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1588099768531-a72d4a198538?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Streetwear Features">
+                <div class="feature-content">
+                    <h3>Thiết kế độc đáo</h3>
+                    <p>Bộ sưu tập của chúng tôi mang đến các thiết kế Streetwear độc đáo, kết hợp giữa văn hóa đường phố và xu hướng thời trang hiện đại.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Streetwear Quality">
+                <div class="feature-content">
+                    <h3>Chất lượng cao cấp</h3>
+                    <p>Chúng tôi sử dụng các chất liệu cao cấp để tạo ra những sản phẩm bền đẹp, thoải mái và tôn lên phong cách thời trang của bạn.</p>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Streetwear Style">
+                <div class="feature-content">
+                    <h3>Phong cách đa dạng</h3>
+                    <p>Từ những chiếc áo hoodie oversized đến quần jogger thoải mái, bộ sưu tập Streetwear của chúng tôi đáp ứng mọi sở thích thời trang.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <h2>Sản phẩm Streetwear</h2>
+            <div class="filters">
+                <button class="filter-btn active">Tất cả</button>
+                <button class="filter-btn">Áo</button>
+                <button class="filter-btn">Quần</button>
+                <button class="filter-btn">Giày</button>
+                <button class="filter-btn">Phụ kiện</button>
+            </div>
+            
+            <div class="sort-options">
+                <select id="sort-select">
+                    <option value="popularity">Phổ biến nhất</option>
+                    <option value="newest">Mới nhất</option>
+                    <option value="price-asc">Giá: Thấp đến cao</option>
+                    <option value="price-desc">Giá: Cao đến thấp</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="products-container" id="products">
+            <div class="products-grid">
+                <!-- Sản phẩm 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1606663889134-b1dedb5ed8b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Áo hoodie Streetwear">
+                        <div class="product-badge">Mới</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Áo Hoodie Thêu Logo</div>
+                        <div class="product-style">Streetwear</div>
+                        <div class="product-price">750.000₫</div>
+                        <div class="product-actions">
+                            <button class="btn-view">Xem chi tiết</button>
+                            <button class="btn-add">+ Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Áo Sweatshirt Streetwear">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Áo Sweatshirt Oversize</div>
+                        <div class="product-style">Streetwear</div>
+                        <div class="product-price">650.000₫</div>
+                        <div class="product-actions">
+                            <button class="btn-view">Xem chi tiết</button>
+                            <button class="btn-add">+ Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Quần Jogger Streetwear">
+                        <div class="product-badge">-15%</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Quần Jogger Túi Hộp</div>
+                        <div class="product-style">Streetwear</div>
+                        <div class="product-price">550.000₫</div>
+                        <div class="product-actions">
+                            <button class="btn-view">Xem chi tiết</button>
+                            <button class="btn-add">+ Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 4 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1588117305388-c2631a279f82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Giày Sneaker Streetwear">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Giày Sneaker High-Top</div>
+                        <div class="product-style">Streetwear</div>
+                        <div class="product-price">1.250.000₫</div>
+                        <div class="product-actions">
+                            <button class="btn-view">Xem chi tiết</button>
+                            <button class="btn-add">+ Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 5 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Áo khoác Streetwear">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Áo Khoác Bomber</div>
+                        <div class="product-style">Streetwear</div>
+                        <div class="product-price">950.000₫</div>
+                        <div class="product-actions">
+                            <button class="btn-view">Xem chi tiết</button>
+                            <button class="btn-add">+ Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 6 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Mũ Streetwear">
+                        <div class="product-badge">Mới</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Mũ Beanie Thêu Logo</div>
+                        <div class="product-style">Streetwear</div>
+                        <div class="product-price">350.000₫</div>
+                        <div class="product-actions">
+                            <button class="btn-view">Xem chi tiết</button>
+                            <button class="btn-add">+ Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 7 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1578681994506-b8f463449011?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Túi đeo chéo Streetwear">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Túi Đeo Chéo Mini</div>
+                        <div class="product-style">Streetwear</div>
+                        <div class="product-price">450.000₫</div>
+                        <div class="product-actions">
+                            <button class="btn-view">Xem chi tiết</button>
+                            <button class="btn-add">+ Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sản phẩm 8 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1516914036693-adf5f959cabe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Áo thun Streetwear">
+                        <div class="product-badge">-10%</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Áo Thun Graphic Oversize</div>
+                        <div class="product-style">Streetwear</div>
+                        <div class="product-price">450.000₫</div>
+                        <div class="product-actions">
+                            <button class="btn-view">Xem chi tiết</button>
+                            <button class="btn-add">+ Giỏ hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="size-chart.html">Bảng kích thước</a></li>
+                    <li><a href="order-guide.html">Hướng dẫn đặt hàng</a></li>
+                    <li><a href="payment-guide.html">Hướng dẫn thanh toán</a></li>
+                    <li><a href="return-policy.html">Chính sách đổi trả</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hotline hỗ trợ 24/7</h3>
+                <p><a href="tel:0944356789">09443.56789</a></p>
+                <h3>Chấp nhận thanh toán</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Theo dõi chúng tôi</h3>
+                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 HTDD</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="menu.js"></script>
+    <script>
+        // Xử lý các nút lọc
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Xóa trạng thái active từ tất cả các nút
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Thêm trạng thái active cho nút được nhấp
+                button.classList.add('active');
+                
+                // Thêm code lọc sản phẩm tại đây (nếu cần)
+            });
+        });
+        
+        // Xử lý dropdown sắp xếp
+        const sortSelect = document.getElementById('sort-select');
+        
+        sortSelect.addEventListener('change', () => {
+            // Thêm code sắp xếp sản phẩm tại đây (nếu cần)
+            console.log('Sắp xếp theo:', sortSelect.value);
+        });
+        
+        // Xử lý các nút thêm vào giỏ hàng
+        const addToCartButtons = document.querySelectorAll('.btn-add');
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const productName = productCard.querySelector('.product-name').textContent;
+                const productPrice = productCard.querySelector('.product-price').textContent;
+                
+                // Hiển thị thông báo thêm vào giỏ hàng
+                alert(`Đã thêm ${productName} (${productPrice}) vào giỏ hàng!`);
+                
+                // Cập nhật số lượng giỏ hàng
+                const cartCount = document.querySelector('.cart-count');
+                cartCount.textContent = parseInt(cartCount.textContent) + 1;
+            });
+        });
+    </script>
+</body>
+</html>
