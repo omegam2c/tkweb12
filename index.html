@@ -48,13 +48,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="additional.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="index.html">HTDD</a>
+                     <a href="index.html"class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
                 </div>
                 
                 <button class="hamburger">
@@ -115,19 +119,19 @@
                 <h2 class="section-title">Sản phẩm nổi bật</h2>
                 <div class="product-grid">
                     <div class="product-item" id="product-1">
-                        <img src="img/vintage-shirt.jpg" alt="Áo sơ mi Vintage">
+                        <img src="images/vintage1.jpg" alt="Áo sơ mi Vintage">
                         <h3>Áo sơ mi Vintage</h3>
                         <p>350,000 VNĐ</p>
                         <button class="btn" onclick="addToCart(1)">Thêm vào giỏ</button>
                     </div>
                     <div class="product-item" id="product-4">
-                        <img src="img/hoodie.jpg" alt="Áo hoodie Streetwear">
+                        <img src="images/streetwear1.jpg" alt="Áo hoodie Streetwear">
                         <h3>Áo hoodie Streetwear</h3>
                         <p>500,000 VNĐ</p>
                         <button class="btn" onclick="addToCart(4)">Thêm vào giỏ</button>
                     </div>
                     <div class="product-item" id="product-6">
-                        <img src="img/t-shirt.jpg" alt="Áo thun Casual">
+                        <img src="images/casual1.jpg"Áo thun Casual">
                         <h3>Áo thun Casual</h3>
                         <p>250,000 VNĐ</p>
                         <button class="btn" onclick="addToCart(6)">Thêm vào giỏ</button>
@@ -143,45 +147,61 @@
         <section class="style-categories">
             <div class="container">
                 <h2 class="section-title">Phong cách thời trang</h2>
-                <div class="style-grid">
-                    <a href="vintage.html" class="style-item">
-                        <div class="style-image">
-                            <img src="img/vintage-style.jpg" alt="Vintage Style">
+                <!--     -->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <a href="vintage.html" class="style-item"></a>
+                <div class="style-image">
+                    
+                            <img src="images/vintage2.jpg" alt="Vintage Style">
                         </div>
                         <h3>Vintage</h3>
                     </a>
+                    </div>
+                      <div class="col-sm-4">
                     <a href="streetwear.html" class="style-item">
                         <div class="style-image">
-                            <img src="img/streetwear-style.jpg" alt="Streetwear Style">
+                            <img src="images/streetwear2.jpg" alt="Streetwear Style">
                         </div>
                         <h3>Streetwear</h3>
                     </a>
+                    </div>
+                      <div class="col-sm-4">
                     <a href="casual.html" class="style-item">
                         <div class="style-image">
-                            <img src="img/casual-style.jpg" alt="Casual Style">
+                            <img src="images/casual2.jpg" alt="Casual Style">
                         </div>
                         <h3>Casual</h3>
                     </a>
+                      </div>
+                        <div class="col-sm-4">
                     <a href="business.html" class="style-item">
                         <div class="style-image">
-                            <img src="img/business-style.jpg" alt="Business Style">
+                            <img src="images/business2.jpg" alt="Business Style">
                         </div>
                         <h3>Business</h3>
                     </a>
+                    </div>
+                      <div class="col-sm-4">
                     <a href="sporty.html" class="style-item">
                         <div class="style-image">
-                            <img src="img/sporty-style.jpg" alt="Sporty Style">
+                            <img src="images/sporty2.heic" alt="Sporty Style">
                         </div>
                         <h3>Sporty</h3>
                     </a>
+                    </div>
+                      <div class="col-sm-4">
                     <a href="minimalist.html" class="style-item">
                         <div class="style-image">
-                            <img src="img/minimalist-style.jpg" alt="Minimalist Style">
+                            <img src="images/minimalist2.jpg" alt="Minimalist Style">
                         </div>
                         <h3>Minimalist</h3>
                     </a>
+                    </div>
                 </div>
             </div>
+            </div>
+        </div>
         </section>
     </main>
 
@@ -217,11 +237,11 @@
     </footer>
 
     <ul class="btn-contact">
-        <li><a class="btn-hotline" href="tel:0944356789"><i class="fas fa-phone-alt"></i><span>Gọi ngay</span></a></li>
-        <li><a class="btn-zalo" href="//zalo.me/0944356789"><i class="fas fa-comment-dots"></i><span>Chat Zalo</span></a></li>
-        <li><a id="btn-email" class="btn-email" href="#"><i class="fas fa-envelope"></i><span>Đăng ký</span></a></li>
+        <li><a class="btn-hotline" href="tel:0123456789"><i class="fas fa-phone-alt"></i><span>Gọi ngay</span></a></li>
+        <li><a class="btn-zalo" href="//zalo.me/0397403018"><i class="fas fa-comment-dots"></i><span>Chat Zalo</span></a></li>
+        <li><a id="btn-email" class="btn-email" href="mailto:ducmcc123@gmail.com"><i class="fas fa-envelope"></i><span>Email</span></a></li>
         <li><a class="btn-local" href="contact.html"><i class="fas fa-map-marker-alt"></i><span>Địa chỉ</span></a></li>
-        <li><a class="btn-top" href="#top"><i class="fas fa-arrow-up"></i><span>Trở về đầu</span></a></li>
+        <li><a class="btn-top" href="index.html"><i class="fas fa-arrow-up"></i><span>Trở về đầu</span></a></li>
     </ul>
 
     <script src="menu.js"></script>

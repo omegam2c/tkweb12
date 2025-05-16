@@ -31,7 +31,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 45px 0;
 }
 
 .logo {
@@ -155,11 +155,11 @@ nav {
 }
 
 .search-bar input {
-    border: 1px solid #ddd;
+    box-shadow: none;
     border-radius: 20px;
-    padding: 8px 15px;
+    outline: none;
     width: 200px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .search-bar input:focus {
