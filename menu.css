@@ -18,7 +18,7 @@ body {
 
 /* Header and Navigation */
 header {
-    background-color: #fff;
+    background-color: #131212;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
@@ -158,13 +158,13 @@ nav {
     box-shadow: none;
     border-radius: 20px;
     outline: none;
-    width: 200px;
+    width: 150px;
     transition: all 0.3s ease;
 }
 
 .search-bar input:focus {
-    width: 250px;
-    border-color: #1e88e5;
+    width: 200px;
+    border-color: #c1c4c7;
     outline: none;
 }
 
@@ -175,7 +175,7 @@ nav {
 }
 
 .cart-icon a {
-    color: #333;
+    color: whitesmoke;
     text-decoration: none;
     font-size: 18px;
 }
@@ -302,11 +302,11 @@ nav {
 
     .search-bar {
         margin: 15px 20px;
-        width: auto;
+        width: 80%;
     }
 
     .search-bar input {
-        width: 100%;
+        width: 75%;
     }
 
     .account-dropdown {

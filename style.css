@@ -54,7 +54,7 @@ section {
     display: block;
     width: 60px;
     height: 3px;
-    background-color: #1e88e5;
+    background-color: #cbd1d6;
     margin: 15px auto 0;
 }
 .nav-links {
@@ -66,11 +66,11 @@ section {
 
 .nav-links li a {
     text-decoration: none;
-    color: #333;
+    color: #ffffff;
     font-weight: bold;
 }
 
-.nav-links li a:hover { color: #d32f2f; }
+.nav-links li a:hover { color: #cac4c4; }
 
 .dropdown {
     position: relative;
@@ -79,7 +79,7 @@ section {
 .dropdown-menu {
     display: none;
     position: absolute;
-    background: #fff;
+    background: #141212;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     list-style: none;
     padding: 10px 0;
@@ -102,8 +102,8 @@ section {
 }
 
 .dropdown-menu li a:hover {
-    background: #f8f8f8;
-    color: #d32f2f;
+    background: #3f3e38;
+    color: #d1d1d1;
 }
 
 .search-bar {
@@ -245,8 +245,8 @@ section {
 
 .view-all .btn {
     background-color: transparent;
-    color: #ffffff;
-    border: 2px solid #1e88e5;
+    color: #1d1c1c;
+    border: 2px solid #267fcc;
 }
 
 .view-all .btn:hover {
@@ -317,7 +317,7 @@ footer {
 
 .footer-section ul { list-style: none; }
 
-.footer-section ul li a { color: #333; text-decoration: none; }
+.footer-section ul li a { color: #ffffff; text-decoration: none; }
 
 .footer-bottom { border-top: 1px solid #ddd; padding-top: 10px; }
 
@@ -434,7 +434,8 @@ footer {
     }
 
     .search-bar {
-        width: 100%;
+        width: 50%;
+        height: 50px;
     }
 
     .search-dropdown {
