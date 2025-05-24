@@ -144,6 +144,13 @@
                 font-size: 24px;
             }
         }
+        input:invalid {
+            box-shadow: none;
+        }
+
+        input:invalid:focus {
+            box-shadow: none;
+        }
     </style>
 </head>
 <body>
@@ -199,7 +206,7 @@
     <main>
         <section class="auth-section">
             <h2>Đăng nhập</h2>
-            <form id="login-form" class="auth-form">
+            <form id="login-form" class="auth-form" novalidate>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
@@ -261,38 +268,46 @@
     <script src="menu.js"></script>
     <script>
         document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
+    e.preventDefault();
 
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const emailError = document.getElementById('email-error');
-            const passwordError = document.getElementById('password-error');
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
 
-            let isValid = true;
+        // Reset error messages
+        emailError.style.display = 'none';
+        passwordError.style.display = 'none';
 
-            // Reset error messages
-            emailError.style.display = 'none';
-            passwordError.style.display = 'none';
+        let isValid = true;
 
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email || !emailRegex.test(email)) {
-                emailError.style.display = 'block';
-                isValid = false;
-            }
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email) {
+            emailError.textContent = 'Vui lòng nhập email.';
+            emailError.style.display = 'block';
+            isValid = false;
+        } else if (!emailRegex.test(email)) {
+            emailError.textContent = 'Vui lòng nhập email hợp lệ.';
+            emailError.style.display = 'block';
+            isValid = false;
+        }
 
-            // Password validation
-            if (!password) {
-                passwordError.style.display = 'block';
-                isValid = false;
-            }
+        // Password validation
+        if (!password) {
+            passwordError.textContent = 'Vui lòng nhập mật khẩu.';
+            passwordError.style.display = 'block';
+            isValid = false;
+        }
 
-            if (isValid) {
-                alert('Đăng nhập thành công!');
-                // Redirect to homepage or account page in a real scenario
-                window.location.href = 'index.html';
-            }
-        });
+        if (!isValid) return;
+
+        // Kiểm tra thông tin đăng nhập
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const encodedPassword = btoa(password);
+        const user = users.find(user => user.email === email && user.password === encodedPassword);
+
+    });
     </script>
     <script src="auth.js"></script>
 </body>
