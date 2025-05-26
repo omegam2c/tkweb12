@@ -43,6 +43,11 @@ nav {
     color: #1e88e5;
     text-decoration: none;
 }
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* khoảng cách giữa cart và hamburger */
+}
 
 /* Main menu */
 .nav-links {
@@ -171,6 +176,7 @@ nav a::after {
 
 /* Cart icon */
 .cart-icon {
+    
     margin-left: 25px;
     position: relative;
 }
@@ -251,7 +257,16 @@ nav a::after {
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         padding: 20px 0;
     }
+nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
+    .nav-icons {
+        display: flex;
+        align-items: center;
+        gap: 16px; /* khoảng cách giữa cart và hamburger */
+    }
     .nav-links.active {
         display: flex;
     }
@@ -329,9 +344,10 @@ nav a::after {
     }
 
     .cart-icon {
-        position: absolute;
-        top: 15px;
-        right: 60px;
+        display: block;
+        position: relative;
+        top: 5%;
+        right: 10px;
     }
 
     .nav-links li.account-menu, 
