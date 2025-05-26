@@ -308,10 +308,7 @@ footer {
     padding: 20px;
     text-align: center;
 }
-.footer-section h3 {
-    border-left: none !important;
-    padding-left: 0 !important;
-}
+
 .footer-content {
     display: flex;
     justify-content: space-around;
