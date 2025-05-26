@@ -71,7 +71,7 @@ nav {
 }
 
 /* Underline animation for menu items */
-.nav-links a::after {
+ .nav-links a::after {
     content: '';
     position: absolute;
     width: 0;
@@ -80,12 +80,13 @@ nav {
     left: 0;
     background-color: #1e88e5;
     transition: width 0.3s;
-}
-
+} 
 .nav-links a:hover::after {
     width: 100%;
+} 
+nav a::after {
+  display: none !important;
 }
-
 /* Dropdown menu */
 .dropdown {
     position: relative;
@@ -245,7 +246,7 @@ nav {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #fff;
+        background-color: #131212;
         flex-direction: column;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         padding: 20px 0;
