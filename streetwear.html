@@ -134,16 +134,11 @@
             border-radius: 4px;
             background-color: white;
         }
-         header{
-            padding: 0
-         }
-           
-         
+        
         .products-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            
         }
         
         .products-grid {
@@ -237,18 +232,21 @@
             background-color: #f0f0f0;
             color: #333;
         }
-        
-        .btn-add {
-            background-color: #1e88e5;
-            color: white;
-        }
-        
         .btn-view:hover {
             background-color: #e0e0e0;
         }
-        
+        .btn-add {
+            background-color: #333;     
+            color: #fff;              
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
         .btn-add:hover {
-            background-color: #1565c0;
+            background-color: #555;     
         }
         
         @media (max-width: 768px) {
@@ -265,6 +263,31 @@
                 gap: 20px;
             }
         }
+        .product-name {
+        min-height: 48px;
+        line-height: 1.4;
+        }
+
+        .product-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        }
+
+        .product-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        }
+
+        .product-actions {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+        
     </style>
 </head>
 <body>
@@ -374,55 +397,72 @@
             <div class="products-grid">
                 <!-- Sản phẩm 1 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1606663889134-b1dedb5ed8b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Áo hoodie Streetwear">
-                        <div class="product-badge">Mới</div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-name">Áo Hoodie Thêu Logo</div>
-                        <div class="product-style">Streetwear</div>
-                        <div class="product-price">750.000₫</div>
-                        <div class="product-actions">
-                            <button class="btn-view">Xem chi tiết</button>
-                            <button class="btn-add">+ Giỏ hàng</button>
-                        </div>
+                <div class="product-img">
+                    <img src="images/sp001_white.png" alt="Áo hoodie Streetwear">
+                    <div class="product-badge">Mới</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Áo Hoodie Thêu Logo</div>
+                    <div class="product-style">Streetwear</div>
+                    <div class="product-price">750.000₫</div>
+                    <div class="product-actions">
+                    <a href="#" class="btn-view" data-id="sp1">Xem chi tiết</a>
+                    <button class="btn-add" data-id="sp1">+ Giỏ hàng</button>
                     </div>
                 </div>
-                
+                </div>
+
                 <!-- Sản phẩm 2 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Áo Sweatshirt Streetwear">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-name">Áo Sweatshirt Oversize</div>
-                        <div class="product-style">Streetwear</div>
-                        <div class="product-price">650.000₫</div>
-                        <div class="product-actions">
-                            <button class="btn-view">Xem chi tiết</button>
-                            <button class="btn-add">+ Giỏ hàng</button>
-                        </div>
+                <div class="product-img">
+                    <img src="images/sp2.png" alt="Quần jean Custom Y2k">
+                    <div class="product-badge">Mới</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Quần jean Custom Y2k</div>
+                    <div class="product-style">Streetwear</div>
+                    <div class="product-price">250.000₫</div>
+                    <div class="product-actions">
+                    <a href="#" class="btn-view" data-id="sp2">Xem chi tiết</a>
+                    <button class="btn-add" data-id="sp2">+ Giỏ hàng</button>
                     </div>
                 </div>
+                </div>
+
                 
                 <!-- Sản phẩm 3 -->
                 <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Quần Jogger Streetwear">
-                        <div class="product-badge">-15%</div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-name">Quần Jogger Túi Hộp</div>
-                        <div class="product-style">Streetwear</div>
-                        <div class="product-price">550.000₫</div>
-                        <div class="product-actions">
-                            <button class="btn-view">Xem chi tiết</button>
-                            <button class="btn-add">+ Giỏ hàng</button>
-                        </div>
+                <div class="product-img">
+                    <img src="images/sp3.png" alt="Áo hoodie Streetwear">
+                    <div class="product-badge">Mới</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Áo thun Need money for porsche</div>
+                    <div class="product-style">Streetwear</div>
+                    <div class="product-price">300.000₫</div>
+                    <div class="product-actions">
+                    <a href="#" class="btn-view" data-id="sp3">Xem chi tiết</a>
+                    <button class="btn-add" data-id="sp3">+ Giỏ hàng</button>
                     </div>
                 </div>
-                
+                </div>
                 <!-- Sản phẩm 4 -->
+                <div class="product-card">
+                <div class="product-img">
+                    <img src="images/sp5.png" alt="Áo hoodie Streetwear">
+                    <div class="product-badge">Mới</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Áo thun Sói cô độc</div>
+                    <div class="product-style">Streetwear</div>
+                    <div class="product-price">200.000₫</div>
+                    <div class="product-actions">
+                    <a href="#" class="btn-view" data-id="sp5">Xem chi tiết</a>
+                    <button class="btn-add" data-id="sp5">+ Giỏ hàng</button>
+                    </div>
+                </div>
+                </div>
+                <!-- Sản phẩm 5 -->
                 <div class="product-card">
                     <div class="product-img">
                         <img src="https://images.unsplash.com/photo-1588117305388-c2631a279f82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Giày Sneaker Streetwear">
@@ -438,21 +478,7 @@
                     </div>
                 </div>
                 
-                <!-- Sản phẩm 5 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Áo khoác Streetwear">
-                    </div>
-                    <div class="product-info">
-                        <div class="product-name">Áo Khoác Bomber</div>
-                        <div class="product-style">Streetwear</div>
-                        <div class="product-price">950.000₫</div>
-                        <div class="product-actions">
-                            <button class="btn-view">Xem chi tiết</button>
-                            <button class="btn-add">+ Giỏ hàng</button>
-                        </div>
-                    </div>
-                </div>
+            
                 
                 <!-- Sản phẩm 6 -->
                 <div class="product-card">
@@ -502,6 +528,22 @@
                             <button class="btn-add">+ Giỏ hàng</button>
                         </div>
                     </div>
+                </div>
+                <!-- Sản phẩm 3 -->
+                <div class="product-card">
+                <div class="product-img">
+                    <img src="images/sp3.png" alt="Áo hoodie Streetwear">
+                    <div class="product-badge">Mới</div>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Áo thun Need money for porsche</div>
+                    <div class="product-style">Streetwear</div>
+                    <div class="product-price">300.000₫</div>
+                    <div class="product-actions">
+                    <a href="product-detail.html?id=sp3" class="btn-view">Xem chi tiết</a>
+                    <button class="btn-add">+ Giỏ hàng</button>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -564,23 +606,168 @@
             console.log('Sắp xếp theo:', sortSelect.value);
         });
         
-        // Xử lý các nút thêm vào giỏ hàng
-        const addToCartButtons = document.querySelectorAll('.btn-add');
-        
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const productCard = button.closest('.product-card');
-                const productName = productCard.querySelector('.product-name').textContent;
-                const productPrice = productCard.querySelector('.product-price').textContent;
-                
-                // Hiển thị thông báo thêm vào giỏ hàng
-                alert(`Đã thêm ${productName} (${productPrice}) vào giỏ hàng!`);
-                
-                // Cập nhật số lượng giỏ hàng
-                const cartCount = document.querySelector('.cart-count');
-                cartCount.textContent = parseInt(cartCount.textContent) + 1;
+        // Nút xem chi tiết và giỏ hàng bên ngoài
+    
+    document.querySelectorAll(".btn-view, .btn-add").forEach(button => {
+        button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const productId = button.getAttribute("data-id");
+
+        fetch("products.json")
+            .then(res => res.json())
+            .then(data => {
+            const product = data.find(p => p.id === productId);
+            if (product) {
+                showProductModal(product);
+            } else {
+                alert("Không tìm thấy sản phẩm");
+            }
             });
         });
+    });
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const countEl = document.querySelector(".cart-count");
+        if (countEl) countEl.textContent = totalQty;
+        }
+
+        // Gọi khi trang load
+        document.addEventListener("DOMContentLoaded", updateCartCount);
+</script>
+
     </script>
+
+<!-- MODAL CHI TIẾT SẢN PHẨM -->
+<div class="modal" id="productModal" style="display: none;">
+  <div class="modal-content">
+    <span class="modal-close" onclick="document.getElementById('productModal').style.display='none'">×</span>
+    <div class="product-detail" style="display: flex; flex-wrap: wrap; gap: 30px;">
+      <div class="product-image" style="flex: 1 1 300px; text-align: center;">
+        <img id="product-image" src="" alt="Ảnh sản phẩm" style="width: 100%; max-width: 350px; border-radius: 8px;">
+      </div>
+      <div class="info" style="flex: 1 1 300px;">
+        <h1 id="product-name">Tên sản phẩm</h1>
+        <p><strong>Giá:</strong> <span id="product-price"></span></p>
+        <p class="label" id="description-toggle" style="cursor: pointer; color: #1e88e5; font-weight: bold;">Mô tả sản phẩm ⯆</p>
+        <p id="product-description" style="display: none;"></p>
+        <p><strong>Chọn màu:</strong></p>
+        <div id="color-options" style="display: flex; gap: 10px; margin-bottom: 15px;"></div>
+        <p class="label">
+        <strong>Chọn size:</strong>
+        <a href="size-chart.html" target="_blank" style="margin-left: 10px; font-size: 14px; color: #1e88e5; text-decoration: underline;">
+            Hướng dẫn chọn size
+        </a>
+        </p>
+        <div id="size-options"></div>
+            <p><strong>Số lượng:</strong></p>
+            <div class="quantity-container">
+            <button id="decrease-qty" class="qty-btn">–</button>
+            <input type="number" id="quantity-input" min="1" value="1" class="qty-input">
+            <button id="increase-qty" class="qty-btn">+</button>
+            </div>
+            <br>
+
+        <button id="add-to-cart" style="padding: 10px 20px; background: #1e88e5; color: white; border: none; border-radius: 6px; cursor: pointer;">Thêm vào giỏ hàng</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 960px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #888;
+}
+.color-option {
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+.color-option.active {
+  background-color: #1e88e5;
+  color: white;
+  border: 3px solid #1e88e5 !important;
+}
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.qty-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.qty-input {
+  width: 50px;
+  height: 36px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+@keyframes flyAndSpin {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(720deg); /* xoay 2 vòng khi thu nhỏ */
+    opacity: 0;
+  }
+}
+
+.fly-image {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+  will-change: transform, opacity;
+}
+
+
+
+</style>
+<script src="product-detail.js"></script>
+
 </body>
 </html>

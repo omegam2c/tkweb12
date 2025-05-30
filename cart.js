@@ -1,68 +1,69 @@
-function addToCart(productId) {
-    const products = [
-        { id: 1, name: "Áo sơ mi Vintage", price: 350000 },
-        { id: 2, name: "Áo khoác Vintage", price: 650000 },
-        { id: 3, name: "Quần jeans Vintage", price: 450000 },
-        { id: 4, name: "Áo hoodie Streetwear", price: 500000 },
-        { id: 5, name: "Quần jogger Streetwear", price: 400000 },
-        { id: 6, name: "Áo thun Casual", price: 250000 },
-        { id: 7, name: "Quần short Casual", price: 300000 },
-        { id: 8, name: "Áo sơ mi công sở", price: 400000 },
-        { id: 9, name: "Quần tây", price: 450000 },
-        { id: 10, name: "Áo thể thao", price: 350000 },
-        { id: 11, name: "Quần thể thao", price: 300000 },
-        { id: 12, name: "Áo thun tối giản", price: 200000 },
-        { id: 13, name: "Quần ống suông", price: 350000 },
-    ];
 
-    const product = products.find(p => p.id === productId);
-    if (!product) return;
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const cartItem = cart.find(item => item.id === productId);
-
-    if (cartItem) {
-        cartItem.quantity += 1;
-    } else {
-        cart.push({ ...product, quantity: 1 });
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${product.name} đã được thêm vào giỏ hàng!`);
-}
-
-function displayCart() {
+   const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const cartList = document.getElementById("cart-list");
-    if (!cartList) return;
+    const subtotalEl = document.getElementById("subtotal");
+    const totalEl = document.getElementById("total");
 
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cartList.innerHTML = "";
-
-    if (cart.length === 0) {
-        cartList.innerHTML = "<p>Giỏ hàng trống!</p>";
-        return;
+    function updateTotals() {
+      let subtotal = 0;
+      cart.forEach(p => subtotal += p.price * p.quantity);
+      subtotalEl.textContent = subtotal.toLocaleString() + "₫";
+      totalEl.textContent = subtotal.toLocaleString() + "₫";
     }
 
-    cart.forEach(item => {
-        const cartItem = document.createElement("div");
-        cartItem.className = "cart-item";
-        cartItem.innerHTML = `
-            <span>${item.name} (x${item.quantity})</span>
-            <span>${(item.price * item.quantity).toLocaleString()} VNĐ</span>
+    function renderCart() {
+      cartList.innerHTML = "";
+      cart.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = `
+        <div class="item-main">
+        <img src="${item.img}" alt="${item.name}" />
+        <div class="item-info">
+            <h3>${item.name}</h3>
+            <p>Màu: ${item.color}</p>
+            <p>Size: ${item.size}</p>
+            <button class="remove-btn" data-index="${index}"><i class="fas fa-trash-alt"></i> Xoá</button>
+        </div>
+        </div>
+        <div class="item-controls">
+            <button class="qty-btn" data-action="dec" data-index="${index}">−</button>
+            <input type="number" value="${item.quantity}" class="qty-input" readonly>
+            <button class="qty-btn" data-action="inc" data-index="${index}">+</button>
+            <span class="item-price">${item.price.toLocaleString()}₫</span>
+        </div>
         `;
-        cartList.appendChild(cartItem);
+        cartList.appendChild(div);
+      });
+      updateTotals();
+    }
+
+    document.addEventListener("click", e => {
+      if (e.target.classList.contains("qty-btn")) {
+        const idx = +e.target.dataset.index;
+        if (e.target.dataset.action === "inc") cart[idx].quantity++;
+        else if (cart[idx].quantity > 1) cart[idx].quantity--;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+        updateCartCount();
+      }
+      if (e.target.classList.contains("remove-btn")) {
+        const idx = +e.target.dataset.index;
+        cart.splice(idx, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+        updateCartCount();
+      }
     });
 
-    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const totalDiv = document.createElement("div");
-    totalDiv.className = "cart-item";
-    totalDiv.innerHTML = `
-        <span><strong>Tổng cộng</strong></span>
-        <span><strong>${total.toLocaleString()} VNĐ</strong></span>
-    `;
-    cartList.appendChild(totalDiv);
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    displayCart();
-});
+    renderCart();
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const el = document.querySelector(".cart-count");
+        if (el) el.textContent = count;
+    }  
+    updateCartCount(); 
+        // Gọi khi trang load
+    document.addEventListener("DOMContentLoaded", updateCartCount);
