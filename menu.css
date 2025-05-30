@@ -8,6 +8,9 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    background-color: #ffffff;
+    
+    
 }
 
 .container {
@@ -25,6 +28,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
+    animation: fade-down 0.5s backwards;
 }
 
 nav {
@@ -37,6 +41,7 @@ nav {
 .logo {
     font-size: 24px;
     font-weight: bold;
+    
 }
 
 .logo a {
@@ -95,6 +100,9 @@ nav a::after {
 /* Dropdown menu */
 .dropdown {
     position: relative;
+}
+.slider .content{
+    animation: fade-up 0.5s 0.4s backwards;
 }
 
 .dropdown-menu {
@@ -243,7 +251,28 @@ nav a::after {
     color: #1e88e5;
     background-color: #f8f9fa;
 }
+@keyframes fade-down{
+    0%{
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
 
+    }
+    100%{
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    }
+}
+@keyframes fade-up{
+    0%{
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+
+    }
+    100%{
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+    }
+}
 /* Responsive styles */
 @media (max-width: 992px) {
     .nav-links {
