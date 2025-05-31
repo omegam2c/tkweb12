@@ -35,6 +35,14 @@ product.colors.forEach((colorObj, index) => {
   else if (cssColor === "hồng") cssColor = "pink";
   else if (cssColor === "xanh lá") cssColor = "green";
   else if (cssColor === "xanh dương") cssColor = "blue";
+  else if (cssColor === "xanh navy") cssColor = "#003366";
+  else if (cssColor === "cam") cssColor = "orange";
+  else if (cssColor === "xanh dương nhạt") cssColor = "#6699FF";
+  else if (cssColor === "be") cssColor = "#FFFFCC";
+  else if (cssColor === "xám đậm") cssColor = "#333333";
+  else if (cssColor === "nâu sữa") cssColor = "#996666";
+  else if (cssColor === "đỏ") cssColor = "#990000";
+   else if (cssColor === "nâu") cssColor = "#996600";
   else cssColor = "#ccc"; // fallback
 
   // Hình chữ nhật viền tròn

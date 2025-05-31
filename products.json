@@ -37,6 +37,19 @@
       { "name": "Đen", "img": "images/sp3den.png" }
     ]
   },
+    {
+    "id": "sp4",
+    "name": "Áo len Niche ",
+    "price": 500000,
+    "description": "Co giãn 4 chiều, ôm dáng nhưng không gò bó.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Xanh Lá", "img": "images/sp4xanhla.png" },
+      { "name": "Trắng", "img": "images/sp4trang.png" }
+    ]
+  },
+  
       {
     "id": "sp5",
     "name": "Áo thun Sói cô độc ",
@@ -48,6 +61,263 @@
       { "name": "Trắng", "img": "images/sp5trang.png" },
       { "name": "Đen", "img": "images/sp5den.png" }
     ]
+  },
+    {
+    "id": "sp6",
+    "name": "Áo Gallery dept ",
+    "price": 450000,
+    "description": " Thiết kế basic dễ phối đồ, phù hợp mọi dịp.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp6den.png" },
+      { "name": "Xanh navy", "img": "images/sp6xanhthan.png" },
+      { "name": "Xám", "img": "images/sp6xam.png" }
+    ]
+  },
+      {
+    "id": "sp7",
+    "name": "Quần Gallery dept ",
+    "price": 400000,
+    "description": " Thiết kế basic dễ phối đồ, phù hợp mọi dịp.",
+    "category": "quần",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp7den.png" },
+      { "name": "Xám", "img": "images/sp7xam.png" },
+      { "name": "Cam", "img": "images/sp7cam.png" }
+    ]
+  },
+        {
+    "id": "sp8",
+    "name": "Áo thun Chrome hearts ",
+    "price": 520000,
+    "description": " Công nghệ in bền màu, không bong tróc.",
+    "category": "áo  ",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp8den.png" },
+      { "name": "Trắng", "img": "images/sp8trang.png" }
+    ]
+  },
+    {
+    "id": "sp9",
+    "name": "Áo Sơ Mi Dài Tay Regular Fit Hàn Quốc ",
+    "price": 379000,
+    "description": " Cổ áo đứng form, không nhăn nhàu khi giặt máy.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Xanh Dương Nhạt", "img": "images/sp9xanh.png" },
+      { "name": "Xanh Navy", "img": "images/sp9xanhnavy.png" },
+      { "name": "Xám", "img": "images/sp9xam.png" }
+      
+    ]
+  },
+      {
+    "id": "sp10",
+    "name": "Quần suông túi hộp chất gió nhăn",
+    "price": 249000,
+    "description": " Tạo nên khí chất riêng cho người mặc.",
+    "category": "quần",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp10den.png" },
+      { "name": "Xanh Lá", "img": "images/sp10xanhla.png" },
+      { "name": "Xám", "img": "images/sp10xam.png" }
+      
+    ]
+  },
+        {
+    "id": "sp11",
+    "name": "Áo Sơ Mi Ngắn Tay Vải Thô Khuy Tay",
+    "price": 349000,
+    "description": " Tạo nên khí chất riêng cho người mặc.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp11den.png" },
+      { "name": "Be", "img": "images/sp11be.png" }
+      
+    ]
+  },
+          {
+    "id": "sp12",
+    "name": "Quần jean nam Baggy phom suông",
+    "price": 500000,
+    "description": " Quần jean ống đứng , lựa chọn an toàn mà sành điệu.",
+    "category": "quần",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Xanh Dương Nhạt", "img": "images/sp12xanhduong.png" },
+      { "name": "Xám Đậm", "img": "images/sp12xamdam.png" }
+      
+    ]
+  },
+
+          {
+    "id": "sp13",
+    "name": "Áo polo sọc ngang",
+    "price": 349000,
+    "description": " Tạo nên khí chất riêng cho người mặc.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Nâu Sữa", "img": "images/sp13nau.png" },
+      { "name": "Đen", "img": "images/sp13den.png" }
+      
+    ]
+  },
+          {
+    "id": "sp14",
+    "name": "Áo polo unisex PHỐI MÀU",
+    "price": 270000,
+    "description": " Màu sắc đa dạng, dễ dàng mix-match.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Đỏ", "img": "images/sp14do.png" },
+      { "name": "Đen", "img": "images/sp14den.png" }
+      
+    ]
+  },
+
+          {
+    "id": "sp15",
+    "name": "Áo sơ mi cổ bẻ dài tay chất liệu LINEN",
+    "price": 420000,
+    "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Xanh Dương Nhạt", "img": "images/sp15.png" }
+      
+    ]
+  },
+
+          {
+    "id": "sp16",
+    "name": "Quần Âu Suông Ống Rộng",
+    "price": 300000,
+    "description": " Tạo nên khí chất riêng cho người mặc.",
+    "category": "quần",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp16den.png" },
+      { "name": "Be", "img": "images/sp16be.png" }
+      
+    ]
+  },
+            {
+    "id": "sp17",
+    "name": "Áo polo nam RICHMAN",
+    "price": 350000,
+    "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Xanh Dương Nhạt", "img": "images/sp17xanh.png" },
+      { "name": "Đen", "img": "images/sp17den.png" },
+      { "name": "Trắng", "img": "images/sp17trang.png" }
+      
+    ]
+  },
+            {
+    "id": "sp18",
+    "name": "Áo sơ mi nam tay dài ANCHOR STRIPES",
+    "price": 434000,
+    "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Xanh Dương Nhạt", "img": "images/sp18xanh.png" },
+      { "name": "Trắng", "img": "images/sp18trang.png" }
+      
+    ]
+  },
+            {
+    "id": "sp19",
+    "name": "Quần âu nam cạp trượt bụng điều chỉnh",
+    "price": 3050000,
+    "description": " Thiết kế lưng cao, giúp chân trông dài hơn.",
+    "category": "quần",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp19den.png" },
+      { "name": "Be", "img": "images/sp19be.png" }
+      
+      
+    ]
+  },
+            {
+    "id": "sp20",
+    "name": "Áo sơ mi tay dài phối viền trụ ",
+    "price": 420000,
+    "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Xanh Dương Nhạt", "img": "images/sp20xanh.png" },
+      { "name": "Đen", "img": "images/sp20den.png" },
+      { "name": "Trắng", "img": "images/sp20trang.png" }
+      
+    ]
+  },
+            {
+    "id": "sp21",
+    "name": " Quần Tây Lưng Cao Màu Trơn Phối Nút",
+    "price": 333000,
+    "description": "Vải mềm, ít nhăn, giữ form đẹp cả ngày",
+    "category": "quần",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Nâu", "img": "images/sp21nau.png" },
+      { "name": "Trắng", "img": "images/sp21trang.png" }
+      
+    ]
+  },
+            {
+    "id": "sp22",
+    "name": "Quần Kaki Dài H90",
+    "price": 560000,
+    "description": "Quần có khóa kéo cao cấp, chắc chắn.",
+    "category": "quần",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp22den.png" },
+      { "name": "Be", "img": "images/sp22be.png" }
+    ]
+  },
+            {
+    "id": "sp23",
+    "name": "Áo Sơ Mi Trơn",
+    "price": 358000,
+    "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Trắng", "img": "images/sp23trang.png" },
+      { "name": "Xanh Navy", "img": "images/sp23xanh.png" }
+
+    ]
+  },
+            {
+    "id": "sp24",
+    "name": "Áo sơ mi cổ Button down",
+    "price": 510000,
+    "description": "Tay áo bo nhẹ tạo điểm nhấn thanh lịch.",
+    "category": "áo",
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp24.png" }
+      
+    ]
   }
+
+
+
+
+  
+  
   
 ]
