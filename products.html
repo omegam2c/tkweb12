@@ -95,7 +95,9 @@
             margin: 40px auto;
             padding: 0 20px;
         }
-
+body{
+    background-color: #FFFFF3;
+}
         .products h2 {
             font-size: 32px;
             color: #333;
@@ -107,6 +109,9 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+        }
+        main{
+            animation: fade-up 0.5s 0.2s backwards ;
         }
 
         @media (max-width: 768px) {
@@ -148,7 +153,7 @@
                         </ul>
                     </li>
                     <li><a href="contact.html">Liên hệ</a></li>
-                    <li><a href="cart.html">Giỏ hàng</a></li>
+
                     <li class="account-menu">
                         <a href="#">Tài khoản <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
                         <ul class="account-dropdown">

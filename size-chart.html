@@ -20,8 +20,19 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 15px;
-        }
+        }body{
+    background-color: #FFFFF3;
+}
         
+.container {
+      max-width: 1200px;
+  margin: -10px auto;        /* Căn giữa ngang */
+  padding: 0 20px;       /* Thêm padding nếu cần */
+  display: flex;         /* Đảm bảo các phần tử bên trong có thể chia layout */
+  align-items: center;   /* Căn giữa theo chiều dọc nếu cần */
+  justify-content: space-between; 
+}
+
         .size-chart-heading {
             margin-bottom: 30px;
             text-align: center;
@@ -138,6 +149,7 @@
             display: block;
         }
         
+        
         @media (max-width: 768px) {
             .size-tabs {
                 overflow-x: auto;
@@ -212,7 +224,7 @@
                 <div class="size-tab-container">
                     <div class="size-tabs">
                         <div class="size-tab active" onclick="openSizeTab(event, 'men')">Nam</div>
-                        <div class="size-tab" onclick="openSizeTab(event, 'women')">Nữ</div>
+                      
                     </div>
                     
                     <div id="men" class="size-content active">
@@ -311,102 +323,7 @@
                         </table>
                     </div>
                     
-                    <div id="women" class="size-content">
-                        <h2>Áo nữ</h2>
-                        <table class="size-chart-table">
-                            <thead>
-                                <tr>
-                                    <th>Size</th>
-                                    <th>Vai (cm)</th>
-                                    <th>Ngực (cm)</th>
-                                    <th>Eo (cm)</th>
-                                    <th>Chiều dài (cm)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>XS</td>
-                                    <td>36-37</td>
-                                    <td>80-84</td>
-                                    <td>60-64</td>
-                                    <td>62-64</td>
-                                </tr>
-                                <tr>
-                                    <td>S</td>
-                                    <td>38-39</td>
-                                    <td>84-88</td>
-                                    <td>64-68</td>
-                                    <td>64-66</td>
-                                </tr>
-                                <tr>
-                                    <td>M</td>
-                                    <td>40-41</td>
-                                    <td>88-92</td>
-                                    <td>68-72</td>
-                                    <td>66-68</td>
-                                </tr>
-                                <tr>
-                                    <td>L</td>
-                                    <td>42-43</td>
-                                    <td>92-96</td>
-                                    <td>72-76</td>
-                                    <td>68-70</td>
-                                </tr>
-                                <tr>
-                                    <td>XL</td>
-                                    <td>44-45</td>
-                                    <td>96-100</td>
-                                    <td>76-80</td>
-                                    <td>70-72</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-                        <h2>Quần nữ</h2>
-                        <table class="size-chart-table">
-                            <thead>
-                                <tr>
-                                    <th>Size</th>
-                                    <th>Vòng eo (cm)</th>
-                                    <th>Vòng mông (cm)</th>
-                                    <th>Chiều dài (cm)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>XS</td>
-                                    <td>58-62</td>
-                                    <td>84-88</td>
-                                    <td>92-94</td>
-                                </tr>
-                                <tr>
-                                    <td>S</td>
-                                    <td>62-66</td>
-                                    <td>88-92</td>
-                                    <td>94-96</td>
-                                </tr>
-                                <tr>
-                                    <td>M</td>
-                                    <td>66-70</td>
-                                    <td>92-96</td>
-                                    <td>96-98</td>
-                                </tr>
-                                <tr>
-                                    <td>L</td>
-                                    <td>70-74</td>
-                                    <td>96-100</td>
-                                    <td>98-100</td>
-                                </tr>
-                                <tr>
-                                    <td>XL</td>
-                                    <td>74-78</td>
-                                    <td>100-104</td>
-                                    <td>100-102</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                    
                 
                 <div class="size-instructions">
                     <h3>Hướng dẫn đo kích thước</h3>

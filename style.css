@@ -106,9 +106,7 @@ section {
     color: #d1d1d1;
 }
 
-.search-bar {
-    
-}
+
 
 .search-dropdown {
     display: none;
@@ -180,7 +178,7 @@ section {
 }
 
 .featured-products {
-    background-color: #fff;
+    background-color: #FFFFF3;
 }
 
 .style-categories {
@@ -353,35 +351,45 @@ footer {
 /* Banner / Slider */
 .slider { 
     height: 600px; 
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover; 
+   
+    background-color:  rgba(0,0,0,0.0.4);
     display: flex; 
     align-items: center; 
     justify-content: center; 
     color: white; 
     text-align: center; 
-    position: relative;
+    /* position: relative; */
 }
-
+.back-vid{
+    top: 0;
+    position: absolute;
+    align-items: center; 
+    justify-content: center; 
+    z-index: -1;
+}
 .slider .content {
-    max-width: 800px;
+    max-width: 1200px;
     padding: 0 20px;
     z-index: 1;
 }
 
 .slider h1 { 
-    font-size: 3.5em; 
+    font-size: 4.5em; 
     font-weight: 800;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
 }
 
 .slider p {
-    font-size: 1.2em;
+    font-size: 2.2em;
     margin-bottom: 30px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 .slider .content .btn{
     color: white;
+    padding: 16px 34px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 .btn {
     display: inline-block;
@@ -403,11 +411,28 @@ footer {
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
-
+.contacts{
+    margin: 0;
+    display: block;
+     position: absolute;
+    align-items: center; 
+    justify-content: center; 
+    box-sizing: border-box;
+}
 .contact-container, .cart-container { max-width: 600px; margin: 80px auto; padding: 20px; }
 .contact-container h2, .cart-container h2 { text-align: center; margin-bottom: 20px; }
 .cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding: 10px 0; }
-
+.contacts .content{
+      max-width: 100%;
+  margin: 40px auto; /* căn giữa */
+  padding: 30px 25px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  position: relative;
+}
 @media (max-width: 768px) {
     .nav-links {
         display: none;

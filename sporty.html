@@ -45,12 +45,29 @@
                 font-weight: bold;
                 transition: all 0.3s;
             }
+header {
+    display: flex;
+    justify-content: center;
 
+}
+
+.container {
+    width: 1200px; /* hoặc 100%, hoặc giá trị bạn muốn */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 
+}
                 .style-banner .btn:hover {
                     background-color: #1565c0;
                     transform: translateY(-3px);
                 }
-
+main{
+    animation: fade-up 0.5s 0.2s backwards ;
+}
+body{
+    background-color: #FFFFF3;
+}
         .style-features {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
