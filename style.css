@@ -178,9 +178,27 @@ section {
 }
 
 .featured-products {
-    background-color: #FFFFF3;
-}
 
+    background-color: #FFFFF3;
+    padding: 50px 0;
+}
+@keyframes left-to-right{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+.product-grid .product-item{
+    animation: left-to-right linear infinite;
+}
+#product-4{
+    width: 280px;
+}
+#product-6{
+    width: 280px;
+}
 .style-categories {
     background-color: #f5f7fa;
 }
@@ -190,9 +208,19 @@ section {
 .style-categories .container .row .col-sm-4 .style-image{
    border-radius: 15%;
 }
+.row{
+    animation: appear 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
 
 .product-grid {
     display: grid;
+   
+     grid-auto-flow: column;
+    grid-auto-columns: min-content;
+    overflow-x: auto;      /* Cho phép cuộn ngang */
+   
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-bottom: 40px;
@@ -358,7 +386,7 @@ footer {
     justify-content: center; 
     color: white; 
     text-align: center; 
-    /* position: relative; */
+    position: relative;
 }
 .back-vid{
     top: 0;
@@ -405,11 +433,23 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
+.section-title{
+     animation: appear 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+.product-grid{
+     animation: appear 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
 .btn:hover {
     background-color: #1565c0;
     transform: translateY(-3px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+html{
+    scroll-behavior: smooth;
 }
 .contacts{
     margin: 0;
@@ -431,8 +471,19 @@ footer {
   border-radius: 16px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   z-index: 1;
-  position: relative;
+  
 }
+@keyframes appear{
+    from{
+        opacity: 0.3;
+        scale: 0.8;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
