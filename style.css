@@ -180,7 +180,7 @@ section {
 .featured-products {
 
     background-color: #FFFFF3;
-    padding: 50px 0;
+   
 }
 @keyframes left-to-right{
     0%{
@@ -191,13 +191,19 @@ section {
     }
 }
 .product-grid .product-item{
-    animation: left-to-right linear infinite;
+        display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+#product-1{
+    width: 300px;
 }
 #product-4{
-    width: 280px;
+    width: 300px;
 }
 #product-6{
-    width: 280px;
+    width: 300px;
 }
 .style-categories {
     background-color: #f5f7fa;
@@ -213,6 +219,48 @@ section {
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
+.style-categories .container{
+    position: relative;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    border: 10px solid #fff;
+    box-shadow:  10px 25px 30px #FFFFF3;
+}
+.wrapper{
+    width: 100%;
+    display: flex;
+     position: relative;
+    /* animation: slide 5s infinite; */
+}
+@keyframes slide{
+    0%{
+        transform: translateX(0);
+    }
+     25%{
+        transform: translateX(0);
+    }
+     30%{
+        transform: translateX(-100%);
+    }
+     50%{
+        transform: translateX(-100%);
+    }
+     55%{
+        transform: translateX(-200%);
+    }
+     75%{
+        transform: translateX(-200%);
+    }
+     80%{
+        transform: translateX(-300%);
+    }
+     100%{
+        transform: translateX(-300%);
+    }
+}
+
 
 .product-grid {
     display: grid;
@@ -331,7 +379,20 @@ section {
 .auth-container a:hover {
     text-decoration: underline;
 }
+    html, body {
+    height: 100%;
+    margin: 0;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
 footer {
     background: #f8f8f8;
     padding: 20px;
@@ -374,6 +435,9 @@ footer {
     display: none;
     font-size: 24px;
     cursor: pointer;
+}
+.slider-container .slider img{
+   background-position: center;
 }
 
 /* Banner / Slider */
