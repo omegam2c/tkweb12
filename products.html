@@ -1,11 +1,11 @@
 <script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+        return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
         if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
             try {
                 var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
@@ -19,11 +19,11 @@
 
                 // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
                 var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                    row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
                 );
                 // Fallback
                 if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
+                    headerRowIndex = 0;
                 }
 
                 // Convert filtered JSON back to CSV
@@ -36,15 +36,16 @@
             }
         }
         return gk_fileData[filename] || "";
-        }
-        </script><script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
+    }
+</script>
+<script type="text/javascript">
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+        return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
         if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
             try {
                 var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
@@ -58,11 +59,11 @@
 
                 // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
                 var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                    row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
                 );
                 // Fallback
                 if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
+                    headerRowIndex = 0;
                 }
 
                 // Convert filtered JSON back to CSV
@@ -75,16 +76,18 @@
             }
         }
         return gk_fileData[filename] || "";
-        }
+    }
 </script>
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tất cả sản phẩm thời trang tại HTDD: Vintage, Streetwear, Casual, Business, Sporty, Minimalist.">
+    <meta name="description"
+        content="Tất cả sản phẩm thời trang tại HTDD: Vintage, Streetwear, Casual, Business, Sporty, Minimalist.">
     <title>HTDD - Sản phẩm</title>
-<link rel="shortcut icon" href="images/logoHTDD.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images/logoHTDD.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
@@ -95,9 +98,11 @@
             margin: 40px auto;
             padding: 0 20px;
         }
-body{
-    background-color: #FFFFF3;
-}
+
+        body {
+            background-color: #FFFFF3;
+        }
+
         .products h2 {
             font-size: 32px;
             color: #333;
@@ -110,28 +115,32 @@ body{
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
-        main{
-            animation: fade-up 0.5s 0.2s backwards ;
+
+        main {
+            animation: fade-up 0.5s 0.2s backwards;
         }
-          html, body {
-    height: 100%;
-    margin: 0;
-}
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
 
-main {
-    flex: 1;
-}
-    footer{
-         color: white;
-    padding: 20px;
-    text-align: center;
-    }
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
         @media (max-width: 768px) {
             .products h2 {
@@ -144,19 +153,20 @@ main {
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="index.html"class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
+                    <a href="index.html" class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
                 </div>
-                
-                
+
+
                 <button class="hamburger">
                     <i class="fas fa-bars"></i>
                 </button>
-                
+
                 <ul class="nav-links">
                     <li><a href="index.html">Trang chủ</a></li>
                     <li><a href="products.html">Sản phẩm</a></li>
@@ -185,7 +195,7 @@ main {
                         <input type="text" placeholder="Tìm kiếm...">
                     </li>
                 </ul>
-                
+
                 <div class="cart-icon">
                     <a href="cart.html">
                         <i class="fas fa-shopping-cart"></i>
@@ -226,7 +236,8 @@ main {
                     <i class="fas fa-money-bill-wave"></i>
                 </div>
                 <h3>Theo dõi chúng tôi</h3>
-                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a
+                        href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -236,7 +247,8 @@ main {
 
     <ul class="btn-contact">
         <li><a class="btn-hotline" href="tel:0944356789"><i class="fas fa-phone-alt"></i><span>Gọi ngay</span></a></li>
-        <li><a class="btn-zalo" href="//zalo.me/0944356789"><i class="fas fa-comment-dots"></i><span>Chat Zalo</span></a></li>
+        <li><a class="btn-zalo" href="//zalo.me/0944356789"><i class="fas fa-comment-dots"></i><span>Chat
+                    Zalo</span></a></li>
         <li><a id="btn-email" class="btn-email" href="#"><i class="fas fa-envelope"></i><span>Đăng ký</span></a></li>
         <li><a class="btn-local" href="contact.html"><i class="fas fa-map-marker-alt"></i><span>Địa chỉ</span></a></li>
         <li><a class="btn-top" href="#top"><i class="fas fa-arrow-up"></i><span>Trở về đầu</span></a></li>
@@ -245,6 +257,7 @@ main {
     <script src="script.js"></script>
     <script src="menu.js"></script>
     <script src="cart.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93db0c393e97afa1',t:'MTc0Njg5NzAwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'93db0c393e97afa1',t:'MTc0Njg5NzAwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
+
 </html>

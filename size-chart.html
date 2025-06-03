@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,52 +16,58 @@
             padding: 80px 0;
             background-color: #fff;
         }
-        
+
         .size-chart-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 15px;
-        }body{
-    background-color: #FFFFF3;
-}
-        
-.container {
-      max-width: 1200px;
-  margin: -10px auto;        /* Căn giữa ngang */
-  padding: 0 20px;       /* Thêm padding nếu cần */
-  display: flex;         /* Đảm bảo các phần tử bên trong có thể chia layout */
-  align-items: center;   /* Căn giữa theo chiều dọc nếu cần */
-  justify-content: space-between; 
-}
+        }
+
+        body {
+            background-color: #FFFFF3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -10px auto;
+            /* Căn giữa ngang */
+            padding: 0 20px;
+            /* Thêm padding nếu cần */
+            display: flex;
+            /* Đảm bảo các phần tử bên trong có thể chia layout */
+            align-items: center;
+            /* Căn giữa theo chiều dọc nếu cần */
+            justify-content: space-between;
+        }
 
         .size-chart-heading {
             margin-bottom: 30px;
             text-align: center;
         }
-        
+
         .size-chart-heading h1 {
             font-size: 36px;
             margin-bottom: 15px;
             color: #333;
         }
-        
+
         .size-chart-heading p {
             color: #666;
             font-size: 16px;
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .size-tab-container {
             margin-bottom: 40px;
         }
-        
+
         .size-tabs {
             display: flex;
             border-bottom: 1px solid #ddd;
             margin-bottom: 20px;
         }
-        
+
         .size-tab {
             padding: 10px 20px;
             cursor: pointer;
@@ -68,132 +75,137 @@
             border-bottom: 3px solid transparent;
             transition: all 0.3s;
         }
-        
+
         .size-tab.active {
             color: #1e88e5;
             border-bottom-color: #1e88e5;
         }
-        
+
         .size-content {
             display: none;
         }
-        
+
         .size-content.active {
             display: block;
         }
-        
+
         .size-chart-table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
-        
-        .size-chart-table th, .size-chart-table td {
+
+        .size-chart-table th,
+        .size-chart-table td {
             border: 1px solid #ddd;
             padding: 15px;
             text-align: center;
         }
-        
+
         .size-chart-table th {
             background-color: #f5f5f5;
             font-weight: 600;
         }
-        
+
         .size-chart-table tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        
+
         .size-chart-table tr:hover {
             background-color: #f1f1f1;
         }
-        
+
         .size-instructions {
             background-color: #f5f7fa;
             padding: 30px;
             border-radius: 8px;
             margin: 30px 0;
         }
-        
+
         .size-instructions h3 {
             margin-bottom: 15px;
             font-size: 20px;
             color: #333;
         }
-        
+
         .size-instructions ol {
             padding-left: 20px;
         }
-        
+
         .size-instructions li {
             margin-bottom: 10px;
         }
-        
+
         .measurement-images {
             display: flex;
             justify-content: space-between;
             margin: 30px 0;
             flex-wrap: wrap;
         }
-        
+
         .measurement-image {
             width: 48%;
             margin-bottom: 20px;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .measurement-image img {
             width: 100%;
             height: auto;
             display: block;
         }
-          html, body {
-    height: 100%;
-    margin: 0;
-}
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
 
-main {
-    flex: 1;
-}
-    footer{
-         color: white;
-    padding: 20px;
-    text-align: center;
-    }
-        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             .size-tabs {
                 overflow-x: auto;
                 white-space: nowrap;
                 padding-bottom: 5px;
             }
-            
+
             .measurement-image {
                 width: 100%;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="index.html"class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
+                    <a href="index.html" class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
                 </div>
 
-                
+
                 <button class="hamburger">
                     <i class="fas fa-bars"></i>
                 </button>
-                
+
                 <ul class="nav-links">
                     <li><a href="index.html">Trang chủ</a></li>
                     <li><a href="products.html">Sản phẩm</a></li>
@@ -221,7 +233,7 @@ main {
                         <input type="text" placeholder="Tìm kiếm...">
                     </li>
                 </ul>
-                
+
                 <div class="cart-icon">
                     <a href="cart.html">
                         <i class="fas fa-shopping-cart"></i>
@@ -239,13 +251,13 @@ main {
                     <h1>Bảng kích thước</h1>
                     <p>Tham khảo bảng kích thước của chúng tôi để chọn được size phù hợp nhất với vóc dáng của bạn.</p>
                 </div>
-                
+
                 <div class="size-tab-container">
                     <div class="size-tabs">
                         <div class="size-tab active" onclick="openSizeTab(event, 'men')">Nam</div>
-                      
+
                     </div>
-                    
+
                     <div id="men" class="size-content active">
                         <h2>Áo nam</h2>
                         <table class="size-chart-table">
@@ -296,7 +308,7 @@ main {
                                 </tr>
                             </tbody>
                         </table>
-                        
+
                         <h2>Quần nam</h2>
                         <table class="size-chart-table">
                             <thead>
@@ -341,39 +353,42 @@ main {
                             </tbody>
                         </table>
                     </div>
-                    
-                    
-                
-                <div class="size-instructions">
-                    <h3>Hướng dẫn đo kích thước</h3>
-                    <ol>
-                        <li><strong>Vai:</strong> Đo từ đầu vai trái đến đầu vai phải.</li>
-                        <li><strong>Ngực:</strong> Đo vòng quanh phần ngực to nhất.</li>
-                        <li><strong>Eo:</strong> Đo vòng quanh eo, thường ở khu vực hẹp nhất của thân trên.</li>
-                        <li><strong>Mông:</strong> Đo vòng quanh phần mông to nhất.</li>
-                        <li><strong>Chiều dài áo:</strong> Đo từ đỉnh vai xuống đến gấu áo.</li>
-                        <li><strong>Chiều dài quần:</strong> Đo từ thắt lưng xuống đến mắt cá chân.</li>
-                    </ol>
-                </div>
-                
-                <div class="measurement-images">
-                    <div class="measurement-image">
-                        <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Cách đo kích thước áo">
+
+
+
+                    <div class="size-instructions">
+                        <h3>Hướng dẫn đo kích thước</h3>
+                        <ol>
+                            <li><strong>Vai:</strong> Đo từ đầu vai trái đến đầu vai phải.</li>
+                            <li><strong>Ngực:</strong> Đo vòng quanh phần ngực to nhất.</li>
+                            <li><strong>Eo:</strong> Đo vòng quanh eo, thường ở khu vực hẹp nhất của thân trên.</li>
+                            <li><strong>Mông:</strong> Đo vòng quanh phần mông to nhất.</li>
+                            <li><strong>Chiều dài áo:</strong> Đo từ đỉnh vai xuống đến gấu áo.</li>
+                            <li><strong>Chiều dài quần:</strong> Đo từ thắt lưng xuống đến mắt cá chân.</li>
+                        </ol>
                     </div>
-                    <div class="measurement-image">
-                        <img src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Cách đo kích thước quần">
+
+                    <div class="measurement-images">
+                        <div class="measurement-image">
+                            <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                                alt="Cách đo kích thước áo">
+                        </div>
+                        <div class="measurement-image">
+                            <img src="https://images.unsplash.com/photo-1544441892-794166f1e3be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                                alt="Cách đo kích thước quần">
+                        </div>
+                    </div>
+
+                    <div class="size-instructions">
+                        <h3>Lưu ý khi chọn size</h3>
+                        <ul>
+                            <li>Nếu số đo của bạn nằm giữa hai size, nên chọn size lớn hơn để thoải mái.</li>
+                            <li>Các sản phẩm có thể có chút sai số (±2cm) do quá trình sản xuất.</li>
+                            <li>Bảng kích thước chỉ mang tính chất tham khảo. Vui lòng liên hệ với chúng tôi nếu bạn cần
+                                tư vấn thêm.</li>
+                        </ul>
                     </div>
                 </div>
-                
-                <div class="size-instructions">
-                    <h3>Lưu ý khi chọn size</h3>
-                    <ul>
-                        <li>Nếu số đo của bạn nằm giữa hai size, nên chọn size lớn hơn để thoải mái.</li>
-                        <li>Các sản phẩm có thể có chút sai số (±2cm) do quá trình sản xuất.</li>
-                        <li>Bảng kích thước chỉ mang tính chất tham khảo. Vui lòng liên hệ với chúng tôi nếu bạn cần tư vấn thêm.</li>
-                    </ul>
-                </div>
-            </div>
         </section>
     </main>
 
@@ -400,7 +415,8 @@ main {
                     <i class="fas fa-money-bill-wave"></i>
                 </div>
                 <h3>Theo dõi chúng tôi</h3>
-                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a
+                        href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -411,22 +427,23 @@ main {
     <script>
         function openSizeTab(evt, tabName) {
             var i, tabcontent, tablinks;
-            
+
             tabcontent = document.getElementsByClassName("size-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].className = tabcontent[i].className.replace(" active", "");
             }
-            
+
             tablinks = document.getElementsByClassName("size-tab");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            
+
             document.getElementById(tabName).className += " active";
             evt.currentTarget.className += " active";
         }
     </script>
-    
+
     <script src="menu.js"></script>
 </body>
+
 </html>

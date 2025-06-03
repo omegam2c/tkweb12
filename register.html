@@ -1,11 +1,11 @@
 <script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+        return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
         if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
             try {
                 var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
@@ -19,11 +19,11 @@
 
                 // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
                 var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                    row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
                 );
                 // Fallback
                 if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
+                    headerRowIndex = 0;
                 }
 
                 // Convert filtered JSON back to CSV
@@ -36,10 +36,11 @@
             }
         }
         return gk_fileData[filename] || "";
-        }
+    }
 </script>
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +66,7 @@
                 <button class="hamburger">
                     <i class="fas fa-bars"></i>
                 </button>
-                
+
                 <ul class="nav-links">
                     <li><a href="index.html">Trang chủ</a></li>
                     <li><a href="products.html">Sản phẩm</a></li>
@@ -77,7 +78,7 @@
                             <li><a href="business.html">Business</a></li>
                             <li><a href="sporty.html">Sporty</a></li>
                             <li><a href="vintage.html">Vintage</a></li>
-                            <li><a href="minimalist.html">Minimalist</a></li>   
+                            <li><a href="minimalist.html">Minimalist</a></li>
                         </ul>
                     </li>
                     <li><a href="news.html">Tin tức</a></li>
@@ -93,7 +94,7 @@
                         <input type="text" placeholder="Tìm kiếm...">
                     </li>
                 </ul>
-                
+
                 <div class="cart-icon">
                     <a href="cart.html">
                         <i class="fas fa-shopping-cart"></i>
@@ -113,23 +114,29 @@
             <div class="fields">
                 <div class="fullname">
                     <svg class="svg-icon" viewBox="0 0 20 20">
-                        <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
+                        <path
+                            d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z">
+                        </path>
                     </svg>
                     <input type="text" class="user-input" id="fullname" placeholder="Họ và tên">
                 </div>
                 <span class="error-message" id="fullname-error">Vui lòng nhập họ và tên</span>
-                
+
                 <div class="username">
                     <svg class="svg-icon" viewBox="0 0 20 20">
-                        <path d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z"></path>
+                        <path
+                            d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z">
+                        </path>
                     </svg>
                     <input type="email" class="user-input" id="email" placeholder="Email">
                 </div>
                 <span class="error-message" id="email-error">Vui lòng nhập email hợp lệ</span>
-                
+
                 <div class="password">
                     <svg class="svg-icon" viewBox="0 0 20 20">
-                        <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
+                        <path
+                            d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878">
+                        </path>
                     </svg>
                     <input type="password" class="pass-input" id="password" placeholder="Mật khẩu">
                     <i class="fas fa-eye-slash toggle-password" id="togglePassword"></i>
@@ -144,10 +151,12 @@
                     </ul>
                 </div>
                 <span class="error-message" id="password-error">Vui lòng nhập mật khẩu hợp lệ</span>
-                
+
                 <div class="confirm-password">
                     <svg class="svg-icon" viewBox="0 0 20 20">
-                        <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
+                        <path
+                            d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878">
+                        </path>
                     </svg>
                     <input type="password" class="pass-input" id="confirm-password" placeholder="Xác nhận mật khẩu">
                     <i class="fas fa-eye-slash toggle-password" id="toggleConfirmPassword"></i>
@@ -155,7 +164,7 @@
                 <span class="error-message" id="confirm-password-error">Mật khẩu không khớp</span>
             </div>
             <button class="register-button" id="register-button">Đăng ký</button>
-            
+
             <div class="link">
                 <p>Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
             </div>
@@ -185,7 +194,8 @@
                     <i class="fas fa-money-bill-wave"></i>
                 </div>
                 <h3>Theo dõi chúng tôi</h3>
-                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a
+                        href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -195,7 +205,8 @@
 
     <ul class="btn-contact">
         <li><a class="btn-hotline" href="tel:0944356789"><i class="fas fa-phone-alt"></i><span>Gọi ngay</span></a></li>
-        <li><a class="btn-zalo" href="//zalo.me/0944356789"><i class="fas fa-comment-dots"></i><span>Chat Zalo</span></a></li>
+        <li><a class="btn-zalo" href="//zalo.me/0944356789"><i class="fas fa-comment-dots"></i><span>Chat
+                    Zalo</span></a></li>
         <li><a id="btn-email" class="btn-email" href="#"><i class="fas fa-envelope"></i><span>Đăng ký</span></a></li>
         <li><a class="btn-local" href="contact.html"><i class="fas fa-map-marker-alt"></i><span>Địa chỉ</span></a></li>
         <li><a class="btn-top" href="#top"><i class="fas fa-arrow-up"></i><span>Trở về đầu</span></a></li>
@@ -205,4 +216,5 @@
     <script src="menu.js"></script>
     <script src="login_register.js"></script>
 </body>
+
 </html>

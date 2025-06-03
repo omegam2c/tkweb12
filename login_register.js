@@ -24,7 +24,7 @@ if (toggleConfirmPassword && confirmPassword) {
 
 // Password requirements check
 if (password) {
-    password.addEventListener('input', function(e) {
+    password.addEventListener('input', function (e) {
         const password = e.target.value;
         document.getElementById('req-length').className = password.length >= 8 ? 'valid' : 'invalid';
         document.getElementById('req-upper').className = /[A-Z]/.test(password) ? 'valid' : 'invalid';
@@ -37,11 +37,11 @@ if (password) {
 // Login form validation
 const loginBtn = document.querySelector('.login-button');
 if (loginBtn) {
-    loginBtn.addEventListener('click', function(e) {
+    loginBtn.addEventListener('click', function (e) {
         e.preventDefault();
         const usernameOrEmail = document.querySelector('.user-input').value.trim();
         const password = document.querySelector('.pass-input').value.trim();
-        
+
         if (!usernameOrEmail) {
             alert('Vui lòng nhập email hoặc tên đăng nhập');
             return;
@@ -71,7 +71,7 @@ if (loginBtn) {
 // Register form validation
 const registerBtn = document.getElementById('register-button');
 if (registerBtn) {
-    registerBtn.addEventListener('click', function(e) {
+    registerBtn.addEventListener('click', function (e) {
         e.preventDefault();
 
         const fullname = document.getElementById('fullname').value.trim();
@@ -144,7 +144,7 @@ if (registerBtn) {
 }
 
 // Adjust layout on load
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     const main = document.querySelector('main');
     const loginDiv = document.querySelector('.login-div');
     const registerDiv = document.querySelector('.register-div');
@@ -163,7 +163,7 @@ window.addEventListener('load', function() {
 });
 
 // Adjust layout on resize
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     const main = document.querySelector('main');
     const loginDiv = document.querySelector('.login-div');
     const registerDiv = document.querySelector('.register-div');

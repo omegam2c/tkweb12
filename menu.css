@@ -9,8 +9,8 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #ffffff;
-    
-    
+
+
 }
 
 .container {
@@ -41,17 +41,19 @@ nav {
 .logo {
     font-size: 24px;
     font-weight: bold;
-    
+
 }
 
 .logo a {
     color: #1e88e5;
     text-decoration: none;
 }
+
 .nav-icons {
     display: flex;
     align-items: center;
-    gap: 20px; /* khoảng cách giữa cart và hamburger */
+    gap: 20px;
+    /* khoảng cách giữa cart và hamburger */
 }
 
 /* Main menu */
@@ -81,7 +83,7 @@ nav {
 }
 
 /* Underline animation for menu items */
- .nav-links a::after {
+.nav-links a::after {
     content: '';
     position: absolute;
     width: 0;
@@ -90,18 +92,22 @@ nav {
     left: 0;
     background-color: #1e88e5;
     transition: width 0.3s;
-} 
+}
+
 .nav-links a:hover::after {
     width: 100%;
-} 
-nav a::after {
-  display: none !important;
 }
+
+nav a::after {
+    display: none !important;
+}
+
 /* Dropdown menu */
 .dropdown {
     position: relative;
 }
-.slider .content{
+
+.slider .content {
     animation: fade-up 0.5s 0.4s backwards;
 }
 
@@ -184,7 +190,7 @@ nav a::after {
 
 /* Cart icon */
 .cart-icon {
-    
+
     margin-left: 25px;
     position: relative;
 }
@@ -251,28 +257,33 @@ nav a::after {
     color: #1e88e5;
     background-color: #f8f9fa;
 }
-@keyframes fade-down{
-    0%{
-    opacity: 0;
-    transform: translateY(-30px) scale(0.9);
+
+@keyframes fade-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
 
     }
-    100%{
-    opacity: 1;
-    transform: translateY(0px) scale(1);
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
     }
 }
-@keyframes fade-up{
-    0%{
-    opacity: 0;
-    transform: translateY(30px) scale(0.9);
+
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
 
     }
-    100%{
-    opacity: 1;
-    transform: translateY(0px) scale(1);
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
     }
 }
+
 /* Responsive styles */
 @media (max-width: 992px) {
     .nav-links {
@@ -286,7 +297,8 @@ nav a::after {
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         padding: 20px 0;
     }
-nav {
+
+    nav {
         flex-direction: row;
         justify-content: space-between;
     }
@@ -294,8 +306,10 @@ nav {
     .nav-icons {
         display: flex;
         align-items: center;
-        gap: 16px; /* khoảng cách giữa cart và hamburger */
+        gap: 16px;
+        /* khoảng cách giữa cart và hamburger */
     }
+
     .nav-links.active {
         display: flex;
     }
@@ -328,13 +342,13 @@ nav {
         padding-left: 40px;
     }
 
-    .dropdown > a {
+    .dropdown>a {
         display: flex !important;
         justify-content: space-between;
         align-items: center;
     }
 
-    .dropdown > a::after {
+    .dropdown>a::after {
         content: '\f107';
         font-family: 'Font Awesome 5 Free';
         font-weight: 900;
@@ -379,7 +393,7 @@ nav {
         right: 10px;
     }
 
-    .nav-links li.account-menu, 
+    .nav-links li.account-menu,
     .nav-links li:not(.dropdown, .account-menu) {
         border-bottom: 1px solid #eee;
     }

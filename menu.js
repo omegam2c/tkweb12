@@ -1,48 +1,48 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
-    
+
     if (hamburger) {
-        hamburger.addEventListener('click', function() {
+        hamburger.addEventListener('click', function () {
             navLinks.classList.toggle('active');
         });
     }
-    
+
     // Mobile dropdown menus
     const dropdowns = document.querySelectorAll('.dropdown');
-    
+
     dropdowns.forEach(dropdown => {
         const dropdownLink = dropdown.querySelector('a');
-        
+
         // For mobile view
         if (window.innerWidth < 992) {
-            dropdownLink.addEventListener('click', function(e) {
+            dropdownLink.addEventListener('click', function (e) {
                 e.preventDefault();
                 dropdown.classList.toggle('active');
             });
         }
     });
-    
+
     // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (!navLinks.contains(e.target) && !hamburger.contains(e.target) && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
         }
     });
-    
+
     // Account menu toggle for mobile
     const accountMenu = document.querySelector('.account-menu');
     if (accountMenu && window.innerWidth < 992) {
         const accountLink = accountMenu.querySelector('a');
-        accountLink.addEventListener('click', function(e) {
+        accountLink.addEventListener('click', function (e) {
             e.preventDefault();
             accountMenu.classList.toggle('active');
         });
     }
-    
+
     // Handle window resize
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         if (window.innerWidth >= 992) {
             navLinks.classList.remove('active');
             dropdowns.forEach(dropdown => {
@@ -53,11 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-    
+
     // Search functionality
     const searchInput = document.querySelector('.search-bar input');
     if (searchInput) {
-        searchInput.addEventListener('keypress', function(e) {
+        searchInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 const searchTerm = this.value.trim();
                 if (searchTerm) {
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // Add smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

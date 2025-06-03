@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,45 +11,49 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="additional.css">
-  <style>
-    html, body {
-    height: 100%;
-    margin: 0;
-}
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-main {
-    flex: 1;
-}
-    footer{
-         color: white;
-    padding: 20px;
-    text-align: center;
-    }
-    .container{
+        main {
+            flex: 1;
+        }
+
+        footer {
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
             margin-top: -10px;
 
-    }
-  </style>
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="index.html"class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
+                    <a href="index.html" class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
                 </div>
 
-                
+
                 <button class="hamburger">
                     <i class="fas fa-bars"></i>
                 </button>
-                
+
                 <ul class="nav-links">
                     <li><a href="index.html">Trang chủ</a></li>
                     <li><a href="products.html">Sản phẩm</a></li>
@@ -60,7 +65,7 @@ main {
                             <li><a href="business.html">Business</a></li>
                             <li><a href="sporty.html">Sporty</a></li>
                             <li><a href="vintage.html">Vintage</a></li>
-                            <li><a href="minimalist.html">Minimalist</a></li>   
+                            <li><a href="minimalist.html">Minimalist</a></li>
                         </ul>
                     </li>
                     <li><a href="news.html">Tin tức</a></li>
@@ -76,7 +81,7 @@ main {
                         <input type="text" placeholder="Tìm kiếm...">
                     </li>
                 </ul>
-                
+
                 <div class="cart-icon">
                     <a href="cart.html">
                         <i class="fas fa-shopping-cart"></i>
@@ -88,7 +93,7 @@ main {
     </header>
 
     <main>
-        
+
     </main>
 
     <footer>
@@ -114,7 +119,8 @@ main {
                     <i class="fas fa-money-bill-wave"></i>
                 </div>
                 <h3>Theo dõi chúng tôi</h3>
-                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a
+                        href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -124,7 +130,8 @@ main {
 
     <ul class="btn-contact">
         <li><a class="btn-hotline" href="tel:0944356789"><i class="fas fa-phone-alt"></i><span>Gọi ngay</span></a></li>
-        <li><a class="btn-zalo" href="//zalo.me/0944356789"><i class="fas fa-comment-dots"></i><span>Chat Zalo</span></a></li>
+        <li><a class="btn-zalo" href="//zalo.me/0944356789"><i class="fas fa-comment-dots"></i><span>Chat
+                    Zalo</span></a></li>
         <li><a id="btn-email" class="btn-email" href="#"><i class="fas fa-envelope"></i><span>Đăng ký</span></a></li>
         <li><a class="btn-local" href="contact.html"><i class="fas fa-map-marker-alt"></i><span>Địa chỉ</span></a></li>
         <li><a class="btn-top" href="#top"><i class="fas fa-arrow-up"></i><span>Trở về đầu</span></a></li>
@@ -133,48 +140,49 @@ main {
     <script src="script.js"></script>
     <script src="menu.js"></script>
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
 
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
-        const emailError = document.getElementById('email-error');
-        const passwordError = document.getElementById('password-error');
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const emailError = document.getElementById('email-error');
+            const passwordError = document.getElementById('password-error');
 
-        // Reset error messages
-        emailError.style.display = 'none';
-        passwordError.style.display = 'none';
+            // Reset error messages
+            emailError.style.display = 'none';
+            passwordError.style.display = 'none';
 
-        let isValid = true;
+            let isValid = true;
 
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email) {
-            emailError.textContent = 'Vui lòng nhập email.';
-            emailError.style.display = 'block';
-            isValid = false;
-        } else if (!emailRegex.test(email)) {
-            emailError.textContent = 'Vui lòng nhập email hợp lệ.';
-            emailError.style.display = 'block';
-            isValid = false;
-        }
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email) {
+                emailError.textContent = 'Vui lòng nhập email.';
+                emailError.style.display = 'block';
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                emailError.textContent = 'Vui lòng nhập email hợp lệ.';
+                emailError.style.display = 'block';
+                isValid = false;
+            }
 
-        // Password validation
-        if (!password) {
-            passwordError.textContent = 'Vui lòng nhập mật khẩu.';
-            passwordError.style.display = 'block';
-            isValid = false;
-        }
+            // Password validation
+            if (!password) {
+                passwordError.textContent = 'Vui lòng nhập mật khẩu.';
+                passwordError.style.display = 'block';
+                isValid = false;
+            }
 
-        if (!isValid) return;
+            if (!isValid) return;
 
-        // Kiểm tra thông tin đăng nhập
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const encodedPassword = btoa(password);
-        const user = users.find(user => user.email === email && user.password === encodedPassword);
+            // Kiểm tra thông tin đăng nhập
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const encodedPassword = btoa(password);
+            const user = users.find(user => user.email === email && user.password === encodedPassword);
 
-    });
+        });
     </script>
     <script src="auth.js"></script>
 </body>
+
 </html>
