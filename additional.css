@@ -212,7 +212,277 @@ footer {
 .btn-contact li a:hover {
     transform: translateX(-10px);
 }
+.detail-pros{ 
+    position: relative;
+}
+.content{
+    padding-right: 30px;
+    width: 100%;
+    font-size: large;
+}
+@keyframes appear{
+    from{
+        opacity: 0.3;
+        scale: 0.8;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
+}
+@keyframes transleft{
+    from{
+        opacity: 0.3;
+        transform: translateX(-20%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+@keyframes transright{
+    from{
+        opacity: 0.3;
+        transform: translateX(20%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+/* street  */
+.streetwear {
+    background-color: #D3D3D3;
+    display: flex;
+    align-items: center;     /* Căn giữa theo chiều dọc nếu cần */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    height: 100vh;           /* Chiếm toàn bộ chiều cao màn hình */
+    padding: 0 50px;
+    box-sizing: border-box;
+    height: fit-content;
+    
+}
 
+.content, .street-pic {
+    flex: 1; /* Chia đôi đều nhau */
+}
+
+#st{
+   animation: transleft 1s ease;
+   animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    font-size: x-large;
+       font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+.street-pic img {
+     max-width: 90%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    animation: appear 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+/* casual */
+.casual {
+    background-color:  	#FFF5E1;
+    display: flex;
+    align-items: center;     /* Căn giữa theo chiều dọc nếu cần */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    height: 100vh;           /* Chiếm toàn bộ chiều cao màn hình */
+    padding: 0 50px;
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+.content, .casual-pic {
+    flex: 1; /* Chia đôi đều nhau */
+}
+
+#cs{
+    animation: transright 1s ease;
+   animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    font-size: x-large;
+       font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+.casual-pic img {
+     max-width: 90%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    animation: appear 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+/* business */
+.business {
+    background-color:  		#DCE3EA;
+    display: flex;
+    align-items: center;     /* Căn giữa theo chiều dọc nếu cần */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    height: 100vh;           /* Chiếm toàn bộ chiều cao màn hình */
+    padding: 0 50px;
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+.content, .business-pic {
+    flex: 1; /* Chia đôi đều nhau */
+}
+
+#bs{
+    animation: transleft 1s ease;
+   animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    font-size: x-large;
+        font-family: "Alumni Sans SC", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-size: xx-large;
+}   
+
+.business-pic img {
+     animation: appear 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+     max-width: 90%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+.business .content .btn{
+    width: 111px;
+    height: 38px;
+    font-size: x-large;
+}
+/* sporty */
+.sporty {
+    background-color:  		#CFF1F1;
+    display: flex;
+    align-items: center;     /* Căn giữa theo chiều dọc nếu cần */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    height: 100vh;           /* Chiếm toàn bộ chiều cao màn hình */
+    padding: 0 50px;
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+.content, .sporty-pic {
+    flex: 1; /* Chia đôi đều nhau */
+}
+
+#sp{
+    animation: transright 1s ease;
+   animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    font-size: x-large;
+   font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}   
+
+.sporty-pic img {
+     max-width: 90%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    animation: appear 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+.sporty .content .btn{
+    width: 120px;
+    height: 38px;
+    font-size: 65%;
+}
+/* vintage */
+.vintage {
+    background-color:  	#D8CAB8;
+    display: flex;
+    align-items: center;     /* Căn giữa theo chiều dọc nếu cần */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    height: 100vh;           /* Chiếm toàn bộ chiều cao màn hình */
+    padding: 0 50px;
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+.content, .vintage-pic {
+    flex: 1; /* Chia đôi đều nhau */
+}
+
+#vt{
+    animation: transleft 1s ease;
+   animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    font-size: xx-large;
+   font-family: "Macondo", cursive;
+  font-weight: 400;
+  font-style: normal;
+}   
+
+.vintage-pic img {
+     max-width: 90%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    animation: appear 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+/* .vintage .content .btn{
+    width: 120px;
+    height: 38px;
+    font-size: 65%;
+} */
+ /* minimalist */
+ .minimalist {
+    background-color: #EDE6DB;
+    display: flex;
+    align-items: center;     /* Căn giữa theo chiều dọc nếu cần */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    height: 100vh;           /* Chiếm toàn bộ chiều cao màn hình */
+    padding: 0 50px;
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+.content, .minimal-pic {
+    flex: 1; /* Chia đôi đều nhau */
+}
+
+#mn{
+    animation: transright 1s ease;
+   animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    font-size: xx-large;
+   font-family: "Texturina", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}   
+
+.minimal-pic img {
+     max-width: 90%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    animation: appear 1s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
 /* Responsive design */
 @media (max-width: 768px) {
     .slider {
@@ -252,4 +522,5 @@ footer {
     .btn-contact li a i {
         margin-right: 0;
     }
+ 
 }
