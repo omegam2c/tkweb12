@@ -10,19 +10,19 @@ function registerUser(event) {
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
     const confirmPassword = document.getElementById("confirm-password").value.trim();
-    
+
     // Lấy các phần tử hiển thị lỗi
     const fullNameError = document.getElementById("full-name-error");
     const emailError = document.getElementById("email-error");
     const passwordError = document.getElementById("password-error");
     const confirmPasswordError = document.getElementById("confirm-password-error");
-    
+
     // Reset tất cả thông báo lỗi
     fullNameError.style.display = 'none';
     emailError.style.display = 'none';
     passwordError.style.display = 'none';
     confirmPasswordError.style.display = 'none';
-    
+
     let isValid = true;
 
     // Kiểm tra họ tên (ít nhất 2 từ, mỗi từ ít nhất 2 ký tự)
@@ -60,7 +60,7 @@ function registerUser(event) {
         if (!/[a-z]/.test(password)) errors.push('Ít nhất 1 chữ cái thường');
         if (!/\d/.test(password)) errors.push('Ít nhất 1 chữ số');
         if (!/[@$!%*?&]/.test(password)) errors.push('Ít nhất 1 ký tự đặc biệt (@$!%*?&)');
-        
+
         if (errors.length > 0) {
             passwordError.textContent = 'Mật khẩu chưa đáp ứng các yêu cầu: ' + errors.join(', ');
             passwordError.style.display = 'block';
@@ -80,9 +80,9 @@ function registerUser(event) {
     // Mã hóa password trước khi lưu
     const encodedPassword = btoa(password);
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    users.push({ 
-        name: fullName, 
-        email: email, 
+    users.push({
+        name: fullName,
+        email: email,
         password: encodedPassword,
         createdAt: new Date().toISOString() // Thêm thời gian tạo tài khoản
     });
@@ -142,23 +142,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (registerForm) {
         registerForm.querySelector('input').focus();
         registerForm.addEventListener("submit", registerUser);
-        
+
         // Real-time email validation
         const emailInput = document.getElementById("email");
-        emailInput.addEventListener('blur', function() {
+        emailInput.addEventListener('blur', function () {
             const email = this.value.trim();
             const emailError = document.getElementById("email-error");
             emailError.style.display = 'none';
-            
+
             if (!email) return;
-            
+
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 emailError.textContent = 'Vui lòng nhập email hợp lệ.';
                 emailError.style.display = 'block';
                 return;
             }
-            
+
             if (isEmailExist(email)) {
                 emailError.textContent = 'Email này đã được đăng ký.';
                 emailError.style.display = 'block';
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loginForm.querySelector('input').focus();
         loginForm.addEventListener("submit", loginUser);
     }
-    
+
     // Kiểm tra nếu đã đăng nhập thì redirect
     if (localStorage.getItem("currentUser") && window.location.pathname.includes('login.html')) {
         window.location.href = "index.html";
