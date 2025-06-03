@@ -37,173 +37,30 @@
         }
         return gk_fileData[filename] || "";
         }
-        </script><!DOCTYPE html>
+</script>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Đăng ký tài khoản tại HTDD để khám phá thời trang đa phong cách.">
+    <meta name="description" content="Đăng ký tài khoản HTDD để mua sắm thời trang đa phong cách.">
     <title>HTDD - Đăng ký</title>
     <link rel="shortcut icon" href="images/logoHTDD.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="additional.css">
-    <style>
-        .auth-section {
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .auth-section h2 {
-            font-size: 28px;
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .auth-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-size: 14px;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .form-group input {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            outline: none;
-        }
-
-        .form-group input:focus {
-            border-color: #1e88e5;
-            box-shadow: 0 0 5px rgba(30, 136, 229, 0.3);
-        }
-
-        .error-message {
-            color: #ff6b6b;
-            font-size: 12px;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .btn {
-            background-color: #1e88e5;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #1565c0;
-            transform: translateY(-3px);
-        }
-
-        .auth-links {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .auth-links a {
-            color: #1e88e5;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .auth-links a:hover {
-            text-decoration: underline;
-        }
-main{
-    animation: fade-up 0.5s 0.2s backwards ;
-}
-body{
-    background-color: #FFFFF3;
-}
-  html, body {
-    height: 100%;
-    margin: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main {
-    flex: 1;
-}
-    footer{
-         color: white;
-    padding: 20px;
-    text-align: center;
-    }
-        @media (max-width: 768px) {
-            .auth-section {
-                margin: 20px;
-                padding: 15px;
-            }
-
-            .auth-section h2 {
-                font-size: 24px;
-            }
-        }
-        .password-requirements {
-            margin-top: 5px;
-            font-size: 12px;
-            color: #666;
-        }
-        
-        .password-requirements ul {
-            margin: 5px 0;
-            padding-left: 20px;
-        }
-        
-        .password-requirements li.valid {
-            color: #4CAF50;
-        }
-        
-        .password-requirements li.invalid {
-            color: #f44336;
-        }
-        
-        input:invalid {
-            box-shadow: none;
-        }
-
-        input:invalid:focus {
-            box-shadow: none;
-        }
-    </style>
+    <link rel="stylesheet" href="login_register.css">
 </head>
+
 <body>
     <header>
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="index.html"class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
+                    <a href="index.html" class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
                 </div>
-                
 
                 <button class="hamburger">
                     <i class="fas fa-bars"></i>
@@ -220,7 +77,7 @@ main {
                             <li><a href="business.html">Business</a></li>
                             <li><a href="sporty.html">Sporty</a></li>
                             <li><a href="vintage.html">Vintage</a></li>
-                            <li><a href="minimalist.html">Minimalist</a></li>
+                            <li><a href="minimalist.html">Minimalist</a></li>   
                         </ul>
                     </li>
                     <li><a href="news.html">Tin tức</a></li>
@@ -248,45 +105,61 @@ main {
     </header>
 
     <main>
-        <section class="auth-section">
-            <h2>Đăng ký</h2>
-            <form id="register-form" class="auth-form" novalidate>
-                <div class="form-group">
-                    <label for="full-name">Họ và tên</label>
-                    <input type="text" id="full-name" name="full-name" required>
-                    <span class="error-message" id="full-name-error">Vui lòng nhập họ và tên.</span>
+        <div class="register-div">
+            <div class="logo"></div>
+            <div class="title">HTDD</div>
+            <div class="sub-title">Đăng ký tài khoản</div>
+
+            <div class="fields">
+                <div class="fullname">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>
+                    </svg>
+                    <input type="text" class="user-input" id="fullname" placeholder="Họ và tên">
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                    <span class="error-message" id="email-error">Vui lòng nhập email hợp lệ.</span>
+                <span class="error-message" id="fullname-error">Vui lòng nhập họ và tên</span>
+                
+                <div class="username">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M17.388,4.751H2.613c-0.213,0-0.389,0.175-0.389,0.389v9.72c0,0.216,0.175,0.389,0.389,0.389h14.775c0.214,0,0.389-0.173,0.389-0.389v-9.72C17.776,4.926,17.602,4.751,17.388,4.751 M16.448,5.53L10,11.984L3.552,5.53H16.448zM3.002,6.081l3.921,3.925l-3.921,3.925V6.081z M3.56,14.471l3.914-3.916l2.253,2.253c0.153,0.153,0.395,0.153,0.548,0l2.253-2.253l3.913,3.916H3.56z M16.999,13.931l-3.921-3.925l3.921-3.925V13.931z"></path>
+                    </svg>
+                    <input type="email" class="user-input" id="email" placeholder="Email">
                 </div>
-                <div class="form-group">
-                    <label for="password">Mật khẩu</label>
-                    <input type="password" id="password" name="password" required>
-                    <div class="password-requirements">
-                        <p>Mật khẩu phải đáp ứng các yêu cầu sau:</p>
-                        <ul>
-                            <li id="req-length" class="invalid">Ít nhất 8 ký tự</li>
-                            <li id="req-upper" class="invalid">Ít nhất 1 chữ cái viết hoa</li>
-                            <li id="req-lower" class="invalid">Ít nhất 1 chữ cái thường</li>
-                            <li id="req-number" class="invalid">Ít nhất 1 chữ số</li>
-                            <li id="req-special" class="invalid">Ít nhất 1 ký tự đặc biệt (@$!%*?&)</li>
-                        </ul>
-                    </div>
-                    <span class="error-message" id="password-error"></span>
+                <span class="error-message" id="email-error">Vui lòng nhập email hợp lệ</span>
+                
+                <div class="password">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
+                    </svg>
+                    <input type="password" class="pass-input" id="password" placeholder="Mật khẩu">
+                    <i class="fas fa-eye-slash toggle-password" id="togglePassword"></i>
                 </div>
-                <div class="form-group">
-                    <label for="confirm-password">Xác nhận mật khẩu</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required>
-                    <span class="error-message" id="confirm-password-error">Mật khẩu không khớp.</span>
+                <div class="password-requirements">
+                    <ul>
+                        <li id="req-length" class="invalid">Ít nhất 8 ký tự</li>
+                        <li id="req-upper" class="invalid">1 chữ hoa</li>
+                        <li id="req-lower" class="invalid">1 chữ thường</li>
+                        <li id="req-number" class="invalid">1 số</li>
+                        <li id="req-special" class="invalid">1 ký tự đặc biệt</li>
+                    </ul>
                 </div>
-                <button type="submit" class="btn">Đăng ký</button>
-            </form>
-            <div class="auth-links">
+                <span class="error-message" id="password-error">Vui lòng nhập mật khẩu hợp lệ</span>
+                
+                <div class="confirm-password">
+                    <svg class="svg-icon" viewBox="0 0 20 20">
+                        <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
+                    </svg>
+                    <input type="password" class="pass-input" id="confirm-password" placeholder="Xác nhận mật khẩu">
+                    <i class="fas fa-eye-slash toggle-password" id="toggleConfirmPassword"></i>
+                </div>
+                <span class="error-message" id="confirm-password-error">Mật khẩu không khớp</span>
+            </div>
+            <button class="register-button" id="register-button">Đăng ký</button>
+            
+            <div class="link">
                 <p>Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>
@@ -330,118 +203,6 @@ main {
 
     <script src="script.js"></script>
     <script src="menu.js"></script>
-    <script>
-        // Kiểm tra email khi người dùng nhập xong
-        document.getElementById('email').addEventListener('blur', function() {
-            const email = this.value.trim();
-            const emailError = document.getElementById('email-error');
-            
-            // Reset error message
-            emailError.style.display = 'none';
-            
-            if (!email) return;
-            
-            // Kiểm tra định dạng email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                emailError.textContent = 'Vui lòng nhập email hợp lệ.';
-                emailError.style.display = 'block';
-                return;
-            }
-            
-            // Kiểm tra email đã tồn tại chưa
-            const users = JSON.parse(localStorage.getItem("users")) || [];
-            if (users.some(user => user.email === email)) {
-                emailError.textContent = 'Email này đã được đăng ký.';
-                emailError.style.display = 'block';
-            }
-        });
-
-        // Xử lý hiển thị yêu cầu mật khẩu khi nhập
-        document.getElementById('password').addEventListener('input', function(e) {
-            const password = e.target.value;
-            
-            // Update requirement indicators
-            document.getElementById('req-length').className = password.length >= 8 ? 'valid' : 'invalid';
-            document.getElementById('req-upper').className = /[A-Z]/.test(password) ? 'valid' : 'invalid';
-            document.getElementById('req-lower').className = /[a-z]/.test(password) ? 'valid' : 'invalid';
-            document.getElementById('req-number').className = /\d/.test(password) ? 'valid' : 'invalid';
-            document.getElementById('req-special').className = /[@$!%*?&]/.test(password) ? 'valid' : 'invalid';
-        });
-
-        // Xử lý submit form
-        document.getElementById('register-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const fullName = document.getElementById('full-name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const confirmPassword = document.getElementById('confirm-password').value.trim();
-            const fullNameError = document.getElementById('full-name-error');
-            const emailError = document.getElementById('email-error');
-            const passwordError = document.getElementById('password-error');
-            const confirmPasswordError = document.getElementById('confirm-password-error');
-
-            // Reset error messages
-            fullNameError.style.display = 'none';
-            emailError.style.display = 'none';
-            passwordError.style.display = 'none';
-            confirmPasswordError.style.display = 'none';
-
-            let isValid = true;
-
-            // Full name validation
-            if (!fullName) {
-                fullNameError.textContent = 'Vui lòng nhập họ và tên.';
-                fullNameError.style.display = 'block';
-                isValid = false;
-            }
-
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email) {
-                emailError.textContent = 'Vui lòng nhập email.';
-                emailError.style.display = 'block';
-                isValid = false;
-            } else if (!emailRegex.test(email)) {
-                emailError.textContent = 'Vui lòng nhập email hợp lệ.';
-                emailError.style.display = 'block';
-                isValid = false;
-            }
-
-            // Password validation
-            if (!password) {
-                passwordError.textContent = 'Vui lòng nhập mật khẩu.';
-                passwordError.style.display = 'block';
-                isValid = false;
-            } else {
-                const errors = [];
-                if (password.length < 8) errors.push('Ít nhất 8 ký tự');
-                if (!/[A-Z]/.test(password)) errors.push('Ít nhất 1 chữ cái viết hoa');
-                if (!/[a-z]/.test(password)) errors.push('Ít nhất 1 chữ cái thường');
-                if (!/\d/.test(password)) errors.push('Ít nhất 1 chữ số');
-                if (!/[@$!%*?&]/.test(password)) errors.push('Ít nhất 1 ký tự đặc biệt (@$!%*?&)');
-                
-                if (errors.length > 0) {
-                    passwordError.textContent = 'Mật khẩu chưa đáp ứng các yêu cầu.';
-                    passwordError.style.display = 'block';
-                    isValid = false;
-                }
-            }
-
-            // Confirm password validation
-            if (password !== confirmPassword) {
-                confirmPasswordError.textContent = 'Mật khẩu không khớp.';
-                confirmPasswordError.style.display = 'block';
-                isValid = false;
-            }
-
-            // Nếu tất cả đều hợp lệ, gọi hàm registerUser
-            if (isValid) {
-                registerUser(e);
-            }
-        });
-    </script>
-    <script src="auth.js"></script>
+    <script src="login_register.js"></script>
 </body>
 </html>
