@@ -14,16 +14,11 @@ body {
 /* ====== VÙNG NỘI DUNG CHÍNH ====== */
 main {
     flex: 1 0 auto;
-    /* chiếm toàn bộ phần còn lại */
-    /* nếu muốn giữ giới hạn tối thiểu, bỏ comment dòng dưới */
-    /* min-height: calc(100vh - 180px); */
     padding: 40px 0;
     font-family: "Poppins", sans-serif;
     display: flex;
     align-items: center;
-    /* căn giữa dọc khi form thấp */
     justify-content: center;
-    /* căn giữa ngang */
     width: 100%;
     color: #555;
     background-color: #ecf0f3;
@@ -49,9 +44,7 @@ header .container nav {
     align-items: center;
     justify-content: space-between;
     height: 80px;
-    /* khớp chiều cao header */
     padding: 0 30px;
-    /* padding đầy đủ đơn vị */
 }
 
 /* ====== FOOTER ====== */
