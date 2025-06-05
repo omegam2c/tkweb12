@@ -170,3 +170,29 @@ document.addEventListener("DOMContentLoaded", () => {
         loginForm.addEventListener("submit", loginUser);
     }
 });
+
+// Kiểm tra trạng thái đăng nhập khi trang tải
+function checkLoginStatus() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const usernameDisplay = document.getElementById('username-display');
+    const loginLink = document.getElementById('login-link');
+    const registerLink = document.getElementById('register-link');
+    const logoutLink = document.getElementById('logout-link');
+
+    if (user) {
+        // Nếu đã đăng nhập
+        if (usernameDisplay) {
+            // Ưu tiên hiển thị fullname, nếu không có thì dùng name, cuối cùng mới dùng email
+            usernameDisplay.textContent = user.fullname || user.name || user.email;
+        }
+        if (loginLink) loginLink.style.display = 'none';
+        if (registerLink) registerLink.style.display = 'none';
+        if (logoutLink) logoutLink.style.display = 'block';
+    } else {
+        // Nếu chưa đăng nhập
+        if (usernameDisplay) usernameDisplay.textContent = 'Tài khoản';
+        if (loginLink) loginLink.style.display = 'block';
+        if (registerLink) registerLink.style.display = 'block';
+        if (logoutLink) logoutLink.style.display = 'none';
+    }
+}

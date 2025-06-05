@@ -47,7 +47,7 @@
     <meta name="description"
         content="HTDD - Cửa hàng thời trang đa phong cách: Vintage, Streetwear, Casual, Business, Sporty, Minimalist.">
     <title>HTDD - Trang chủ</title>
-    <link rel="shortcut icon" href="images/logoHTDD.png"" type=" image/x-icon">
+    <link rel="shortcut icon" href="images/logoHTDD.png" type=" image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
@@ -93,10 +93,14 @@
                     <li><a href="contact.html">Liên hệ</a></li>
 
                     <li class="account-menu">
-                        <a href="#">Tài khoản <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
-                        <ul class="account-dropdown">
-                            <li><a href="login.html">Đăng nhập</a></li>
-                            <li><a href="register.html">Đăng ký</a></li>
+                        <a href="#" id="account-link">
+                            <span id="username-display">Tài khoản</span>
+                            <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                        </a>
+                        <ul class="account-dropdown" id="account-dropdown">
+                            <li><a href="login.html" id="login-link">Đăng nhập</a></li>
+                            <li><a href="register.html" id="register-link">Đăng ký</a></li>
+                            <li><a href="#" id="logout-link" style="display:none;">Đăng xuất</a></li>
                         </ul>
                     </li>
                     <li class="search-bar">
@@ -206,7 +210,8 @@
 
 
             <div class="buttons">
-                <button id="prev"><</button>
+                <button id="prev">
+                    << /button>
                         <button id="next">></button>
             </div>
             <div class="dots">

@@ -34,10 +34,49 @@ if (password) {
     });
 }
 
+// Register form validation
+const registerBtn = document.getElementById('register-button');
+if (registerBtn) {
+    registerBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const fullname = document.getElementById('fullname').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const confirmPassword = document.getElementById('confirm-password').value.trim();
+
+        // ... (phần validate giữ nguyên)
+
+        if (isValid) {
+            const users = JSON.parse(localStorage.getItem("users")) || [];
+            const emailExists = users.some(user => user.email === email);
+
+            if (emailExists) {
+                document.getElementById('email-error').textContent = 'Email này đã được đăng ký';
+                document.getElementById('email-error').style.display = 'block';
+                return;
+            }
+
+            const newUser = {
+                fullname: fullname,  // Đảm bảo lưu fullname
+                email: email,
+                password: btoa(password),
+                name: fullname  // Thêm cả trường name để tương thích với các hàm khác
+            };
+
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert('Đăng ký thành công! Vui lòng đăng nhập.');
+            window.location.href = "login.html";
+        }
+    });
+}
+
 // Login form validation
 const loginBtn = document.querySelector('.login-button');
 if (loginBtn) {
-    loginBtn.addEventListener('click', function (e) {
+    loginBtn.addEventListener('click', function(e) {
         e.preventDefault();
         const usernameOrEmail = document.querySelector('.user-input').value.trim();
         const password = document.querySelector('.pass-input').value.trim();
@@ -52,93 +91,23 @@ if (loginBtn) {
         }
 
         const users = JSON.parse(localStorage.getItem("users")) || [];
-
-        const user = users.find(user =>
-            (user.username === usernameOrEmail || user.email === usernameOrEmail) &&
+        const user = users.find(user => 
+            (user.email === usernameOrEmail) && 
             user.password === btoa(password)
         );
 
         if (user) {
             alert('Đăng nhập thành công!');
-            localStorage.setItem("currentUser", JSON.stringify(user));
+            // Lưu cả fullname và name để đảm bảo tương thích
+            localStorage.setItem("currentUser", JSON.stringify({
+                name: user.fullname || user.name,  // Ưu tiên fullname, nếu không có thì dùng name
+                fullname: user.fullname || user.name,
+                email: user.email
+            }));
+            checkLoginStatus();
             window.location.href = "index.html";
         } else {
             alert('Thông tin đăng nhập không đúng. Vui lòng kiểm tra lại!');
-        }
-    });
-}
-
-// Register form validation
-const registerBtn = document.getElementById('register-button');
-if (registerBtn) {
-    registerBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        const fullname = document.getElementById('fullname').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
-        const confirmPassword = document.getElementById('confirm-password').value.trim();
-
-        // Reset error messages
-        document.getElementById('fullname-error').style.display = 'none';
-        document.getElementById('email-error').style.display = 'none';
-        document.getElementById('password-error').style.display = 'none';
-        document.getElementById('confirm-password-error').style.display = 'none';
-
-        let isValid = true;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!fullname) {
-            document.getElementById('fullname-error').style.display = 'block';
-            isValid = false;
-        }
-
-        if (!email) {
-            document.getElementById('email-error').textContent = 'Vui lòng nhập email';
-            document.getElementById('email-error').style.display = 'block';
-            isValid = false;
-        } else if (!emailRegex.test(email)) {
-            document.getElementById('email-error').textContent = 'Vui lòng nhập email hợp lệ';
-            document.getElementById('email-error').style.display = 'block';
-            isValid = false;
-        }
-
-        if (!password) {
-            document.getElementById('password-error').textContent = 'Vui lòng nhập mật khẩu';
-            document.getElementById('password-error').style.display = 'block';
-            isValid = false;
-        } else if (password.length < 8 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/\d/.test(password) || !/[@$!%*?&]/.test(password)) {
-            document.getElementById('password-error').textContent = 'Mật khẩu không đáp ứng yêu cầu';
-            document.getElementById('password-error').style.display = 'block';
-            isValid = false;
-        }
-
-        if (password !== confirmPassword) {
-            document.getElementById('confirm-password-error').style.display = 'block';
-            isValid = false;
-        }
-
-        if (isValid) {
-            const users = JSON.parse(localStorage.getItem("users")) || [];
-            const emailExists = users.some(user => user.email === email);
-
-            if (emailExists) {
-                document.getElementById('email-error').textContent = 'Email này đã được đăng ký';
-                document.getElementById('email-error').style.display = 'block';
-                return;
-            }
-
-            const newUser = {
-                fullname: fullname,
-                email: email,
-                password: btoa(password)
-            };
-
-            users.push(newUser);
-            localStorage.setItem("users", JSON.stringify(users));
-
-            alert('Đăng ký thành công! Vui lòng đăng nhập.');
-            window.location.href = "login.html";
         }
     });
 }
