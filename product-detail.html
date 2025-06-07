@@ -1,0 +1,402 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chi tiết sản phẩm</title>
+  <link rel="shortcut icon" href="images/logoHTDD.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="menu.css"/>
+  <link rel="stylesheet" href="additional.css"/>
+  <style>
+    .product-page {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .gallery {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      flex: 1 1 45%;
+    }
+    .main-image img {
+      width: 450px;
+      height: auto;
+      max-height: 700px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .thumbnails {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 450px;       
+      overflow-y: auto;         
+    }
+    .thumbnails img {
+      width: 60px;
+      height: auto;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .product-info {
+      flex: 1 1 45%;
+    }
+    .product-price {
+      font-size: 24px;
+      color: #d32f2f;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .product-section {
+      margin-bottom: 15px;
+    }
+    .add-to-cart-btn {
+      background-color: #1e88e5;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .qty-btn {
+      width: 36px;
+      height: 36px;
+      font-size: 20px;
+      font-weight: bold;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .qty-btn:hover {
+      background-color: #f0f0f0;
+    }
+
+    .qty-input {
+      width: 50px;
+      height: 36px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .quantity-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .color-option {
+      padding: 6px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+    .color-option.active {
+      background-color: #1e88e5;
+      color: white;
+      border: 3px solid #1e88e5 !important;
+    }
+    @keyframes flyAndSpin {
+      0% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0) rotate(720deg); /* xoay 2 vòng khi thu nhỏ */
+        opacity: 0;
+      }
+    }
+    #product-info-extended {
+      margin-top: 30px;
+    }
+    #product-info-extended h4 {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    #product-info-extended ul {
+      padding-left: 20px;
+    }
+    .policy-icons p {
+      margin: 12px 0;
+    }
+  
+
+    .fly-image {
+      position: fixed;
+      z-index: 9999;
+      pointer-events: none;
+      transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+      will-change: transform, opacity;
+    }    
+    .main-image img {
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+    .main-image img.slide-out-left {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    .main-image img.slide-out-right {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    .main-image img.slide-in {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    .product-accordion {
+      margin-top: 40px;
+      border-top: 1px solid #eee;
+    }
+
+    .accordion-section {
+      border-bottom: 1px solid #eee;
+    }
+
+    .accordion-header {
+      padding: 15px 0;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .accordion-content {
+      display: none;
+      padding-bottom: 15px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .accordion-content ul {
+      padding-left: 20px;
+      list-style-type: disc;
+    }
+
+    .toggle-icon {
+      font-weight: bold;
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-section.active .accordion-content {
+      display: block;
+    }
+
+    .accordion-section.active .toggle-icon {
+      content: "–";
+      transform: rotate(180deg);
+    }
+    .purchase-policy {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    .policy-item {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .policy-item img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+
+  </style>
+</head>
+
+<body>
+<header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="index.html" class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="products.html">Sản phẩm</a></li>
+          <li class="dropdown">
+            <a href="#">Phong cách <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="streetwear.html">Streetwear</a></li>
+              <li><a href="casual.html">Casual</a></li>
+              <li><a href="business.html">Business</a></li>
+              <li><a href="sporty.html">Sporty</a></li>
+              <li><a href="vintage.html">Vintage</a></li>
+              <li><a href="minimalist.html">Minimalist</a></li>
+            </ul>
+          </li>
+          <li><a href="contact.html">Liên hệ</a></li>
+          <li class="account-menu">
+            <a href="#">Tài khoản <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+            <ul class="account-dropdown">
+              <li><a href="login.html">Đăng nhập</a></li>
+              <li><a href="register.html">Đăng ký</a></li>
+            </ul>
+          </li>
+          <li class="search-bar">
+            <input type="text" placeholder="Tìm kiếm...">
+          </li>
+        </ul>
+        <div class="cart-icon">
+          <a href="cart.html">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+</header>
+
+<main>
+  <div class="product-page">
+    <div class="gallery">
+      <div class="thumbnails" id="product-thumbnails"></div>
+      <div class="main-image">
+        <img id="product-image" src="" alt="Ảnh sản phẩm">
+      </div>
+    </div>
+    <div class="product-info">
+      <h1 id="product-name">Tên sản phẩm</h1>
+      <p class="product-price"><span id="product-price">0₫</span></p>
+
+      <div class="product-section">
+        <strong>Màu sắc:</strong>
+        <div id="color-options"></div>
+      </div>
+
+      <div class="product-section">
+        <strong>Chọn size:</strong> <a href="size-chart.html" target="_blank">Hướng dẫn size</a>
+        <div id="size-options"></div>
+      </div>
+
+      <div class="product-section">
+        <strong>Số lượng:</strong>
+        <div class="quantity-container">
+          <button id="decrease-qty" class="qty-btn">−</button>
+          <input type="number" id="quantity-input" min="1" value="1" class="qty-input">
+          <button id="increase-qty" class="qty-btn">+</button>
+        </div>
+      </div>
+
+      <button id="add-to-cart" style="padding: 10px 20px; background: #1e88e5; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Thêm vào giỏ hàng
+      </button>
+    <div class="product-accordion">
+      <div class="accordion-section">
+        <div class="accordion-header">Mô tả <span class="toggle-icon">+</span></div>
+        <div class="accordion-content">
+          <p id="description-text">Đang tải mô tả...</p>
+        </div>
+      </div>
+
+      <div class="accordion-section">
+        <div class="accordion-header">Chất liệu <span class="toggle-icon">+</span></div>
+        <div class="accordion-content">
+          <p>65% cotton 35% polyester.</p>
+        </div>
+      </div>
+
+      <div class="accordion-section">
+        <div class="accordion-header">Hướng dẫn sử dụng <span class="toggle-icon">+</span></div>
+        <div class="accordion-content">
+          <ul>
+            <li>Giặt máy ở chế độ nhẹ, nhiệt độ thường.</li>
+            <li>Không sử dụng hóa chất tẩy có chứa Clo.</li>
+            <li>Phơi trong bóng mát.</li>
+            <li>Không sử dụng máy sấy.</li>
+            <li>Là ở nhiệt độ thấp 110 độ C.</li>
+            <li>Giặt riêng quần áo tối màu. Không ngâm.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="purchase-policy">
+      <div class="policy-item">
+        <img src="images/icon-cod.png" alt="COD">
+        <div>
+          <strong>Thanh toán khi nhận hàng (COD)</strong><br>
+          Giao hàng toàn quốc.
+        </div>
+      </div>
+      <div class="policy-item">
+        <img src="images/icon-free-ship.png" alt="Free ship">
+        <div>
+          <strong>Miễn phí giao hàng</strong><br>
+          Với đơn hàng trên 599.000 ₫.
+        </div>
+      </div>
+      <div class="policy-item">
+        <img src="images/icon-return.png" alt="Return">
+        <div>
+          <strong>Đổi hàng miễn phí</strong><br>
+          Trong 30 ngày kể từ ngày mua.
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+</main>
+  <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="size-chart.html">Bảng kích thước</a></li>
+                    <li><a href="order-guide.html">Hướng dẫn đặt hàng</a></li>
+                    <li><a href="payment-guide.html">Hướng dẫn thanh toán</a></li>
+                    <li><a href="return-policy.html">Chính sách đổi trả</a></li>
+                    <li><a href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hotline hỗ trợ 24/7</h3>
+                <p><a href="tel:0944356789">09443.56789</a></p>
+                <h3>Chấp nhận thanh toán</h3>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Theo dõi chúng tôi</h3>
+                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 HTDD</p>
+        </div>
+</footer>
+<script src="script.js"></script>
+<script src="menu.js"></script>
+<script src="product-detail.js"></script>
+<script src="product-popup.js"></script>
+</body>
+</html>
+ 

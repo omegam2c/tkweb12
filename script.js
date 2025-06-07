@@ -1,18 +1,4 @@
-const products = [
-    { id: 1, name: "Áo sơ mi Vintage", price: 350000, image: "img/vintage-shirt.jpg", style: "Vintage" },
-    { id: 2, name: "Áo khoác Vintage", price: 650000, image: "img/vintage-jacket.jpg", style: "Vintage" },
-    { id: 3, name: "Quần jeans Vintage", price: 450000, image: "img/vintage-jeans.jpg", style: "Vintage" },
-    { id: 4, name: "Áo hoodie Streetwear", price: 500000, image: "img/hoodie.jpg", style: "Streetwear" },
-    { id: 5, name: "Quần jogger Streetwear", price: 400000, image: "img/jogger.jpg", style: "Streetwear" },
-    { id: 6, name: "Áo thun Casual", price: 250000, image: "img/t-shirt.jpg", style: "Casual" },
-    { id: 7, name: "Quần short Casual", price: 300000, image: "img/short.jpg", style: "Casual" },
-    { id: 8, name: "Áo sơ mi công sở", price: 400000, image: "img/business-shirt.jpg", style: "Business" },
-    { id: 9, name: "Quần tây", price: 450000, image: "img/business-pants.jpg", style: "Business" },
-    { id: 10, name: "Áo thể thao", price: 350000, image: "img/sporty-shirt.jpg", style: "Sporty" },
-    { id: 11, name: "Quần thể thao", price: 300000, image: "img/sporty-pants.jpg", style: "Sporty" },
-    { id: 12, name: "Áo thun tối giản", price: 200000, image: "img/minimalist-shirt.jpg", style: "Minimalist" },
-    { id: 13, name: "Quần ống suông", price: 350000, image: "img/minimalist-pants.jpg", style: "Minimalist" },
-];
+
 
 function loadProducts(style = null) {
     const productList = document.getElementById("product-list");

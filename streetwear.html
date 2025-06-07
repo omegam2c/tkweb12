@@ -241,43 +241,30 @@
             font-size: 18px;
         }
 
-        .product-actions {
-            display: flex;
-            justify-content: space-between;
-        }
+.btn-view.full-width {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  background-color: rgba(30, 136, 229, 0.1); /* nền mờ */
+  color: #1e88e5;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid #1e88e5;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(2px); /* cảm giác kính */
+}
 
-        .btn-view,
-        .btn-add {
-            padding: 8px 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
+.btn-view.full-width:hover {
+  background-color: rgba(30, 136, 229, 0.15);
+  color: #1565c0;
+  transform: translateY(-1px);
+  border-color: #1565c0;
+}
 
-        .btn-view {
-            background-color: #f0f0f0;
-            color: #333;
-        }
 
-        .btn-view:hover {
-            background-color: #e0e0e0;
-        }
-
-        .btn-add {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .btn-add:hover {
-            background-color: #555;
-        }
 
         html,
         body {
@@ -441,14 +428,6 @@
 
         <div class="filter-section">
             <h2>Sản phẩm Streetwear</h2>
-            <div class="filters">
-                <button class="filter-btn active">Tất cả</button>
-                <button class="filter-btn">Áo</button>
-                <button class="filter-btn">Quần</button>
-                <button class="filter-btn">Giày</button>
-                <button class="filter-btn">Phụ kiện</button>
-            </div>
-
             <div class="sort-options">
                 <select id="sort-select">
                     <option value="popularity">Phổ biến nhất</option>
@@ -471,10 +450,7 @@
                         <div class="product-name">Áo Hoodie Thêu Logo</div>
                         <div class="product-style">Streetwear</div>
                         <div class="product-price">750.000₫</div>
-                        <div class="product-actions">
-                            <a href="#" class="btn-view" data-id="sp1">Xem chi tiết</a>
-                            <button class="btn-add" data-id="sp1">+ Giỏ hàng</button>
-                        </div>
+                        <a href="#" class="btn-view full-width" data-id="sp1"><i class="fas fa-eye"></i> Xem nhanh</a>
                     </div>
                 </div>
 
@@ -482,16 +458,13 @@
                 <div class="product-card">
                     <div class="product-img">
                         <img src="images/sp2.png" alt="Quần jean Custom Y2k">
-                        <div class="product-badge">Mới</div>
+                        <div class="product-badge">Phổ biến</div>
                     </div>
                     <div class="product-info">
                         <div class="product-name">Quần jean Custom Y2k</div>
                         <div class="product-style">Streetwear</div>
                         <div class="product-price">250.000₫</div>
-                        <div class="product-actions">
-                            <a href="#" class="btn-view" data-id="sp2">Xem chi tiết</a>
-                            <button class="btn-add" data-id="sp2">+ Giỏ hàng</button>
-                        </div>
+                        <a href="#" class="btn-view full-width" data-id="sp2"><i class="fas fa-eye"></i> Xem nhanh</a>
                     </div>
                 </div>
 
@@ -506,10 +479,7 @@
                         <div class="product-name">Áo thun Need money for porsche</div>
                         <div class="product-style">Streetwear</div>
                         <div class="product-price">300.000₫</div>
-                        <div class="product-actions">
-                            <a href="#" class="btn-view" data-id="sp3">Xem chi tiết</a>
-                            <button class="btn-add" data-id="sp3">+ Giỏ hàng</button>
-                        </div>
+                        <a href="#" class="btn-view full-width" data-id="sp3"><i class="fas fa-eye"></i> Xem nhanh</a>
                     </div>
                 </div>
                 <!-- Sản phẩm 4 -->
@@ -522,10 +492,7 @@
                         <div class="product-name">Áo len Niche</div>
                         <div class="product-style">Streetwear</div>
                         <div class="product-price">500.000₫</div>
-                        <div class="product-actions">
-                            <a href="#" class="btn-view" data-id="sp4">Xem chi tiết</a>
-                            <button class="btn-add" data-id="sp4">+ Giỏ hàng</button>
-                        </div>
+                        <a href="#" class="btn-view full-width" data-id="sp4"><i class="fas fa-eye"></i> Xem nhanh</a>
                     </div>
                 </div>
                 <!-- Sản phẩm 5 -->
@@ -538,10 +505,7 @@
                         <div class="product-name">Áo thun Sói cô độc</div>
                         <div class="product-style">Streetwear</div>
                         <div class="product-price">200.000₫</div>
-                        <div class="product-actions">
-                            <a href="#" class="btn-view" data-id="sp5">Xem chi tiết</a>
-                            <button class="btn-add" data-id="sp5">+ Giỏ hàng</button>
-                        </div>
+                        <a href="#" class="btn-view full-width" data-id="sp5"><i class="fas fa-eye"></i> Xem nhanh</a>
                     </div>
                 </div>
                 <!-- Sản phẩm 6 -->
@@ -554,10 +518,7 @@
                         <div class="product-name">Áo Gallery dept</div>
                         <div class="product-style">Streetwear</div>
                         <div class="product-price">450.000₫</div>
-                        <div class="product-actions">
-                            <a href="#" class="btn-view" data-id="sp6">Xem chi tiết</a>
-                            <button class="btn-add" data-id="sp6">+ Giỏ hàng</button>
-                        </div>
+                        <a href="#" class="btn-view full-width" data-id="sp6"><i class="fas fa-eye"></i> Xem nhanh</a>
                     </div>
                 </div>
                 <!-- Sản phẩm 7 -->
@@ -569,10 +530,7 @@
                         <div class="product-name">Quần Gallery dept</div>
                         <div class="product-style">Streetwear</div>
                         <div class="product-price">400.000₫</div>
-                        <div class="product-actions">
-                            <a href="#" class="btn-view" data-id="sp7">Xem chi tiết</a>
-                            <button class="btn-add" data-id="sp7">+ Giỏ hàng</button>
-                        </div>
+                        <a href="#" class="btn-view full-width" data-id="sp7"><i class="fas fa-eye"></i> Xem nhanh</a>
                     </div>
                 </div>
                 <!-- Sản phẩm 8 -->
@@ -584,10 +542,7 @@
                         <div class="product-name">Áo thun Chrome hearts</div>
                         <div class="product-style">Streetwear</div>
                         <div class="product-price">520.000₫</div>
-                        <div class="product-actions">
-                            <a href="#" class="btn-view" data-id="sp8">Xem chi tiết</a>
-                            <button class="btn-add" data-id="sp8">+ Giỏ hàng</button>
-                        </div>
+                        <a href="#" class="btn-view full-width" data-id="sp8"><i class="fas fa-eye"></i> Xem nhanh</a>
                     </div>
                 </div>
 
@@ -653,25 +608,24 @@
             console.log('Sắp xếp theo:', sortSelect.value);
         });
 
-        // Nút xem chi tiết và giỏ hàng bên ngoài
+        // Nút xem nhanh
 
-        document.querySelectorAll(".btn-view, .btn-add").forEach(button => {
-            button.addEventListener("click", (e) => {
-                e.preventDefault();
-                const productId = button.getAttribute("data-id");
+        document.querySelectorAll(".btn-view").forEach(button => {
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+            const productId = button.getAttribute("data-id");
 
-                fetch("products.json")
-                    .then(res => res.json())
-                    .then(data => {
-                        const product = data.find(p => p.id === productId);
-                        if (product) {
-                            showProductModal(product);
-                        } else {
-                            alert("Không tìm thấy sản phẩm");
-                        }
-                    });
+            fetch("products.json")
+            .then(res => res.json())
+            .then(data => {
+                const product = data.find(p => p.id === productId);
+                if (product) {
+                showProductModal(product); // gọi popup
+                }
             });
         });
+        });
+
         function updateCartCount() {
             const cart = JSON.parse(localStorage.getItem("cart") || "[]");
             const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -721,6 +675,8 @@
                     <button id="add-to-cart"
                         style="padding: 10px 20px; background: #1e88e5; color: white; border: none; border-radius: 6px; cursor: pointer;">Thêm
                         vào giỏ hàng</button>
+                    <div style="text-align: center; margin-top: 20px;">
+                    <a id="product-detail-link" href="#">Xem chi tiết</a>    
                 </div>
             </div>
         </div>
@@ -827,7 +783,7 @@
             will-change: transform, opacity;
         }
     </style>
-    <script src="product-detail.js"></script>
+    <script src="product-popup.js"></script>
 
 </body>
 
