@@ -45,7 +45,53 @@ if (registerBtn) {
         const password = document.getElementById('password').value.trim();
         const confirmPassword = document.getElementById('confirm-password').value.trim();
 
-        // ... (phần validate giữ nguyên)
+        // Reset error messages
+        document.querySelectorAll('.error-message').forEach(el => {
+            el.style.display = 'none';
+        });
+
+        let isValid = true;
+
+        // Validate fullname
+        if (!fullname) {
+            document.getElementById('fullname-error').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email) {
+            document.getElementById('email-error').textContent = 'Vui lòng nhập email';
+            document.getElementById('email-error').style.display = 'block';
+            isValid = false;
+        } else if (!emailRegex.test(email)) {
+            document.getElementById('email-error').textContent = 'Email không hợp lệ';
+            document.getElementById('email-error').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate password
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!password) {
+            document.getElementById('password-error').textContent = 'Vui lòng nhập mật khẩu';
+            document.getElementById('password-error').style.display = 'block';
+            isValid = false;
+        } else if (!passwordRegex.test(password)) {
+            document.getElementById('password-error').textContent = 'Mật khẩu không đủ mạnh';
+            document.getElementById('password-error').style.display = 'block';
+            isValid = false;
+        }
+
+        // Validate confirm password
+        if (!confirmPassword) {
+            document.getElementById('confirm-password-error').textContent = 'Vui lòng xác nhận mật khẩu';
+            document.getElementById('confirm-password-error').style.display = 'block';
+            isValid = false;
+        } else if (password !== confirmPassword) {
+            document.getElementById('confirm-password-error').textContent = 'Mật khẩu không khớp';
+            document.getElementById('confirm-password-error').style.display = 'block';
+            isValid = false;
+        }
 
         if (isValid) {
             const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -58,10 +104,10 @@ if (registerBtn) {
             }
 
             const newUser = {
-                fullname: fullname,  // Đảm bảo lưu fullname
+                fullname: fullname,
                 email: email,
                 password: btoa(password),
-                name: fullname  // Thêm cả trường name để tương thích với các hàm khác
+                name: fullname
             };
 
             users.push(newUser);
