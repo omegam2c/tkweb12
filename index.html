@@ -52,6 +52,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="additional.css">
+    <link rel="stylesheet" href="tuanne.css">
+    <link rel="stylesheet" href="popup.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Macondo&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Tagesschrift&family=Texturina:ital,opsz,wght@0,12..72,100..900;1,12..72,100..900&display=swap"
@@ -59,6 +61,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+
 
 <body>
     <header>
@@ -138,46 +141,19 @@
         </section> -->
 
         <!-- Featured Products Section -->
-        <section class="featured-products">
-            <div class="container">
-                <h2 class="section-title">Sản phẩm nổi bật</h2>
-                <div class="product-grid">
-                    <div class="product-item" id="product-1">
-                        <img src="images/vintage1.jpg" alt="Áo sơ mi đỏ Vintage">
-                        <h3>Áo sơ mi Vintage</h3>
-                        <p>350,000 VNĐ</p>
-                        <button class="btn" onclick="addToCart(1)">Thêm vào giỏ</button>
-                    </div>
-                    <!-- <div class="product-item" id="product-2">
-                        <img src="images/vintage2.jpg" alt="Áo sơ mi vàng Vintage">
-                        <h3>Áo sơ mi Vintage</h3>
-                        <p>350,000 VNĐ</p>
-                        <button class="btn" onclick="addToCart(2)">Thêm vào giỏ</button>
-                    </div> -->
-                    <!-- <div class="product-item" id="product-3">
-                        <img src="images/business2.jpg" alt="Áo sơ mi Vintage">
-                        <h3>Áo Business</h3>
-                        <p>350,000 VNĐ</p>
-                        <button class="btn" onclick="addToCart(3)">Thêm vào giỏ</button>
-                    </div>  -->
-                    <div class="product-item" id="product-4">
-                        <img src="images/streetwear1.jpg" alt="Áo hoodie Streetwear">
-                        <h3>Áo hoodie Streetwear</h3>
-                        <p>500,000 VNĐ</p>
-                        <button class="btn" onclick="addToCart(4)">Thêm vào giỏ</button>
-                    </div>
-                    <div class="product-item" id="product-6">
-                        <img src="images/casual1.jpg" alt="Áo thun Casual">
-                        <h3>Áo thun Casual</h3>
-                        <p>250,000 VNĐ</p>
-                        <button class="btn" onclick="addToCart(6)">Thêm vào giỏ</button>
-                    </div>
-                </div>
-                <div class="view-all">
-                    <a href="products.html" class="btn">Xem tất cả sản phẩm</a>
-                </div>
-            </div>
-        </section>
+<section class="featured-products section-products">
+  <div class="container">
+    <h2 class="section-title">Sản phẩm nổi bật</h2>
+    <div class="product-slider-container">
+      <button class="slide-btn prev">‹</button>
+      <div class="products-row" id="featured-products"></div>
+      <button class="slide-btn next">›</button>
+    </div>
+    <div class="view-all">
+      <a href="products.html" class="btn">Xem tất cả sản phẩm</a>
+    </div>
+  </div>
+</section>
 
 
 
@@ -338,6 +314,7 @@
         </div>
     </footer>
 
+
     <ul class="btn-contact">
         <li><a class="btn-hotline" href="tel:0123456789"><i class="fas fa-phone-alt"></i><span>Gọi ngay</span></a></li>
         <li><a class="btn-zalo" href="//zalo.me/0397403018"><i class="fas fa-comment-dots"></i><span>Chat
@@ -351,7 +328,53 @@
     <script src="menu.js"></script>
     <script src="script.js"></script>
     <script src="cart.js"></script>
+    
     <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'93daea23ca8453d0',t:'MTc0Njg5NTYwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
 
+
+    <!-- MODAL POPUP -->
+    <div class="modal" id="productModal" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close" onclick="document.getElementById('productModal').style.display='none'">×</span>
+            <div class="product-detail" style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div class="product-image" style="flex: 1 1 300px; text-align: center;">
+                    <img id="product-image" src="" alt="Ảnh sản phẩm"
+                        style="width: 100%; max-width: 350px; border-radius: 8px;">
+                </div>
+                <div class="info" style="flex: 1 1 300px;">
+                    <h1 id="product-name">Tên sản phẩm</h1>
+                    <p><strong>Giá:</strong> <span id="product-price"></span></p>
+                    <p class="label" id="description-toggle"
+                        style="cursor: pointer; color: #1e88e5; font-weight: bold;">Mô tả sản phẩm ⯆</p>
+                    <p id="product-description" style="display: none;"></p>
+                    <p><strong>Chọn màu:</strong></p>
+                    <div id="color-options" style="display: flex; gap: 10px; margin-bottom: 15px;"></div>
+                    <p class="label">
+                        <strong>Chọn size:</strong>
+                        <a href="size-chart.html" target="_blank"
+                            style="margin-left: 10px; font-size: 14px; color: #1e88e5; text-decoration: underline;">
+                            Hướng dẫn chọn size
+                        </a>
+                    </p>
+                    <div id="size-options"></div>
+                    <p><strong>Số lượng:</strong></p>
+                    <div class="quantity-container">
+                        <button id="decrease-qty" class="qty-btn">–</button>
+                        <input type="number" id="quantity-input" min="1" value="1" class="qty-input">
+                        <button id="increase-qty" class="qty-btn">+</button>
+                    </div>
+                    <br>
+
+                    <button id="add-to-cart"
+                        style="padding: 10px 20px; background: #1e88e5; color: white; border: none; border-radius: 6px; cursor: pointer;">Thêm
+                        vào giỏ hàng</button>
+                    <div style="text-align: center; margin-top: 20px;">
+                    <a id="product-detail-link" href="#">Xem chi tiết</a>    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="product-popup.js"></script>
+    <script src="tuanne.js"></script>
 </html>

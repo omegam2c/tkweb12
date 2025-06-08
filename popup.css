@@ -1,0 +1,101 @@
+
+   
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 960px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .color-option {
+            padding: 6px 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+        }
+
+        .color-option.active {
+            background-color: #1e88e5;
+            color: white;
+            border: 3px solid #1e88e5 !important;
+        }
+
+        .quantity-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .qty-btn {
+            width: 36px;
+            height: 36px;
+            font-size: 20px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: white;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .qty-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .qty-input {
+            width: 50px;
+            height: 36px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        @keyframes flyAndSpin {
+            0% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0) rotate(720deg);
+                /* xoay 2 vòng khi thu nhỏ */
+                opacity: 0;
+            }
+        }
+
+        .fly-image {
+            position: fixed;
+            z-index: 9999;
+            pointer-events: none;
+            transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+            will-change: transform, opacity;
+        }

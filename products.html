@@ -1,268 +1,392 @@
-<script type="text/javascript">
-    var gk_isXlsx = false;
-    var gk_xlsxFileLookup = {};
-    var gk_fileData = {};
-    function filledCell(cell) {
-        return cell !== '' && cell != null;
-    }
-    function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                    row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                    headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-    }
-</script>
-<script type="text/javascript">
-    var gk_isXlsx = false;
-    var gk_xlsxFileLookup = {};
-    var gk_fileData = {};
-    function filledCell(cell) {
-        return cell !== '' && cell != null;
-    }
-    function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                    row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                    headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-    }
-</script>
 <!DOCTYPE html>
+
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Tất cả sản phẩm thời trang tại HTDD: Vintage, Streetwear, Casual, Business, Sporty, Minimalist.">
-    <title>HTDD - Sản phẩm</title>
-    <link rel="shortcut icon" href="images/logoHTDD.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="additional.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <style>
-        .products {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        body {
-            background-color: #FFFFF3;
-        }
-
-        .products h2 {
-            font-size: 32px;
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        main {
-            animation: fade-up 0.5s 0.2s backwards;
-        }
-
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        main {
-            flex: 1;
-        }
-
-        footer {
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .products h2 {
-                font-size: 24px;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Tất cả sản phẩm thời trang tại HTDD: Vintage, Streetwear, Casual, Business, Sporty, Minimalist." name="description"/>
+<title>HTDD - Sản phẩm</title>
+<link href="images/logoHTDD.png" rel="shortcut icon" type="image/x-icon"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<link href="menu.css" rel="stylesheet"/>
+<link href="additional.css" rel="stylesheet"/>
+<link href="products.css" rel="stylesheet"/>
+<link href="popup.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 
+
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">
-                    <a href="index.html" class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="index.html" class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD" /></a>
+        </div>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <ul class="nav-links">
+          <li><a href="index.html">Trang chủ</a></li>
+          <li><a href="products.html">Sản phẩm</a></li>
+          <li class="dropdown">
+            <a href="#">Phong cách <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="streetwear.html">Streetwear</a></li>
+              <li><a href="casual.html">Casual</a></li>
+              <li><a href="business.html">Business</a></li>
+              <li><a href="sporty.html">Sporty</a></li>
+              <li><a href="vintage.html">Vintage</a></li>
+              <li><a href="minimalist.html">Minimalist</a></li>
+            </ul>
+          </li>
+          <li><a href="news.html">Tin tức</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+          <li class="account-menu">
+            <a href="#" id="account-link">
+              <span id="username-display">Tài khoản</span>
+              <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+            </a>
+            <ul class="account-dropdown" id="account-dropdown">
+              <li><a href="login.html" id="login-link">Đăng nhập</a></li>
+              <li><a href="register.html" id="register-link">Đăng ký</a></li>
+              <li><a href="#" id="logout-link" style="display:none;">Đăng xuất</a></li>
+            </ul>
+          </li>
+          <li class="search-bar"><input type="text" placeholder="Tìm kiếm..." /></li>
+        </ul>
+        <div class="cart-icon">
+          <a href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+<div style="width: 100%; overflow: hidden;">
+<img alt="Banner HTDD" src="images/bannerproduct.png" style="width: 100%; height: auto; display: block;"/>
+</div>
+<section class="sanpham">
+<h2 class="section-title">KHÁM PHÁ SẢN PHẨM</h2>
+<div class="product-grid masonry">
+<a class="sanpham-card" href="#"><img alt="Phụ kiện" src="images/phukien.png"/><div class="shade"></div><div class="overlay">Phụ kiện</div></a>
+<a class="sanpham-card" href="#"><img alt="Áo" src="images/ao.png"/><div class="shade"></div><div class="overlay">Áo</div></a>
+<a class="sanpham-card" href="#"><img alt="Quần" src="images/quan.png"/><div class="shade"></div><div class="overlay">Quần</div></a>
+<a class="sanpham-card" href="#"><img alt="Giày" src="images/giay.png"/><div class="shade"></div><div class="overlay">Giày</div></a>
+</div>
+
+<!-- Sản phẩm mới và bán chạy -->
+<!-- SẢN PHẨM MỚI -->
+<section class="section-products">
+  <h2 class="section-title">SẢN PHẨM MỚI</h2>
+  <div class="product-slider-container">
+    <button class="slide-btn prev">‹</button>
+    <div class="products-row" id="new-products"></div>
+    <button class="slide-btn next">›</button>
+  </div>
+
+  <h2 class="section-title">SẢN PHẨM BÁN CHẠY</h2>
+  <div class="product-slider-container">
+    <button class="slide-btn prev">‹</button>
+    <div class="products-row" id="best-sellers"></div>
+    <button class="slide-btn next">›</button>
+  </div>
+</section>
+<div class="section-divider-fancy"><span>✦</span></div>
+<section id="section-phu-kien" class="section-products">
+  <h2 class="section-title">PHỤ KIỆN</h2>
+  <div class="product-slider-container">
+    <button class="slide-btn prev">‹</button>
+    <div class="products-row" id="products-phu-kien"></div>
+    <button class="slide-btn next">›</button>
+  </div>
+</section>
+<div class="section-divider-fancy"><span>✦</span></div>
+<section id="section-ao" class="section-products">
+  <h2 class="section-title">ÁO</h2>
+  <div class="product-slider-container">
+    <button class="slide-btn prev">‹</button>
+    <div class="products-row" id="products-ao"></div>
+    <button class="slide-btn next">›</button>
+  </div>
+</section>
+<div class="section-divider-fancy"><span>✦</span></div>
+<section id="section-quan" class="section-products">
+  <h2 class="section-title">QUẦN</h2>
+  <div class="product-slider-container">
+    <button class="slide-btn prev">‹</button>
+    <div class="products-row" id="products-quan"></div>
+    <button class="slide-btn next">›</button>
+  </div>
+</section>
+<div class="section-divider-fancy"><span>✦</span></div>
+<section id="section-giay" class="section-products">
+  <h2 class="section-title">GIÀY</h2>
+  <div class="product-slider-container">
+    <button class="slide-btn prev">‹</button>
+    <div class="products-row" id="products-giay"></div>
+    <button class="slide-btn next">›</button>
+  </div>
+</section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Liên kết nhanh</h3>
+        <ul>
+          <li><a href="size-chart.html">Bảng kích thước</a></li>
+          <li><a href="#">Hướng dẫn đặt hàng</a></li>
+          <li><a href="payment-guide.html">Hướng dẫn thanh toán</a></li>
+          <li><a href="return-policy.html">Chính sách đổi trả</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Hotline hỗ trợ 24/7</h3>
+        <p><a href="tel:0944356789">09443.56789</a></p>
+        <h3>Chấp nhận thanh toán</h3>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-paypal"></i>
+          <i class="fas fa-money-bill-wave"></i>
+        </div>
+        <h3>Theo dõi chúng tôi</h3>
+        <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> |
+           <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>Copyright © 2025 HTDD</p></div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="menu.js"></script>
+  <script>
+const categoryMap = {
+  "phụ kiện": { ids: ["sp5", "sp12", "sp23"], sectionId: "section-phu-kien", containerId: "products-phu-kien" },
+  "áo":       { ids: ["sp1", "sp7", "sp14"], sectionId: "section-ao", containerId: "products-ao" },
+  "quần":     { ids: ["sp2", "sp9", "sp25"], sectionId: "section-quan", containerId: "products-quan" },
+  "giày":     { ids: ["sp6", "sp11", "sp33"], sectionId: "section-giay", containerId: "products-giay" }
+};
+
+document.querySelectorAll('.sanpham-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    e.preventDefault();
+    const label = card.querySelector('.overlay')?.textContent.trim().toLowerCase();
+    if (!categoryMap[label]) return;
+
+    const { ids, sectionId, containerId } = categoryMap[label];
+
+    fetch('products.json')
+      .then(res => res.json())
+      .then(data => {
+        const matched = data.filter(p => ids.includes(p.id));
+        renderCards(matched, containerId);
+        setupSlider(containerId);
+
+        // Cuộn xuống sau khi DOM cập nhật
+        setTimeout(() => {
+          document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+        }, 300);
+      });
+  });
+});
+
+
+
+
+function renderCards(products, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = products.map(p => `
+    <div class="product-card">
+      <div class="product-img">
+        <img src="${p.colors?.[0]?.img || p.image}" alt="${p.name}">
+        ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
+      </div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-style">${p.style || ''}</div>
+        <div class="product-price">${p.price.toLocaleString()}₫</div>
+        <a href="#" class="btn-view full-width" data-id="${p.id}">
+          <i class="fas fa-eye"></i> Xem nhanh
+        </a>
+      </div>
+    </div>
+  `).join('');
+
+  container.querySelectorAll(".btn-view").forEach(button => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      const productId = button.getAttribute("data-id");
+      const product = products.find(p => p.id === productId);
+      if (product) showProductModal(product);
+    });
+  });
+}
+
+function setupSlider(containerId) {
+  const container = document.querySelector(`#${containerId}`);
+  const prevBtn = container.parentElement.querySelector(".prev");
+  const nextBtn = container.parentElement.querySelector(".next");
+
+  const scrollStep = 320;
+
+  prevBtn.addEventListener("click", () => {
+    container.scrollBy({ left: -scrollStep, behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", () => {
+    container.scrollBy({ left: scrollStep, behavior: "smooth" });
+  });
+
+  let autoScroll = setInterval(() => {
+    container.scrollBy({ left: scrollStep, behavior: "smooth" });
+  }, 1500);
+
+  container.addEventListener("mouseenter", () => clearInterval(autoScroll));
+  container.addEventListener("mouseleave", () => {
+    autoScroll = setInterval(() => {
+      container.scrollBy({ left: scrollStep, behavior: "smooth" });
+    }, 1500);
+  });
+}
+
+fetch('products.json')
+  .then(res => res.json())
+  .then(data => {
+    const newProducts = data.filter(p => ["sp1","sp7","sp11","sp14","sp37","sp40","sp46","sp25","sp20","sp30"].includes(p.id));
+    const bestSellers = data.filter(p => ["sp2", "sp4", "sp14","sp19","sp22","sp27","sp32","sp35","sp41","sp48"].includes(p.id));
+
+    renderCards(newProducts, "new-products");
+    renderCards(bestSellers, "best-sellers");
+
+    setupSlider("new-products");
+    setupSlider("best-sellers");
+
+    // 🔹 Hiển thị sẵn sản phẩm theo loại
+    Object.entries(categoryMap).forEach(([key, { ids, containerId }]) => {
+      const matched = data.filter(p => ids.includes(p.id));
+      renderCards(matched, containerId);
+      setupSlider(containerId);
+    });
+
+    // 🔹 Gắn sự kiện để cuộn đến phần tương ứng khi bấm ảnh
+    document.querySelectorAll('.sanpham-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const label = card.querySelector('.overlay')?.textContent.trim().toLowerCase();
+        if (!categoryMap[label]) return;
+
+        const { sectionId } = categoryMap[label];
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  });
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const countEl = document.querySelector(".cart-count");
+    if (countEl) countEl.textContent = totalQty;
+}
+
+document.addEventListener("DOMContentLoaded", updateCartCount);
+
+// Nút dịch trái phải
+document.querySelectorAll('.product-slider-container').forEach(container => {
+    const row = container.querySelector('.products-row');
+    const nextBtn = container.querySelector('.next');
+    const prevBtn = container.querySelector('.prev');
+
+    const scrollAmount = 240 + 20;
+
+    nextBtn.addEventListener('click', () => {
+    row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+    row.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+});    
+
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollStep = 320;
+
+  const setupSlider = (containerId) => {
+    const container = document.querySelector(`#${containerId}`);
+    const prevBtn = container.parentElement.querySelector(".prev");
+    const nextBtn = container.parentElement.querySelector(".next");
+
+    prevBtn.addEventListener("click", () => {
+      container.scrollBy({ left: -scrollStep, behavior: "smooth" });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      container.scrollBy({ left: scrollStep, behavior: "smooth" });
+    });
+
+    // Auto-scroll
+    let autoScroll = setInterval(() => {
+      container.scrollBy({ left: scrollStep, behavior: "smooth" });
+    }, 1500);
+
+    // Pause on hover
+    container.addEventListener("mouseenter", () => clearInterval(autoScroll));
+    container.addEventListener("mouseleave", () => {
+      autoScroll = setInterval(() => {
+        container.scrollBy({ left: scrollStep, behavior: "smooth" });
+      }, 1500);
+    });
+  };
+
+  setupSlider("new-products");
+  setupSlider("best-sellers");
+});
+
+</script>
+
+    <!-- MODAL POPUP -->
+    <div class="modal" id="productModal" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close" onclick="document.getElementById('productModal').style.display='none'">×</span>
+            <div class="product-detail" style="display: flex; flex-wrap: wrap; gap: 30px;">
+                <div class="product-image" style="flex: 1 1 300px; text-align: center;">
+                    <img id="product-image" src="" alt="Ảnh sản phẩm"
+                        style="width: 100%; max-width: 350px; border-radius: 8px;">
                 </div>
-
-
-                <button class="hamburger">
-                    <i class="fas fa-bars"></i>
-                </button>
-
-                <ul class="nav-links">
-                    <li><a href="index.html">Trang chủ</a></li>
-                    <li><a href="products.html">Sản phẩm</a></li>
-                    <li class="dropdown">
-                        <a href="#">Phong cách <i class="fas fa-chevron-down" style="font-size: 12px;"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="streetwear.html">Streetwear</a></li>
-                            <li><a href="casual.html">Casual</a></li>
-                            <li><a href="business.html">Business</a></li>
-                            <li><a href="sporty.html">Sporty</a></li>
-                            <li><a href="vintage.html">Vintage</a></li>
-                            <li><a href="minimalist.html">Minimalist</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="news.html">Tin tức</a></li>
-                    <li><a href="contact.html">Liên hệ</a></li>
-
-                    <li class="account-menu">
-                        <a href="#" id="account-link">
-                            <span id="username-display">Tài khoản</span>
-                            <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                <div class="info" style="flex: 1 1 300px;">
+                    <h1 id="product-name">Tên sản phẩm</h1>
+                    <p><strong>Giá:</strong> <span id="product-price"></span></p>
+                    <p class="label" id="description-toggle"
+                        style="cursor: pointer; color: #1e88e5; font-weight: bold;">Mô tả sản phẩm ⯆</p>
+                    <p id="product-description" style="display: none;"></p>
+                    <p><strong>Chọn màu:</strong></p>
+                    <div id="color-options" style="display: flex; gap: 10px; margin-bottom: 15px;"></div>
+                    <p class="label">
+                        <strong>Chọn size:</strong>
+                        <a href="size-chart.html" target="_blank"
+                            style="margin-left: 10px; font-size: 14px; color: #1e88e5; text-decoration: underline;">
+                            Hướng dẫn chọn size
                         </a>
-                        <ul class="account-dropdown" id="account-dropdown">
-                            <li><a href="login.html" id="login-link">Đăng nhập</a></li>
-                            <li><a href="register.html" id="register-link">Đăng ký</a></li>
-                            <li><a href="#" id="logout-link" style="display:none;">Đăng xuất</a></li>
-                        </ul>
-                    </li>
-                    <li class="search-bar">
-                        <input type="text" placeholder="Tìm kiếm...">
-                    </li>
-                </ul>
+                    </p>
+                    <div id="size-options"></div>
+                    <p><strong>Số lượng:</strong></p>
+                    <div class="quantity-container">
+                        <button id="decrease-qty" class="qty-btn">–</button>
+                        <input type="number" id="quantity-input" min="1" value="1" class="qty-input">
+                        <button id="increase-qty" class="qty-btn">+</button>
+                    </div>
+                    <br>
 
-                <div class="cart-icon">
-                    <a href="cart.html">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count">0</span>
-                    </a>
+                    <button id="add-to-cart"
+                        style="padding: 10px 20px; background: #1e88e5; color: white; border: none; border-radius: 6px; cursor: pointer;">Thêm
+                        vào giỏ hàng</button>
+                    <div style="text-align: center; margin-top: 20px;">
+                    <a id="product-detail-link" href="#">Xem chi tiết</a>    
                 </div>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="products">
-            <h2>Tất cả sản phẩm</h2>
-            <div class="product-grid" id="product-list"></div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Liên kết nhanh</h3>
-                <ul>
-                    <li><a href="size-chart.html">Bảng kích thước</a></li>
-                    <li><a href="#">Hướng dẫn đặt hàng</a></li>
-                    <li><a href="payment-guide.html">Hướng dẫn thanh toán</a></li>
-                    <li><a href="return-policy.html">Chính sách đổi trả</a></li>
-                    <li><a href="contact.html">Liên hệ</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Hotline hỗ trợ 24/7</h3>
-                <p><a href="tel:0944356789">09443.56789</a></p>
-                <h3>Chấp nhận thanh toán</h3>
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-paypal"></i>
-                    <i class="fas fa-money-bill-wave"></i>
-                </div>
-                <h3>Theo dõi chúng tôi</h3>
-                <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> | <a
-                        href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>Copyright © 2025 HTDD</p>
-        </div>
-    </footer>
+    </div>
 
-    <ul class="btn-contact">
-        <li><a class="btn-hotline" href="tel:0944356789"><i class="fas fa-phone-alt"></i><span>Gọi ngay</span></a></li>
-        <li><a class="btn-zalo" href="//zalo.me/0944356789"><i class="fas fa-comment-dots"></i><span>Chat
-                    Zalo</span></a></li>
-        <li><a id="btn-email" class="btn-email" href="#"><i class="fas fa-envelope"></i><span>Đăng ký</span></a></li>
-        <li><a class="btn-local" href="contact.html"><i class="fas fa-map-marker-alt"></i><span>Địa chỉ</span></a></li>
-        <li><a class="btn-top" href="#top"><i class="fas fa-arrow-up"></i><span>Trở về đầu</span></a></li>
-    </ul>
-
-    <script src="script.js"></script>
-    <script src="menu.js"></script>
-    <script src="cart.js"></script>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'93db0c393e97afa1',t:'MTc0Njg5NzAwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+    <script src="product-popup.js"></script>
 </body>
-
 </html>

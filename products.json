@@ -1,34 +1,35 @@
 [
-  {
-    "id": "sp1",
-    "name": "Áo Hoodie Thêu Logo",
-    "price": 750000,
-    "description": "Chất cotton thoáng mát, co giãn 4 chiều.",
-    "category": "áo",
-    "style": "Streetwear",
-    "badge": "Mới", 
-    "sizes": ["S", "M", "L", "XL"],
-    "colors": [
-      { "name": "Xám", "img": "images/sp001_white.png" },
-      { "name": "Đen", "img": "images/sp001_black.png" }
-    ]
-  },
-  {
-    "id": "sp2",
-    "name": "Quần jean Custom Y2k",
-    "price": 250000,
-    "description": "Vải bò dày dặn nhưng vẫn mềm mại, co giãn nhẹ, mặc thoải mái cả ngày.",
-    "category": "quần",
-    "style": "Streetwear",
-    "badge": "Phổ biến", 
-    "sizes": ["S", "M", "L", "XL"],
-    "colors": [
-      { "name": "Hồng", "img": "images/sp2hong.png" },
-      { "name": "Xanh Lá", "img": "images/sp2xanhla.png" },
-      { "name": "Xanh Dương", "img": "images/sp2xanhduong.png" },
-      { "name": "Tím", "img": "images/sp2tim.png" }
-    ]
-  },
+{
+  "id": "sp1",
+  "name": "Áo Hoodie Thêu Logo",
+  "price": 750000,
+  "description": "Chất cotton thoáng mát, co giãn 4 chiều.",
+  "category": ["áo", "new"],
+  "style": "Streetwear",
+  "badge": "Mới",
+  "sizes": ["S", "M", "L", "XL"],
+  "colors": [
+    { "name": "Xám", "img": "images/sp001_white.png" },
+    { "name": "Đen", "img": "images/sp001_black.png" }
+  ]
+},
+{
+  "id": "sp2",
+  "name": "Quần jean Custom Y2k",
+  "price": 250000,
+  "description": "Vải bò dày dặn nhưng vẫn mềm mại, co giãn nhẹ, mặc thoải mái cả ngày.",
+  "category": ["quần", "banchay"],
+  "style": "Streetwear",
+  "badge": "HOT",
+  "sizes": ["S", "M", "L", "XL"],
+  "colors": [
+    { "name": "Hồng", "img": "images/sp2hong.png" },
+    { "name": "Xanh Lá", "img": "images/sp2xanhla.png" },
+    { "name": "Xanh Dương", "img": "images/sp2xanhduong.png" },
+    { "name": "Tím", "img": "images/sp2tim.png" }
+  ]
+},
+
     {
     "id": "sp3",
     "name": "Áo thun Need money for porsche ",
