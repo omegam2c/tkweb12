@@ -147,6 +147,41 @@
             padding: 20px;
             text-align: center;
         }
+        nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* không cho xuống dòng */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    margin-left: 20px;
+}
+
+.cart-icon {
+    margin-left: 10px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border-radius: 10px;
+}
+    
 
         @media (max-width: 768px) {
             .guide-section {
@@ -167,13 +202,14 @@
                 align-items: flex-start;
             }
         }
+
     </style>
 </head>
 
 <body>
     <header>
-        <div class="container">
-            <nav>
+        <div class="container" style="height: 80px; margin-top: 0;">
+            <nav style="height: 60px;">
                 <div class="logo">
                     <a href="index.html" class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
                 </div>
