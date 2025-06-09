@@ -1,5 +1,3 @@
-
-
 function loadProducts(style = null) {
     const productList = document.getElementById("product-list");
     if (!productList) return;
