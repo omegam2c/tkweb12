@@ -188,6 +188,12 @@
       "quần": { ids: ["sp2", "sp9", "sp25"], sectionId: "section-quan", containerId: "products-quan" },
       "giày": { ids: ["sp6", "sp11", "sp33"], sectionId: "section-giay", containerId: "products-giay" }
     };
+    const categoryMap = {
+      "phụ kiện": { ids: ["sp49", "sp51", "sp55", "sp53", "sp57", "sp59"], sectionId: "section-phu-kien", containerId: "products-phu-kien" },
+      "áo": { ids: ["sp3", "sp5", "sp6", "sp9", "sp11", "sp15", "sp20", "sp23", "sp25", "sp28"], sectionId: "section-ao", containerId: "products-ao" },
+      "quần": { ids: ["sp7", "sp10", "sp12", "sp16", "sp19", "sp21", "sp26", "sp31", "sp35", "sp43"], sectionId: "section-quan", containerId: "products-quan" },
+      "giày": { ids: ["sp50", "sp52", "sp54", "sp56", "sp58", "sp60"], sectionId: "section-giay", containerId: "products-giay" }
+    };
 
     document.querySelectorAll('.sanpham-card').forEach(card => {
       card.addEventListener('click', (e) => {
@@ -241,127 +247,192 @@
           const product = products.find(p => p.id === productId);
           if (product) showProductModal(product);
         });
-      });
-    }
-
-    function setupSlider(containerId) {
-      const container = document.querySelector(`#${containerId}`);
-      const prevBtn = container.parentElement.querySelector(".prev");
-      const nextBtn = container.parentElement.querySelector(".next");
-
-      const scrollStep = 320;
-
-      prevBtn.addEventListener("click", () => {
-        container.scrollBy({ left: -scrollStep, behavior: "smooth" });
-      });
-
-      nextBtn.addEventListener("click", () => {
-        container.scrollBy({ left: scrollStep, behavior: "smooth" });
-      });
-
-      let autoScroll = setInterval(() => {
-        container.scrollBy({ left: scrollStep, behavior: "smooth" });
-      }, 1500);
-
-      container.addEventListener("mouseenter", () => clearInterval(autoScroll));
-      container.addEventListener("mouseleave", () => {
-        autoScroll = setInterval(() => {
-          container.scrollBy({ left: scrollStep, behavior: "smooth" });
-        }, 1500);
-      });
-    }
-
-    fetch('products.json')
-      .then(res => res.json())
-      .then(data => {
-        const newProducts = data.filter(p => ["sp1", "sp7", "sp11", "sp14", "sp37", "sp40", "sp46", "sp25", "sp20", "sp30"].includes(p.id));
-        const bestSellers = data.filter(p => ["sp2", "sp4", "sp14", "sp19", "sp22", "sp27", "sp32", "sp35", "sp41", "sp48"].includes(p.id));
-
-        renderCards(newProducts, "new-products");
-        renderCards(bestSellers, "best-sellers");
-
-        setupSlider("new-products");
-        setupSlider("best-sellers");
-
-        // 🔹 Hiển thị sẵn sản phẩm theo loại
-        Object.entries(categoryMap).forEach(([key, { ids, containerId }]) => {
-          const matched = data.filter(p => ids.includes(p.id));
-          renderCards(matched, containerId);
-          setupSlider(containerId);
-        });
-
-        // 🔹 Gắn sự kiện để cuộn đến phần tương ứng khi bấm ảnh
-        document.querySelectorAll('.sanpham-card').forEach(card => {
-          card.addEventListener('click', (e) => {
+        container.querySelectorAll(".btn-view").forEach(button => {
+          button.addEventListener("click", (e) => {
             e.preventDefault();
-            const label = card.querySelector('.overlay')?.textContent.trim().toLowerCase();
-            if (!categoryMap[label]) return;
-
-            const { sectionId } = categoryMap[label];
-            document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+            const productId = button.getAttribute("data-id");
+            const product = products.find(p => p.id === productId);
+            if (product) showProductModal(product);
           });
         });
-      });
+      }
 
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-      const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
-      const countEl = document.querySelector(".cart-count");
-      if (countEl) countEl.textContent = totalQty;
-    }
+function setupSlider(containerId) {
+          const container = document.querySelector(`#${containerId}`);
+          const prevBtn = container.parentElement.querySelector(".prev");
+          const nextBtn = container.parentElement.querySelector(".next");
 
-    document.addEventListener("DOMContentLoaded", updateCartCount);
+          const scrollStep = 320;
 
-    // Nút dịch trái phải
-    document.querySelectorAll('.product-slider-container').forEach(container => {
-      const row = container.querySelector('.products-row');
-      const nextBtn = container.querySelector('.next');
-      const prevBtn = container.querySelector('.prev');
+          prevBtn.addEventListener("click", () => {
+            container.scrollBy({ left: -scrollStep, behavior: "smooth" });
+          });
 
-      const scrollAmount = 240 + 20;
+          nextBtn.addEventListener("click", () => {
+            container.scrollBy({ left: scrollStep, behavior: "smooth" });
+          });
 
-      nextBtn.addEventListener('click', () => {
-        row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      });
-
-      prevBtn.addEventListener('click', () => {
-        row.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      });
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const scrollStep = 320;
-
-      const setupSlider = (containerId) => {
-        const container = document.querySelector(`#${containerId}`);
-        const prevBtn = container.parentElement.querySelector(".prev");
-        const nextBtn = container.parentElement.querySelector(".next");
-
-        prevBtn.addEventListener("click", () => {
-          container.scrollBy({ left: -scrollStep, behavior: "smooth" });
-        });
-
-        nextBtn.addEventListener("click", () => {
-          container.scrollBy({ left: scrollStep, behavior: "smooth" });
-        });
-
-        // Auto-scroll
-        let autoScroll = setInterval(() => {
-          container.scrollBy({ left: scrollStep, behavior: "smooth" });
-        }, 1500);
-
-        // Pause on hover
-        container.addEventListener("mouseenter", () => clearInterval(autoScroll));
-        container.addEventListener("mouseleave", () => {
-          autoScroll = setInterval(() => {
+          let autoScroll = setInterval(() => {
             container.scrollBy({ left: scrollStep, behavior: "smooth" });
           }, 1500);
-        });
-      };
 
-      setupSlider("new-products");
-      setupSlider("best-sellers");
-    });
+          container.addEventListener("mouseenter", () => clearInterval(autoScroll));
+          container.addEventListener("mouseleave", () => {
+            autoScroll = setInterval(() => {
+              container.scrollBy({ left: scrollStep, behavior: "smooth" });
+            }, 1500);
+          });
+        }
+
+fetch('products.json')
+          .then(res => res.json())
+          .then(data => {
+            const newProducts = data.filter(p => ["sp1", "sp7", "sp11", "sp14", "sp37", "sp40", "sp46", "sp25", "sp20", "sp30"].includes(p.id));
+            const bestSellers = data.filter(p => ["sp2", "sp4", "sp15", "sp19", "sp22", "sp27", "sp32", "sp35", "sp41", "sp48"].includes(p.id));
+
+            renderCards(newProducts, "new-products");
+            renderCards(bestSellers, "best-sellers");
+
+            setupSlider("new-products");
+            setupSlider("best-sellers");
+
+            // 🔹 Hiển thị sẵn sản phẩm theo loại
+            Object.entries(categoryMap).forEach(([key, { ids, containerId }]) => {
+              const matched = data.filter(p => ids.includes(p.id));
+              renderCards(matched, containerId);
+              setupSlider(containerId);
+            });
+
+            // 🔹 Gắn sự kiện để cuộn đến phần tương ứng khi bấm ảnh
+            document.querySelectorAll('.sanpham-card').forEach(card => {
+              card.addEventListener('click', (e) => {
+                e.preventDefault();
+                const label = card.querySelector('.overlay')?.textContent.trim().toLowerCase();
+                if (!categoryMap[label]) return;
+
+                const { sectionId } = categoryMap[label];
+                document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+              });
+            }
+
+    function setupSlider(containerId) {
+                const container = document.querySelector(`#${containerId}`);
+                const prevBtn = container.parentElement.querySelector(".prev");
+                const nextBtn = container.parentElement.querySelector(".next");
+
+                const scrollStep = 320;
+
+                prevBtn.addEventListener("click", () => {
+                  container.scrollBy({ left: -scrollStep, behavior: "smooth" });
+                });
+
+                nextBtn.addEventListener("click", () => {
+                  container.scrollBy({ left: scrollStep, behavior: "smooth" });
+                });
+
+                let autoScroll = setInterval(() => {
+                  container.scrollBy({ left: scrollStep, behavior: "smooth" });
+                }, 1500);
+
+                container.addEventListener("mouseenter", () => clearInterval(autoScroll));
+                container.addEventListener("mouseleave", () => {
+                  autoScroll = setInterval(() => {
+                    container.scrollBy({ left: scrollStep, behavior: "smooth" });
+                  }, 1500);
+                });
+              }
+
+    fetch('products.json')
+                .then(res => res.json())
+                .then(data => {
+                  const newProducts = data.filter(p => ["sp1", "sp7", "sp11", "sp14", "sp37", "sp40", "sp46", "sp25", "sp20", "sp30"].includes(p.id));
+                  const bestSellers = data.filter(p => ["sp2", "sp4", "sp14", "sp19", "sp22", "sp27", "sp32", "sp35", "sp41", "sp48"].includes(p.id));
+
+                  renderCards(newProducts, "new-products");
+                  renderCards(bestSellers, "best-sellers");
+
+                  setupSlider("new-products");
+                  setupSlider("best-sellers");
+
+                  // 🔹 Hiển thị sẵn sản phẩm theo loại
+                  Object.entries(categoryMap).forEach(([key, { ids, containerId }]) => {
+                    const matched = data.filter(p => ids.includes(p.id));
+                    renderCards(matched, containerId);
+                    setupSlider(containerId);
+                  });
+
+                  // 🔹 Gắn sự kiện để cuộn đến phần tương ứng khi bấm ảnh
+                  document.querySelectorAll('.sanpham-card').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                      e.preventDefault();
+                      const label = card.querySelector('.overlay')?.textContent.trim().toLowerCase();
+                      if (!categoryMap[label]) return;
+
+                      const { sectionId } = categoryMap[label];
+                      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+                    });
+                  });
+                });
+
+            function updateCartCount() {
+              const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+              const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+              const countEl = document.querySelector(".cart-count");
+              if (countEl) countEl.textContent = totalQty;
+            }
+
+            document.addEventListener("DOMContentLoaded", updateCartCount);
+
+            // Nút dịch trái phải
+            document.querySelectorAll('.product-slider-container').forEach(container => {
+              const row = container.querySelector('.products-row');
+              const nextBtn = container.querySelector('.next');
+              const prevBtn = container.querySelector('.prev');
+
+              const scrollAmount = 240 + 20;
+
+              nextBtn.addEventListener('click', () => {
+                row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+              });
+
+              prevBtn.addEventListener('click', () => {
+                row.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+              });
+            });
+
+            document.addEventListener("DOMContentLoaded", function () {
+              const scrollStep = 320;
+
+              const setupSlider = (containerId) => {
+                const container = document.querySelector(`#${containerId}`);
+                const prevBtn = container.parentElement.querySelector(".prev");
+                const nextBtn = container.parentElement.querySelector(".next");
+
+                prevBtn.addEventListener("click", () => {
+                  container.scrollBy({ left: -scrollStep, behavior: "smooth" });
+                });
+
+                nextBtn.addEventListener("click", () => {
+                  container.scrollBy({ left: scrollStep, behavior: "smooth" });
+                });
+
+                // Auto-scroll
+                let autoScroll = setInterval(() => {
+                  container.scrollBy({ left: scrollStep, behavior: "smooth" });
+                }, 1500);
+
+                // Pause on hover
+                container.addEventListener("mouseenter", () => clearInterval(autoScroll));
+                container.addEventListener("mouseleave", () => {
+                  autoScroll = setInterval(() => {
+                    container.scrollBy({ left: scrollStep, behavior: "smooth" });
+                  }, 1500);
+                });
+              };
+
+              setupSlider("new-products");
+              setupSlider("best-sellers");
+            });
 
   </script>
 
