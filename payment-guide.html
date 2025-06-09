@@ -158,7 +158,7 @@
         }
 
         .nav-links {
-            display: flex;
+            display: hidden;
             list-style: none;
             padding: 0;
             margin: 0;
@@ -199,11 +199,12 @@
             .guide-section h3 {
                 font-size: 20px;
             }
-
+/* 
             .payment-methods {
+
                 flex-direction: column;
                 align-items: flex-start;
-            }
+            } */
         }
     </style>
 </head>
@@ -211,10 +212,11 @@
 <body>
     <header>
         <div class="container" style="height: 80px; margin-top: 0;">
-            <nav style="height: 60px;">
+            <nav>
                 <div class="logo">
                     <a href="index.html" class="navbar-logo"><img src="images/logoHTDD.png" alt="HTDD"></a>
                 </div>
+
 
                 <button class="hamburger">
                     <i class="fas fa-bars"></i>
@@ -236,7 +238,6 @@
                     </li>
                     <li><a href="news.html">Tin tức</a></li>
                     <li><a href="contact.html">Liên hệ</a></li>
-                    <li><a href="cart.html">Giỏ hàng</a></li>
                     <li class="account-menu">
                         <a href="#" id="account-link">
                             <span id="username-display">Tài khoản</span>
@@ -358,6 +359,7 @@
     <script src="script.js"></script>
     <script src="menu.js"></script>
     <script src="cart.js"></script>
+    
 </body>
 
 </html>
