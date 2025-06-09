@@ -236,6 +236,7 @@ nav a::after {
     outline: none;
     width: 150px;
     transition: all 0.3s ease;
+    padding-left: 10px;
 }
 
 .search-bar input:focus {

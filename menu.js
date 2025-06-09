@@ -55,19 +55,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Search functionality
-    const searchInput = document.querySelector('.search-bar input');
-    if (searchInput) {
-        searchInput.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                const searchTerm = this.value.trim();
-                if (searchTerm) {
-                    // Here you would typically redirect to search results page
-                    console.log('Searching for:', searchTerm);
-                    alert('Đang tìm kiếm: ' + searchTerm);
-                }
-            }
-        });
-    }
+    searchInput.addEventListener('input', function () {
+        const keyword = this.value.trim().toLowerCase();
+        const resultsContainer = document.querySelector('.search-results');
+
+        if (keyword.length === 0) {
+            resultsContainer.style.display = 'none';
+            return;
+        }
+
+        // Giả sử bạn có danh sách sản phẩm dạng mảng
+        const matchedItems = productList.filter(item =>
+            item.name.toLowerCase().includes(keyword)
+        );
+
+        // Render danh sách ra dropdown
+        resultsContainer.innerHTML = matchedItems.map(item => `
+        <div class="search-result-item">
+            <img src="${item.image}" alt="${item.name}" />
+            <div class="search-result-info">
+                <h4>${item.name}</h4>
+                <p>${item.description}</p>
+            </div>
+        </div>
+    `).join('');
+
+        resultsContainer.style.display = 'block';
+    });
+
 
     // Add smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

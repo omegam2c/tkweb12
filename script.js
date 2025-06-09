@@ -21,50 +21,6 @@ function loadProducts(style = null) {
     });
 }
 
-function searchProducts() {
-    const searchInput = document.querySelector(".search-bar");
-    const searchDropdown = document.createElement("ul");
-    searchDropdown.className = "search-dropdown";
-    searchInput.parentElement.appendChild(searchDropdown);
-
-    searchInput.addEventListener("input", () => {
-        const query = searchInput.value.toLowerCase();
-        searchDropdown.innerHTML = "";
-        searchDropdown.classList.remove("active");
-
-        if (query) {
-            const filteredProducts = products.filter(p => p.name.toLowerCase().includes(query)).slice(0, 5);
-            if (filteredProducts.length > 0) {
-                filteredProducts.forEach(product => {
-                    const li = document.createElement("li");
-                    li.textContent = product.name;
-                    li.dataset.productId = product.id;
-                    li.dataset.style = product.style;
-                    li.addEventListener("click", () => {
-                        const productElement = document.getElementById(`product-${product.id}`);
-                        if (productElement) {
-                            productElement.scrollIntoView({ behavior: "smooth", block: "center" });
-                            searchDropdown.classList.remove("active");
-                            searchInput.value = "";
-                        } else {
-                            const stylePage = product.style.toLowerCase() + ".html";
-                            window.location.href = stylePage + `#product-${product.id}`;
-                        }
-                    });
-                    searchDropdown.appendChild(li);
-                });
-                searchDropdown.classList.add("active");
-            }
-        }
-    });
-
-    document.addEventListener("click", (e) => {
-        if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) {
-            searchDropdown.classList.remove("active");
-        }
-    });
-}
-
 function updateAccountMenu() {
     const accountMenu = document.querySelector(".account-menu");
     if (!accountMenu) return;

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 
 <html lang="vi">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Tất cả sản phẩm thời trang tại HTDD: Vintage, Streetwear, Casual, Business, Sporty, Minimalist." name="description"/>
-<title>HTDD - Sản phẩm</title>
-<link href="images/logoHTDD.png" rel="shortcut icon" type="image/x-icon"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
-<link href="menu.css" rel="stylesheet"/>
-<link href="additional.css" rel="stylesheet"/>
-<link href="products.css" rel="stylesheet"/>
-<link href="popup.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="Tất cả sản phẩm thời trang tại HTDD: Vintage, Streetwear, Casual, Business, Sporty, Minimalist."
+    name="description" />
+  <title>HTDD - Sản phẩm</title>
+  <link href="images/logoHTDD.png" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <link href="style.css" rel="stylesheet" />
+  <link href="menu.css" rel="stylesheet" />
+  <link href="additional.css" rel="stylesheet" />
+  <link href="products.css" rel="stylesheet" />
+  <link href="popup.css" rel="stylesheet" />
+  <link rel="stylesheet" href="search.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
 
@@ -52,7 +55,10 @@
               <li><a href="#" id="logout-link" style="display:none;">Đăng xuất</a></li>
             </ul>
           </li>
-          <li class="search-bar"><input type="text" placeholder="Tìm kiếm..." /></li>
+          <li class="search-bar" id="search-bar-container">
+            <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm...">
+            <div id="search-results" class="search-results"></div>
+          </li>
         </ul>
         <div class="cart-icon">
           <a href="cart.html"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
@@ -62,71 +68,83 @@
   </header>
 
   <main>
-<div style="width: 100%; overflow: hidden;">
-<img alt="Banner HTDD" src="images/bannerproduct.png" style="width: 100%; height: auto; display: block;"/>
-</div>
-<section class="sanpham">
-<h2 class="section-title">KHÁM PHÁ SẢN PHẨM</h2>
-<div class="product-grid masonry">
-<a class="sanpham-card" href="#"><img alt="Phụ kiện" src="images/phukien.png"/><div class="shade"></div><div class="overlay">Phụ kiện</div></a>
-<a class="sanpham-card" href="#"><img alt="Áo" src="images/ao.png"/><div class="shade"></div><div class="overlay">Áo</div></a>
-<a class="sanpham-card" href="#"><img alt="Quần" src="images/quan.png"/><div class="shade"></div><div class="overlay">Quần</div></a>
-<a class="sanpham-card" href="#"><img alt="Giày" src="images/giay.png"/><div class="shade"></div><div class="overlay">Giày</div></a>
-</div>
+    <div style="width: 100%; overflow: hidden;">
+      <img alt="Banner HTDD" src="images/bannerproduct.png" style="width: 100%; height: auto; display: block;" />
+    </div>
+    <section class="sanpham">
+      <h2 class="section-title">KHÁM PHÁ SẢN PHẨM</h2>
+      <div class="product-grid masonry">
+        <a class="sanpham-card" href="#"><img alt="Phụ kiện" src="images/phukien.png" />
+          <div class="shade"></div>
+          <div class="overlay">Phụ kiện</div>
+        </a>
+        <a class="sanpham-card" href="#"><img alt="Áo" src="images/ao.png" />
+          <div class="shade"></div>
+          <div class="overlay">Áo</div>
+        </a>
+        <a class="sanpham-card" href="#"><img alt="Quần" src="images/quan.png" />
+          <div class="shade"></div>
+          <div class="overlay">Quần</div>
+        </a>
+        <a class="sanpham-card" href="#"><img alt="Giày" src="images/giay.png" />
+          <div class="shade"></div>
+          <div class="overlay">Giày</div>
+        </a>
+      </div>
 
-<!-- Sản phẩm mới và bán chạy -->
-<!-- SẢN PHẨM MỚI -->
-<section class="section-products">
-  <h2 class="section-title">SẢN PHẨM MỚI</h2>
-  <div class="product-slider-container">
-    <button class="slide-btn prev">‹</button>
-    <div class="products-row" id="new-products"></div>
-    <button class="slide-btn next">›</button>
-  </div>
+      <!-- Sản phẩm mới và bán chạy -->
+      <!-- SẢN PHẨM MỚI -->
+      <section class="section-products">
+        <h2 class="section-title">SẢN PHẨM MỚI</h2>
+        <div class="product-slider-container">
+          <button class="slide-btn prev">‹</button>
+          <div class="products-row" id="new-products"></div>
+          <button class="slide-btn next">›</button>
+        </div>
 
-  <h2 class="section-title">SẢN PHẨM BÁN CHẠY</h2>
-  <div class="product-slider-container">
-    <button class="slide-btn prev">‹</button>
-    <div class="products-row" id="best-sellers"></div>
-    <button class="slide-btn next">›</button>
-  </div>
-</section>
-<div class="section-divider-fancy"><span>✦</span></div>
-<section id="section-phu-kien" class="section-products">
-  <h2 class="section-title">PHỤ KIỆN</h2>
-  <div class="product-slider-container">
-    <button class="slide-btn prev">‹</button>
-    <div class="products-row" id="products-phu-kien"></div>
-    <button class="slide-btn next">›</button>
-  </div>
-</section>
-<div class="section-divider-fancy"><span>✦</span></div>
-<section id="section-ao" class="section-products">
-  <h2 class="section-title">ÁO</h2>
-  <div class="product-slider-container">
-    <button class="slide-btn prev">‹</button>
-    <div class="products-row" id="products-ao"></div>
-    <button class="slide-btn next">›</button>
-  </div>
-</section>
-<div class="section-divider-fancy"><span>✦</span></div>
-<section id="section-quan" class="section-products">
-  <h2 class="section-title">QUẦN</h2>
-  <div class="product-slider-container">
-    <button class="slide-btn prev">‹</button>
-    <div class="products-row" id="products-quan"></div>
-    <button class="slide-btn next">›</button>
-  </div>
-</section>
-<div class="section-divider-fancy"><span>✦</span></div>
-<section id="section-giay" class="section-products">
-  <h2 class="section-title">GIÀY</h2>
-  <div class="product-slider-container">
-    <button class="slide-btn prev">‹</button>
-    <div class="products-row" id="products-giay"></div>
-    <button class="slide-btn next">›</button>
-  </div>
-</section>
+        <h2 class="section-title">SẢN PHẨM BÁN CHẠY</h2>
+        <div class="product-slider-container">
+          <button class="slide-btn prev">‹</button>
+          <div class="products-row" id="best-sellers"></div>
+          <button class="slide-btn next">›</button>
+        </div>
+      </section>
+      <div class="section-divider-fancy"><span>✦</span></div>
+      <section id="section-phu-kien" class="section-products">
+        <h2 class="section-title">PHỤ KIỆN</h2>
+        <div class="product-slider-container">
+          <button class="slide-btn prev">‹</button>
+          <div class="products-row" id="products-phu-kien"></div>
+          <button class="slide-btn next">›</button>
+        </div>
+      </section>
+      <div class="section-divider-fancy"><span>✦</span></div>
+      <section id="section-ao" class="section-products">
+        <h2 class="section-title">ÁO</h2>
+        <div class="product-slider-container">
+          <button class="slide-btn prev">‹</button>
+          <div class="products-row" id="products-ao"></div>
+          <button class="slide-btn next">›</button>
+        </div>
+      </section>
+      <div class="section-divider-fancy"><span>✦</span></div>
+      <section id="section-quan" class="section-products">
+        <h2 class="section-title">QUẦN</h2>
+        <div class="product-slider-container">
+          <button class="slide-btn prev">‹</button>
+          <div class="products-row" id="products-quan"></div>
+          <button class="slide-btn next">›</button>
+        </div>
+      </section>
+      <div class="section-divider-fancy"><span>✦</span></div>
+      <section id="section-giay" class="section-products">
+        <h2 class="section-title">GIÀY</h2>
+        <div class="product-slider-container">
+          <button class="slide-btn prev">‹</button>
+          <div class="products-row" id="products-giay"></div>
+          <button class="slide-btn next">›</button>
+        </div>
+      </section>
   </main>
 
   <footer>
@@ -153,50 +171,53 @@
         </div>
         <h3>Theo dõi chúng tôi</h3>
         <p><a href="https://facebook.com/HTDD"><i class="fab fa-facebook-f"></i> Facebook</a> |
-           <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a></p>
+          <a href="https://instagram.com/HTDD"><i class="fab fa-instagram"></i> Instagram</a>
+        </p>
       </div>
     </div>
-    <div class="footer-bottom"><p>Copyright © 2025 HTDD</p></div>
+    <div class="footer-bottom">
+      <p>Copyright © 2025 HTDD</p>
+    </div>
   </footer>
   <script src="script.js"></script>
   <script src="menu.js"></script>
   <script>
-const categoryMap = {
-  "phụ kiện": { ids: ["sp5", "sp12", "sp23"], sectionId: "section-phu-kien", containerId: "products-phu-kien" },
-  "áo":       { ids: ["sp1", "sp7", "sp14"], sectionId: "section-ao", containerId: "products-ao" },
-  "quần":     { ids: ["sp2", "sp9", "sp25"], sectionId: "section-quan", containerId: "products-quan" },
-  "giày":     { ids: ["sp6", "sp11", "sp33"], sectionId: "section-giay", containerId: "products-giay" }
-};
+    const categoryMap = {
+      "phụ kiện": { ids: ["sp5", "sp12", "sp23"], sectionId: "section-phu-kien", containerId: "products-phu-kien" },
+      "áo": { ids: ["sp1", "sp7", "sp14"], sectionId: "section-ao", containerId: "products-ao" },
+      "quần": { ids: ["sp2", "sp9", "sp25"], sectionId: "section-quan", containerId: "products-quan" },
+      "giày": { ids: ["sp6", "sp11", "sp33"], sectionId: "section-giay", containerId: "products-giay" }
+    };
 
-document.querySelectorAll('.sanpham-card').forEach(card => {
-  card.addEventListener('click', (e) => {
-    e.preventDefault();
-    const label = card.querySelector('.overlay')?.textContent.trim().toLowerCase();
-    if (!categoryMap[label]) return;
+    document.querySelectorAll('.sanpham-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const label = card.querySelector('.overlay')?.textContent.trim().toLowerCase();
+        if (!categoryMap[label]) return;
 
-    const { ids, sectionId, containerId } = categoryMap[label];
+        const { ids, sectionId, containerId } = categoryMap[label];
 
-    fetch('products.json')
-      .then(res => res.json())
-      .then(data => {
-        const matched = data.filter(p => ids.includes(p.id));
-        renderCards(matched, containerId);
-        setupSlider(containerId);
+        fetch('products.json')
+          .then(res => res.json())
+          .then(data => {
+            const matched = data.filter(p => ids.includes(p.id));
+            renderCards(matched, containerId);
+            setupSlider(containerId);
 
-        // Cuộn xuống sau khi DOM cập nhật
-        setTimeout(() => {
-          document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
-        }, 300);
+            // Cuộn xuống sau khi DOM cập nhật
+            setTimeout(() => {
+              document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+            }, 300);
+          });
       });
-  });
-});
+    });
 
 
 
 
-function renderCards(products, containerId) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = products.map(p => `
+    function renderCards(products, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = products.map(p => `
     <div class="product-card">
       <div class="product-img">
         <img src="${p.colors?.[0]?.img || p.image}" alt="${p.name}">
@@ -213,180 +234,181 @@ function renderCards(products, containerId) {
     </div>
   `).join('');
 
-  container.querySelectorAll(".btn-view").forEach(button => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      const productId = button.getAttribute("data-id");
-      const product = products.find(p => p.id === productId);
-      if (product) showProductModal(product);
-    });
-  });
-}
-
-function setupSlider(containerId) {
-  const container = document.querySelector(`#${containerId}`);
-  const prevBtn = container.parentElement.querySelector(".prev");
-  const nextBtn = container.parentElement.querySelector(".next");
-
-  const scrollStep = 320;
-
-  prevBtn.addEventListener("click", () => {
-    container.scrollBy({ left: -scrollStep, behavior: "smooth" });
-  });
-
-  nextBtn.addEventListener("click", () => {
-    container.scrollBy({ left: scrollStep, behavior: "smooth" });
-  });
-
-  let autoScroll = setInterval(() => {
-    container.scrollBy({ left: scrollStep, behavior: "smooth" });
-  }, 1500);
-
-  container.addEventListener("mouseenter", () => clearInterval(autoScroll));
-  container.addEventListener("mouseleave", () => {
-    autoScroll = setInterval(() => {
-      container.scrollBy({ left: scrollStep, behavior: "smooth" });
-    }, 1500);
-  });
-}
-
-fetch('products.json')
-  .then(res => res.json())
-  .then(data => {
-    const newProducts = data.filter(p => ["sp1","sp7","sp11","sp14","sp37","sp40","sp46","sp25","sp20","sp30"].includes(p.id));
-    const bestSellers = data.filter(p => ["sp2", "sp4", "sp14","sp19","sp22","sp27","sp32","sp35","sp41","sp48"].includes(p.id));
-
-    renderCards(newProducts, "new-products");
-    renderCards(bestSellers, "best-sellers");
-
-    setupSlider("new-products");
-    setupSlider("best-sellers");
-
-    // 🔹 Hiển thị sẵn sản phẩm theo loại
-    Object.entries(categoryMap).forEach(([key, { ids, containerId }]) => {
-      const matched = data.filter(p => ids.includes(p.id));
-      renderCards(matched, containerId);
-      setupSlider(containerId);
-    });
-
-    // 🔹 Gắn sự kiện để cuộn đến phần tương ứng khi bấm ảnh
-    document.querySelectorAll('.sanpham-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        e.preventDefault();
-        const label = card.querySelector('.overlay')?.textContent.trim().toLowerCase();
-        if (!categoryMap[label]) return;
-
-        const { sectionId } = categoryMap[label];
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      container.querySelectorAll(".btn-view").forEach(button => {
+        button.addEventListener("click", (e) => {
+          e.preventDefault();
+          const productId = button.getAttribute("data-id");
+          const product = products.find(p => p.id === productId);
+          if (product) showProductModal(product);
+        });
       });
-    });
-  });
+    }
 
-function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const countEl = document.querySelector(".cart-count");
-    if (countEl) countEl.textContent = totalQty;
-}
+    function setupSlider(containerId) {
+      const container = document.querySelector(`#${containerId}`);
+      const prevBtn = container.parentElement.querySelector(".prev");
+      const nextBtn = container.parentElement.querySelector(".next");
 
-document.addEventListener("DOMContentLoaded", updateCartCount);
+      const scrollStep = 320;
 
-// Nút dịch trái phải
-document.querySelectorAll('.product-slider-container').forEach(container => {
-    const row = container.querySelector('.products-row');
-    const nextBtn = container.querySelector('.next');
-    const prevBtn = container.querySelector('.prev');
+      prevBtn.addEventListener("click", () => {
+        container.scrollBy({ left: -scrollStep, behavior: "smooth" });
+      });
 
-    const scrollAmount = 240 + 20;
+      nextBtn.addEventListener("click", () => {
+        container.scrollBy({ left: scrollStep, behavior: "smooth" });
+      });
 
-    nextBtn.addEventListener('click', () => {
-    row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
-
-    prevBtn.addEventListener('click', () => {
-    row.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
-});    
-
-document.addEventListener("DOMContentLoaded", function () {
-  const scrollStep = 320;
-
-  const setupSlider = (containerId) => {
-    const container = document.querySelector(`#${containerId}`);
-    const prevBtn = container.parentElement.querySelector(".prev");
-    const nextBtn = container.parentElement.querySelector(".next");
-
-    prevBtn.addEventListener("click", () => {
-      container.scrollBy({ left: -scrollStep, behavior: "smooth" });
-    });
-
-    nextBtn.addEventListener("click", () => {
-      container.scrollBy({ left: scrollStep, behavior: "smooth" });
-    });
-
-    // Auto-scroll
-    let autoScroll = setInterval(() => {
-      container.scrollBy({ left: scrollStep, behavior: "smooth" });
-    }, 1500);
-
-    // Pause on hover
-    container.addEventListener("mouseenter", () => clearInterval(autoScroll));
-    container.addEventListener("mouseleave", () => {
-      autoScroll = setInterval(() => {
+      let autoScroll = setInterval(() => {
         container.scrollBy({ left: scrollStep, behavior: "smooth" });
       }, 1500);
+
+      container.addEventListener("mouseenter", () => clearInterval(autoScroll));
+      container.addEventListener("mouseleave", () => {
+        autoScroll = setInterval(() => {
+          container.scrollBy({ left: scrollStep, behavior: "smooth" });
+        }, 1500);
+      });
+    }
+
+    fetch('products.json')
+      .then(res => res.json())
+      .then(data => {
+        const newProducts = data.filter(p => ["sp1", "sp7", "sp11", "sp14", "sp37", "sp40", "sp46", "sp25", "sp20", "sp30"].includes(p.id));
+        const bestSellers = data.filter(p => ["sp2", "sp4", "sp14", "sp19", "sp22", "sp27", "sp32", "sp35", "sp41", "sp48"].includes(p.id));
+
+        renderCards(newProducts, "new-products");
+        renderCards(bestSellers, "best-sellers");
+
+        setupSlider("new-products");
+        setupSlider("best-sellers");
+
+        // 🔹 Hiển thị sẵn sản phẩm theo loại
+        Object.entries(categoryMap).forEach(([key, { ids, containerId }]) => {
+          const matched = data.filter(p => ids.includes(p.id));
+          renderCards(matched, containerId);
+          setupSlider(containerId);
+        });
+
+        // 🔹 Gắn sự kiện để cuộn đến phần tương ứng khi bấm ảnh
+        document.querySelectorAll('.sanpham-card').forEach(card => {
+          card.addEventListener('click', (e) => {
+            e.preventDefault();
+            const label = card.querySelector('.overlay')?.textContent.trim().toLowerCase();
+            if (!categoryMap[label]) return;
+
+            const { sectionId } = categoryMap[label];
+            document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+          });
+        });
+      });
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const countEl = document.querySelector(".cart-count");
+      if (countEl) countEl.textContent = totalQty;
+    }
+
+    document.addEventListener("DOMContentLoaded", updateCartCount);
+
+    // Nút dịch trái phải
+    document.querySelectorAll('.product-slider-container').forEach(container => {
+      const row = container.querySelector('.products-row');
+      const nextBtn = container.querySelector('.next');
+      const prevBtn = container.querySelector('.prev');
+
+      const scrollAmount = 240 + 20;
+
+      nextBtn.addEventListener('click', () => {
+        row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+
+      prevBtn.addEventListener('click', () => {
+        row.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
     });
-  };
 
-  setupSlider("new-products");
-  setupSlider("best-sellers");
-});
+    document.addEventListener("DOMContentLoaded", function () {
+      const scrollStep = 320;
 
-</script>
+      const setupSlider = (containerId) => {
+        const container = document.querySelector(`#${containerId}`);
+        const prevBtn = container.parentElement.querySelector(".prev");
+        const nextBtn = container.parentElement.querySelector(".next");
 
-    <!-- MODAL POPUP -->
-    <div class="modal" id="productModal" style="display: none;">
-        <div class="modal-content">
-            <span class="modal-close" onclick="document.getElementById('productModal').style.display='none'">×</span>
-            <div class="product-detail" style="display: flex; flex-wrap: wrap; gap: 30px;">
-                <div class="product-image" style="flex: 1 1 300px; text-align: center;">
-                    <img id="product-image" src="" alt="Ảnh sản phẩm"
-                        style="width: 100%; max-width: 350px; border-radius: 8px;">
-                </div>
-                <div class="info" style="flex: 1 1 300px;">
-                    <h1 id="product-name">Tên sản phẩm</h1>
-                    <p><strong>Giá:</strong> <span id="product-price"></span></p>
-                    <p class="label" id="description-toggle"
-                        style="cursor: pointer; color: #1e88e5; font-weight: bold;">Mô tả sản phẩm ⯆</p>
-                    <p id="product-description" style="display: none;"></p>
-                    <p><strong>Chọn màu:</strong></p>
-                    <div id="color-options" style="display: flex; gap: 10px; margin-bottom: 15px;"></div>
-                    <p class="label">
-                        <strong>Chọn size:</strong>
-                        <a href="size-chart.html" target="_blank"
-                            style="margin-left: 10px; font-size: 14px; color: #1e88e5; text-decoration: underline;">
-                            Hướng dẫn chọn size
-                        </a>
-                    </p>
-                    <div id="size-options"></div>
-                    <p><strong>Số lượng:</strong></p>
-                    <div class="quantity-container">
-                        <button id="decrease-qty" class="qty-btn">–</button>
-                        <input type="number" id="quantity-input" min="1" value="1" class="qty-input">
-                        <button id="increase-qty" class="qty-btn">+</button>
-                    </div>
-                    <br>
+        prevBtn.addEventListener("click", () => {
+          container.scrollBy({ left: -scrollStep, behavior: "smooth" });
+        });
 
-                    <button id="add-to-cart"
-                        style="padding: 10px 20px; background: #1e88e5; color: white; border: none; border-radius: 6px; cursor: pointer;">Thêm
-                        vào giỏ hàng</button>
-                    <div style="text-align: center; margin-top: 20px;">
-                    <a id="product-detail-link" href="#">Xem chi tiết</a>    
-                </div>
-            </div>
+        nextBtn.addEventListener("click", () => {
+          container.scrollBy({ left: scrollStep, behavior: "smooth" });
+        });
+
+        // Auto-scroll
+        let autoScroll = setInterval(() => {
+          container.scrollBy({ left: scrollStep, behavior: "smooth" });
+        }, 1500);
+
+        // Pause on hover
+        container.addEventListener("mouseenter", () => clearInterval(autoScroll));
+        container.addEventListener("mouseleave", () => {
+          autoScroll = setInterval(() => {
+            container.scrollBy({ left: scrollStep, behavior: "smooth" });
+          }, 1500);
+        });
+      };
+
+      setupSlider("new-products");
+      setupSlider("best-sellers");
+    });
+
+  </script>
+
+  <!-- MODAL POPUP -->
+  <div class="modal" id="productModal" style="display: none;">
+    <div class="modal-content">
+      <span class="modal-close" onclick="document.getElementById('productModal').style.display='none'">×</span>
+      <div class="product-detail" style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div class="product-image" style="flex: 1 1 300px; text-align: center;">
+          <img id="product-image" src="" alt="Ảnh sản phẩm" style="width: 100%; max-width: 350px; border-radius: 8px;">
         </div>
+        <div class="info" style="flex: 1 1 300px;">
+          <h1 id="product-name">Tên sản phẩm</h1>
+          <p><strong>Giá:</strong> <span id="product-price"></span></p>
+          <p class="label" id="description-toggle" style="cursor: pointer; color: #1e88e5; font-weight: bold;">Mô tả sản
+            phẩm ⯆</p>
+          <p id="product-description" style="display: none;"></p>
+          <p><strong>Chọn màu:</strong></p>
+          <div id="color-options" style="display: flex; gap: 10px; margin-bottom: 15px;"></div>
+          <p class="label">
+            <strong>Chọn size:</strong>
+            <a href="size-chart.html" target="_blank"
+              style="margin-left: 10px; font-size: 14px; color: #1e88e5; text-decoration: underline;">
+              Hướng dẫn chọn size
+            </a>
+          </p>
+          <div id="size-options"></div>
+          <p><strong>Số lượng:</strong></p>
+          <div class="quantity-container">
+            <button id="decrease-qty" class="qty-btn">–</button>
+            <input type="number" id="quantity-input" min="1" value="1" class="qty-input">
+            <button id="increase-qty" class="qty-btn">+</button>
+          </div>
+          <br>
+
+          <button id="add-to-cart"
+            style="padding: 10px 20px; background: #1e88e5; color: white; border: none; border-radius: 6px; cursor: pointer;">Thêm
+            vào giỏ hàng</button>
+          <div style="text-align: center; margin-top: 20px;">
+            <a id="product-detail-link" href="#">Xem chi tiết</a>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <script src="search.js"></script>
     <script src="product-popup.js"></script>
 </body>
+
 </html>

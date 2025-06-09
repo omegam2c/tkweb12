@@ -7,7 +7,6 @@
     <meta name="description" content="Xu hướng thời trang hè 2025 và các tin tức mới nhất từ HTDD">
     <title>HTDD - Tin tức thời trang hè 2025</title>
     <link rel="shortcut icon" href="images/logoHTDD.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap">
@@ -16,6 +15,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="additional.css">
+    <link rel="stylesheet" href="search.css">
     <style>
         :root {
             --primary-color: #1a1a1a;
@@ -646,8 +646,9 @@
                             <li><a href="#" id="logout-link" style="display:none;">Đăng xuất</a></li>
                         </ul>
                     </li>
-                    <li class="search-bar">
-                        <input type="text" placeholder="Tìm kiếm...">
+                    <li class="search-bar" id="search-bar-container">
+                        <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm...">
+                        <div id="search-results" class="search-results"></div>
                     </li>
                 </ul>
 
@@ -675,7 +676,7 @@
             </div>
         </section>
 
-        <div class="container" >
+        <div class="container">
             <!-- Featured Trends -->
             <section id="trends">
                 <div class="section-title">
@@ -688,29 +689,47 @@
                     <div class="carousel-container">
                         <div class="carousel-slide">
                             <div class="carousel-item">
-                                <img src="images/streetwear1.jpg" alt="Streetwear" class="carousel-img">
+                                <a href="streetwear.html">
+                                    <img src="images/streetwear1.jpg" alt="Streetwear" class="carousel-img">
+                                </a>
                                 <div class="carousel-caption">Phong cách Streetwear</div>
                             </div>
+
                             <div class="carousel-item">
-                                <img src="images/vintage1.jpg" alt="Vintage" class="carousel-img">
+                                <a href="vintage.html">
+                                    <img src="images/vintage1.jpg" alt="Vintage" class="carousel-img">
+                                </a>
                                 <div class="carousel-caption">Phong cách Vintage</div>
                             </div>
+
                             <div class="carousel-item">
-                                <img src="images/business.jpg" alt="Business Casual" class="carousel-img">
+                                <a href="business.html">
+                                    <img src="images/business4.jpg" alt="Business Casual" class="carousel-img">
+                                </a>
                                 <div class="carousel-caption">Business Casual</div>
                             </div>
+
                             <div class="carousel-item">
-                                <img src="images/minmaist3.jpg" alt="Minimalist" class="carousel-img">
+                                <a href="minimalist.html">
+                                    <img src="images/minimalist3.jpg" alt="Minimalist" class="carousel-img">
+                                </a>
                                 <div class="carousel-caption">Phong cách Minimalist</div>
                             </div>
+
                             <div class="carousel-item">
-                                <img src="images/casual.jpg" alt="Casual" class="carousel-img">
+                                <a href="casual.html">
+                                    <img src="images/casual2.jpg" alt="Casual" class="carousel-img">
+                                </a>
                                 <div class="carousel-caption">Phong cách Casual</div>
                             </div>
+
                             <div class="carousel-item">
-                                <img src="images/sp17.png" alt="Sporty" class="carousel-img">
+                                <a href="sporty.html">
+                                    <img src="images/sp17.png" alt="Sporty" class="carousel-img">
+                                </a>
                                 <div class="carousel-caption">Phong cách Sporty</div>
                             </div>
+
                         </div>
                     </div>
                     <div class="carousel-nav">
@@ -934,6 +953,7 @@
         </div>
     </footer>
 
+    <script src="search.js"></script>
     <script src="script.js"></script>
     <script src="menu.js"></script>
     <script>
