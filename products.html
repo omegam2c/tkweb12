@@ -162,10 +162,10 @@
   <script src="menu.js"></script>
   <script>
 const categoryMap = {
-  "phụ kiện": { ids: ["sp5", "sp12", "sp23"], sectionId: "section-phu-kien", containerId: "products-phu-kien" },
-  "áo":       { ids: ["sp1", "sp7", "sp14"], sectionId: "section-ao", containerId: "products-ao" },
-  "quần":     { ids: ["sp2", "sp9", "sp25"], sectionId: "section-quan", containerId: "products-quan" },
-  "giày":     { ids: ["sp6", "sp11", "sp33"], sectionId: "section-giay", containerId: "products-giay" }
+  "phụ kiện": { ids: ["sp49", "sp51", "sp55","sp53", "sp57", "sp59"], sectionId: "section-phu-kien", containerId: "products-phu-kien" },
+  "áo":       { ids: ["sp3","sp5","sp6","sp9","sp11","sp15","sp20","sp23","sp25","sp28"], sectionId: "section-ao", containerId: "products-ao" },
+  "quần":     { ids: ["sp7","sp10","sp12","sp16","sp19","sp21","sp26","sp31","sp35","sp43"], sectionId: "section-quan", containerId: "products-quan" },
+  "giày":     { ids: ["sp50", "sp52", "sp54","sp56", "sp58", "sp60"], sectionId: "section-giay", containerId: "products-giay" }
 };
 
 document.querySelectorAll('.sanpham-card').forEach(card => {
@@ -254,7 +254,7 @@ fetch('products.json')
   .then(res => res.json())
   .then(data => {
     const newProducts = data.filter(p => ["sp1","sp7","sp11","sp14","sp37","sp40","sp46","sp25","sp20","sp30"].includes(p.id));
-    const bestSellers = data.filter(p => ["sp2", "sp4", "sp14","sp19","sp22","sp27","sp32","sp35","sp41","sp48"].includes(p.id));
+    const bestSellers = data.filter(p => ["sp2", "sp4", "sp15","sp19","sp22","sp27","sp32","sp35","sp41","sp48"].includes(p.id));
 
     renderCards(newProducts, "new-products");
     renderCards(bestSellers, "best-sellers");

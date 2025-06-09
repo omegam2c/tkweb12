@@ -4,7 +4,7 @@
   "name": "Áo Hoodie Thêu Logo",
   "price": 750000,
   "description": "Chất cotton thoáng mát, co giãn 4 chiều.",
-  "category": ["áo", "new"],
+  "category": "áo",
   "style": "Streetwear",
   "badge": "Mới",
   "sizes": ["S", "M", "L", "XL"],
@@ -18,7 +18,7 @@
   "name": "Quần jean Custom Y2k",
   "price": 250000,
   "description": "Vải bò dày dặn nhưng vẫn mềm mại, co giãn nhẹ, mặc thoải mái cả ngày.",
-  "category": ["quần", "banchay"],
+  "category": "quần",
   "style": "Streetwear",
   "badge": "HOT",
   "sizes": ["S", "M", "L", "XL"],
@@ -50,6 +50,7 @@
     "description": "Co giãn 4 chiều, ôm dáng nhưng không gò bó.",
     "category": "áo",
     "style": "Streetwear",
+    "badge": "HOT",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Lá", "img": "images/sp4xanhla.png" },
@@ -91,6 +92,7 @@
     "description": " Thiết kế basic dễ phối đồ, phù hợp mọi dịp.",
     "category": "quần",
     "style": "Streetwear",
+    "badge": "Mới",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp7den.png" },
@@ -117,6 +119,7 @@
     "price": 379000,
     "description": " Cổ áo đứng form, không nhăn nhàu khi giặt máy.",
     "category": "áo",
+    "style": "Casual",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Dương Nhạt", "img": "images/sp9xanh.png" },
@@ -131,6 +134,7 @@
     "price": 249000,
     "description": " Tạo nên khí chất riêng cho người mặc.",
     "category": "quần",
+    "style": "Casual",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp10den.png" },
@@ -145,6 +149,8 @@
     "price": 349000,
     "description": " Tạo nên khí chất riêng cho người mặc.",
     "category": "áo",
+    "style": "Casual",
+    "badge": "Mới",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp11den.png" },
@@ -158,6 +164,7 @@
     "price": 500000,
     "description": " Quần jean ống đứng , lựa chọn an toàn mà sành điệu.",
     "category": "quần",
+    "style": "Casual",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Dương Nhạt", "img": "images/sp12xanhduong.png" },
@@ -172,6 +179,7 @@
     "price": 349000,
     "description": " Tạo nên khí chất riêng cho người mặc.",
     "category": "áo",
+    "style": "Casual",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Nâu Sữa", "img": "images/sp13nau.png" },
@@ -185,6 +193,8 @@
     "price": 270000,
     "description": " Màu sắc đa dạng, dễ dàng mix-match.",
     "category": "áo",
+    "style": "Casual",
+    "badge": "Mới",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đỏ", "img": "images/sp14do.png" },
@@ -199,6 +209,8 @@
     "price": 420000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "áo",
+    "style": "Casual",
+    "badge": "HOT",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Dương Nhạt", "img": "images/sp15.png" }
@@ -212,6 +224,7 @@
     "price": 300000,
     "description": " Tạo nên khí chất riêng cho người mặc.",
     "category": "quần",
+    "style": "Casual",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp16den.png" },
@@ -225,6 +238,7 @@
     "price": 350000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "áo",
+    "style": "Business",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Dương Nhạt", "img": "images/sp17xanh.png" },
@@ -239,6 +253,7 @@
     "price": 434000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "áo",
+    "style": "Business",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Dương Nhạt", "img": "images/sp18xanh.png" },
@@ -252,6 +267,8 @@
     "price": 3050000,
     "description": " Thiết kế lưng cao, giúp chân trông dài hơn.",
     "category": "quần",
+    "style": "Business",
+    "badge": "HOT",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp19den.png" },
@@ -266,6 +283,8 @@
     "price": 420000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "áo",
+    "style": "Business",
+    "badge": "Mới",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Dương Nhạt", "img": "images/sp20xanh.png" },
@@ -280,6 +299,7 @@
     "price": 333000,
     "description": "Vải mềm, ít nhăn, giữ form đẹp cả ngày",
     "category": "quần",
+    "style": "Business",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Nâu", "img": "images/sp21nau.png" },
@@ -293,6 +313,8 @@
     "price": 560000,
     "description": "Quần có khóa kéo cao cấp, chắc chắn.",
     "category": "quần",
+    "style": "Business",
+    "badge": "HOT",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp22den.png" },
@@ -305,6 +327,7 @@
     "price": 358000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "áo",
+    "style": "Business",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Trắng", "img": "images/sp23trang.png" },
@@ -318,6 +341,7 @@
     "price": 510000,
     "description": "Tay áo bo nhẹ tạo điểm nhấn thanh lịch.",
     "category": "áo",
+    "style": "Business",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp24.png" }
@@ -330,6 +354,8 @@
     "price": 420000,
     "description": "Hoạt động chạy bộ và tập luyện thể thao chung",
     "category": "áo",
+    "style": "Sporty",
+    "badge": "Mới",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "vàng", "img": "images/sp25vang.png" },
@@ -344,6 +370,7 @@
     "price": 376000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "quần",
+    "style": "Sporty",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xám", "img": "images/sp26xam.png" },
@@ -357,6 +384,8 @@
     "price": 220000,
     "description": "Thấm hút mồ hôi tốt, thoải mái cả ngày dài.",
     "category": "áo",
+    "style": "Sporty",
+    "badge": "HOT",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Dương", "img": "images/sp27.png" }     
@@ -368,6 +397,7 @@
     "price": 465000,
     "description": "Thấm hút mồ hôi tốt, thoải mái cả ngày dài.",
     "category": "áo",
+    "style": "Sporty",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đỏ", "img": "images/sp28.png" },
@@ -381,6 +411,7 @@
     "price": 320000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "quần",
+    "style": "Sporty",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Rêu", "img": "images/sp29xanh.png" },
@@ -394,6 +425,8 @@
     "price": 553000,
     "description": "Công nghệ in bền màu, không bong tróc.",
     "category": "áo",
+    "style": "Sporty",
+    "badge": "Mới",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp30den.png" },
@@ -407,6 +440,7 @@
     "price": 420000,
     "description": "Co giãn 4 chiều, ôm dáng nhưng không gò bó.",
     "category": "quần",
+    "style": "Sporty",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Cam", "img": "images/sp31cam.png" },
@@ -420,6 +454,8 @@
     "price": 401000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "áo",
+    "style": "Sporty",
+    "badge": "HOT",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đỏ", "img": "images/sp32.png" }
@@ -432,6 +468,7 @@
     "price": 420000,
     "description": "Thiết kế đơn giản nhưng không đơn điệu.",
     "category": "áo",
+    "style": "Vintage",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "đen", "img": "images/sp33den.png" },
@@ -446,6 +483,7 @@
     "price": 376000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "áo",
+    "style": "Vintage",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xám", "img": "images/sp34xam.png" },
@@ -459,6 +497,8 @@
     "price": 220000,
     "description": "Thấm hút mồ hôi tốt, thoải mái cả ngày dài.",
     "category": "quần",
+    "style": "Vintage",
+    "badge": "HOT",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp35den.png" },
@@ -471,6 +511,7 @@
     "price": 465000,
     "description": "Thấm hút mồ hôi tốt, thoải mái cả ngày dài.",
     "category": "quần",
+    "style": "Vintage",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp36den.png" },
@@ -484,6 +525,8 @@
     "price": 320000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "áo",
+    "style": "Vintage",
+    "badge": "Mới",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Navy", "img": "images/sp37xanh.png" },
@@ -497,6 +540,7 @@
     "price": 420000,
     "description": "Co giãn 4 chiều, ôm dáng nhưng không gò bó.",
     "category": "quần",
+    "style": "Vintage",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp38den.png" },
@@ -510,6 +554,7 @@
     "price": 553000,
     "description": "Công nghệ in bền màu, không bong tróc.",
     "category": "áo",
+    "style": "Vintage",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đỏ", "img": "images/sp39do.png" },
@@ -524,6 +569,8 @@
     "price": 401000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "áo",
+    "style": "Vintage",
+    "badge": "Mới",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Nâu", "img": "images/sp40.png" }
@@ -536,6 +583,8 @@
     "price": 379000,
     "description": "Chất vải thun cotton 100% 2 chiều cao cấp dày dặn đã được làm sạch lông nên không bị xù lông khi giặt. ",
     "category": "áo",
+    "style": "Minimalist",
+    "badge": "HOT",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp41den.png" },
@@ -550,6 +599,7 @@
     "price": 249000,
     "description": " Tạo nên khí chất riêng cho người mặc.",
     "category": "áo",
+    "style": "Minimalist",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp42den.png" },
@@ -563,6 +613,7 @@
     "price": 349000,
     "description": "Cứ mặc là đẹp, không cần suy nghĩ nhiều!",
     "category": "quần",
+    "style": "Minimalist",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp43den.png" },
@@ -576,6 +627,7 @@
     "price": 500000,
     "description": "Đơn giản nhưng nổi bật – chính là điểm thu hút",
     "category": "áo",
+    "style": "Minimalist",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Tím", "img": "images/sp44tim.png" },
@@ -590,6 +642,7 @@
     "price": 349000,
     "description": " Tạo nên khí chất riêng cho người mặc.",
     "category": "quần",
+    "style": "Minimalist",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Trắng", "img": "images/sp45trang.png" },
@@ -603,6 +656,8 @@
     "price": 270000,
     "description": " Màu sắc đa dạng, dễ dàng mix-match.",
     "category": "áo",
+    "style": "Minimalist",
+    "badge": "Mới",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xám", "img": "images/sp46xam.png" },
@@ -617,6 +672,7 @@
     "price": 420000,
     "description": " Phù hợp đi làm, đi chơi, hẹn hò.",
     "category": "áo",
+    "style": "Minimalist",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Xanh Dương Nhạt", "img": "images/sp47xanh.png" },
@@ -631,6 +687,8 @@
     "price": 300000,
     "description": " Tạo nên khí chất riêng cho người mặc.",
     "category": "quần",
+    "style": "Minimalist",
+    "badge": "HOT",
     "sizes": ["S", "M", "L", "XL"],
     "colors": [
       { "name": "Đen", "img": "images/sp48den.png" },
@@ -644,12 +702,157 @@
     "price": 50000,
     "description": " Tạo nên khí chất riêng cho người mặc.",
     "category": "phụ kiện",
+    "style": "Streetwear",
     "sizes": ["None"],
     "colors": [
       { "name": "Xanh Rêu", "img": "images/sp49.png" }
       
     ]
+  },
+              {
+    "id": "sp50",
+    "name": "Giày Streetwear",
+    "price": 450000,
+    "description": " Tạo nên khí chất riêng cho người đi.",
+    "category": "giày",
+    "style": "Streetwear",
+    "sizes": ["38", "39", "40", "41","42","43","44"],
+    "colors": [
+      { "name": "Trắng", "img": "images/sp50.png" }
+      
+    ]
+  },
+              {
+    "id": "sp51",
+    "name": "Tất gấu",
+    "price": 30000,
+    "description": " Tạo nên khí chất riêng cho người đi.",
+    "category": "phụ kiện",
+    "style": "Casual",
+    "sizes": ["None"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp51.png" }
+      
+    ]
+  },
+                {
+    "id": "sp52",
+    "name": "Giày Casual",
+    "price": 550000,
+    "description": " Tạo nên khí chất riêng cho người đi.",
+    "category": "giày",
+    "style": "Casual",
+    "sizes": ["38", "39", "40", "41","42","43","44"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp52den.png" },
+      { "name": "Be", "img": "images/sp52be.png" }
+      
+    ]
+  },
+                {
+    "id": "sp53",
+    "name": "Thắt lưng da",
+    "price": 30000,
+    "description": " Tạo nên khí chất riêng cho người đeo.",
+    "category": "phụ kiện",
+    "style": "Business",
+    "sizes": ["None"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp53.png" }
+      
+    ]
+  },
+                  {
+    "id": "sp54",
+    "name": "Giày Da",
+    "price": 550000,
+    "description": " Tạo nên khí chất riêng cho người đi.",
+    "category": "giày",
+    "style": "Business",
+    "sizes": ["38", "39", "40", "41","42","43","44"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp54.png" }
+    ]
+  },
+                  {
+    "id": "sp55",
+    "name": "Balo vải dù",
+    "price": 230000,
+    "description": " Tạo nên khí chất riêng cho người đeo.",
+    "category": "phụ kiện",
+    "style": "Sporty",
+    "sizes": ["None"],
+    "colors": [
+      { "name": "Be", "img": "images/sp55.png" }
+      
+    ]
+  },
+                    {
+    "id": "sp56",
+    "name": "Giày thể thao hai sọc",
+    "price": 550000,
+    "description": " Tạo nên khí chất riêng cho người đi.",
+    "category": "giày",
+    "style": "Sporty",
+    "sizes": ["38", "39", "40", "41","42","43","44"],
+    "colors": [
+      { "name": "Trắng", "img": "images/sp56.png" }
+    ]
+  },
+
+                  {
+    "id": "sp57",
+    "name": "Gọng kính",
+    "price": 150000,
+    "description": " Tạo nên khí chất riêng cho người đeo.",
+    "category": "phụ kiện",
+    "style": "Vintage",
+    "sizes": ["None"],
+    "colors": [
+      { "name": "Be", "img": "images/sp57.png" }
+      
+    ]
+  },
+                      {
+    "id": "sp58",
+    "name": "Giày vintage",
+    "price": 530000,
+    "description": " Tạo nên khí chất riêng cho người đi.",
+    "category": "giày",
+    "style": "Vintage",
+    "sizes": ["38", "39", "40", "41","42","43","44"],
+    "colors": [
+      { "name": "Nâu", "img": "images/sp58.png" }
+    ]
+  },
+                    {
+    "id": "sp59",
+    "name": "Vòng tay minimalist",
+    "price": 200000,
+    "description": " Tạo nên khí chất riêng cho người đeo.",
+    "category": "phụ kiện",
+    "style": "Minimalist",
+    "sizes": ["None"],
+    "colors": [
+      { "name": "Xám", "img": "images/sp59.png" }
+      
+    ]
+  },
+                        {
+    "id": "sp60",
+    "name": "Giày Basic",
+    "price": 300000,
+    "description": " Tạo nên khí chất riêng cho người đi.",
+    "category": "giày",
+    "style": "Minimalist",
+    "sizes": ["38", "39", "40", "41","42","43","44"],
+    "colors": [
+      { "name": "Đen", "img": "images/sp60.png" }
+    ]
   }
+  
+
+
 
   
 ]
