@@ -19,6 +19,32 @@ function loadProducts(style = null) {
     });
 }
 
+
+// Hàm kiểm tra trạng thái đăng nhập
+function checkLoginStatus() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const loginLink = document.getElementById('login-link');
+    const registerLink = document.getElementById('register-link');
+    const logoutLink = document.getElementById('logout-link');
+    const usernameDisplay = document.getElementById('username-display');
+
+    if (user) {
+        // Nếu đã đăng nhập
+        if (usernameDisplay) {
+            usernameDisplay.textContent = user.fullname || user.name || user.email;
+        }
+        if (loginLink) loginLink.style.display = 'none';
+        if (registerLink) registerLink.style.display = 'none';
+        if (logoutLink) logoutLink.style.display = 'block';
+    } else {
+        // Nếu chưa đăng nhập
+        if (usernameDisplay) usernameDisplay.textContent = 'Tài khoản';
+        if (loginLink) loginLink.style.display = 'block';
+        if (registerLink) registerLink.style.display = 'block';
+        if (logoutLink) logoutLink.style.display = 'none';
+    }
+}
+
 function updateAccountMenu() {
     const accountMenu = document.querySelector(".account-menu");
     if (!accountMenu) return;
@@ -71,6 +97,9 @@ function loginUser(event) {
     if (user) {
         localStorage.setItem("currentUser", JSON.stringify(user));
         alert("Đăng nhập thành công!");
+
+        checkLoginStatus();
+
         window.location.href = "index.html";
     } else {
         alert("Email hoặc mật khẩu không đúng!");
@@ -80,6 +109,7 @@ function loginUser(event) {
 function logout() {
     localStorage.removeItem("currentUser");
     updateAccountMenu();
+    checkLoginStatus();
     window.location.href = "index.html";
 }
 
@@ -109,33 +139,5 @@ document.addEventListener("DOMContentLoaded", () => {
     if (loginForm) {
         loginForm.addEventListener("submit", loginUser);
     }
+    checkLoginStatus();
 });
-
-// Kiểm tra trạng thái đăng nhập khi trang tải
-function checkLoginStatus() {
-    const user = JSON.parse(localStorage.getItem('currentUser'));
-    const usernameDisplay = document.getElementById('username-display');
-    const loginLink = document.getElementById('login-link');
-    const registerLink = document.getElementById('register-link');
-    const logoutLink = document.getElementById('logout-link');
-
-    if (user) {
-        // Nếu đã đăng nhập
-        if (usernameDisplay) {
-            // Ưu tiên hiển thị fullname, nếu không có thì dùng name, cuối cùng mới dùng email
-            usernameDisplay.textContent = user.fullname || user.name || user.email;
-        }
-        if (loginLink) loginLink.style.display = 'none';
-        if (registerLink) registerLink.style.display = 'none';
-        if (logoutLink) logoutLink.style.display = 'block';
-    } else {
-        // Nếu chưa đăng nhập
-        if (usernameDisplay) usernameDisplay.textContent = 'Tài khoản';
-        if (loginLink) loginLink.style.display = 'block';
-        if (registerLink) registerLink.style.display = 'block';
-        if (logoutLink) logoutLink.style.display = 'none';
-    }
-}
-
-
-

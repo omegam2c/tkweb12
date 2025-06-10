@@ -10,6 +10,31 @@ if (togglePassword && password) {
     });
 }
 
+// Hàm kiểm tra trạng thái đăng nhập
+function checkLoginStatus() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const loginLink = document.getElementById('login-link');
+    const registerLink = document.getElementById('register-link');
+    const logoutLink = document.getElementById('logout-link');
+    const usernameDisplay = document.getElementById('username-display');
+
+    if (user) {
+        // Nếu đã đăng nhập
+        if (usernameDisplay) {
+            usernameDisplay.textContent = user.fullname || user.name || user.email;
+        }
+        if (loginLink) loginLink.style.display = 'none';
+        if (registerLink) registerLink.style.display = 'none';
+        if (logoutLink) logoutLink.style.display = 'block';
+    } else {
+        // Nếu chưa đăng nhập
+        if (usernameDisplay) usernameDisplay.textContent = 'Tài khoản';
+        if (loginLink) loginLink.style.display = 'block';
+        if (registerLink) registerLink.style.display = 'block';
+        if (logoutLink) logoutLink.style.display = 'none';
+    }
+}
+
 // Toggle confirm password visibility
 const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
 const confirmPassword = document.querySelector('#confirm-password');
@@ -124,10 +149,10 @@ const loginBtn = document.querySelector('.login-button');
 if (loginBtn) {
     loginBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        const usernameOrEmail = document.querySelector('.user-input').value.trim();
+        const Email = document.querySelector('.user-input').value.trim();
         const password = document.querySelector('.pass-input').value.trim();
 
-        if (!usernameOrEmail) {
+        if (!Email) {
             alert('Vui lòng nhập email hoặc tên đăng nhập');
             return;
         }
@@ -138,7 +163,7 @@ if (loginBtn) {
 
         const users = JSON.parse(localStorage.getItem("users")) || [];
         const user = users.find(user => 
-            (user.email === usernameOrEmail) && 
+            (user.email === Email) && 
             user.password === btoa(password)
         );
 
@@ -156,6 +181,14 @@ if (loginBtn) {
             alert('Thông tin đăng nhập không đúng. Vui lòng kiểm tra lại!');
         }
     });
+}
+
+// Hàm đăng xuất
+function logout() {
+    localStorage.removeItem('currentUser');
+    alert('Đã đăng xuất thành công!');
+    checkLoginStatus(); // Cập nhật giao diện ngay lập tức
+    window.location.href = 'index.html';
 }
 
 // Adjust layout on load
@@ -193,4 +226,9 @@ window.addEventListener('resize', function () {
             main.style.paddingTop = '40px';
         }
     }
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    // ...
+    checkLoginStatus();
 });
