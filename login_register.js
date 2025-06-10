@@ -149,11 +149,11 @@ const loginBtn = document.querySelector('.login-button');
 if (loginBtn) {
     loginBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        const Email = document.querySelector('.user-input').value.trim();
+        const email = document.querySelector('.user-input').value.trim();
         const password = document.querySelector('.pass-input').value.trim();
 
-        if (!Email) {
-            alert('Vui lòng nhập email hoặc tên đăng nhập');
+        if (!email) {
+            alert('Vui lòng nhập email');
             return;
         }
         if (!password) {
@@ -161,24 +161,23 @@ if (loginBtn) {
             return;
         }
 
-        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const users = JSON.parse(localStorage.getItem('users')) || [];
         const user = users.find(user => 
-            (user.email === Email) && 
+            user.email === email && 
             user.password === btoa(password)
         );
 
         if (user) {
             alert('Đăng nhập thành công!');
-            // Lưu cả fullname và name để đảm bảo tương thích
-            localStorage.setItem("currentUser", JSON.stringify({
-                name: user.fullname || user.name,  // Ưu tiên fullname, nếu không có thì dùng name
+            localStorage.setItem('currentUser', JSON.stringify({
+                name: user.fullname || user.name,
                 fullname: user.fullname || user.name,
                 email: user.email
             }));
             checkLoginStatus();
-            window.location.href = "index.html";
+            window.location.href = 'index.html';
         } else {
-            alert('Thông tin đăng nhập không đúng. Vui lòng kiểm tra lại!');
+            alert('Email hoặc mật khẩu không đúng!');
         }
     });
 }
@@ -228,7 +227,16 @@ window.addEventListener('resize', function () {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    // ...
+document.addEventListener('DOMContentLoaded', function() {
+    // Gắn sự kiện đăng xuất
+    const logoutLink = document.getElementById('logout-link');
+    if (logoutLink) {
+        logoutLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            logout();
+        });
+    }
+
+    // Kiểm tra trạng thái đăng nhập
     checkLoginStatus();
 });
